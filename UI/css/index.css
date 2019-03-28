@@ -58,7 +58,7 @@ i{
  }
 .form-group{
     width: 100%;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     display: flex;
     margin: auto;
 }
@@ -121,7 +121,7 @@ i{
     display: none;
     position: relative;
     top: -23px;
-    height: 75vh;
+    height: 70vh;
 }
 #signup h1{
     padding: 0;
