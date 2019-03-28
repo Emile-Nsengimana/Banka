@@ -23,7 +23,7 @@
 <!-- ================================================================ SIGN IN ========================================= -->
             <div id="signin">
                 <h1>SIGN IN</h1>
-                <form>
+                <!-- <form action=""> -->
                     <div class="form-group">
                         <label class="lb" for="email"></i>Username</label>
                         <input class="inp" name="email" type="email" placeholder="enter username">
@@ -37,17 +37,50 @@
                     </div>
                     <div class="form-group">
                         <button class="btn">Sign In</button>
-                        <button class="btn btn-signin">Sign Up</button>
+                        <button id="btn-signup" class="btn btn-signin">Sign Up</button>
                     </div>
 
                     <div class="form-group">
                             <button class="btn btn-emphasis">Staff Sign In</button>
                     </div>
-                </form>
+                <!-- </form> -->
             </div>
 <!-- ================================================================ SIGN UP ========================================= -->
 
-            
+            <div id="signup">
+                    <h1>SIGN UP</h1>
+                <form action="">
+                    <div class="form-group">
+                            <label class="lb" for="firstname"></i>First name</label>
+                            <input class="inp" name="firstname" type="text">
+                    </div>
+                    <div class="form-group">
+                            <label class="lb" for="lastname"></i>Last name</label>
+                            <input class="inp" name="lastname" type="text">
+                    </div>
+                    <div class="form-group">
+                            <label class="lb" for="email"></i>Username</label>
+                            <input class="inp" name="email" type="email">
+                    </div>
+                    <div class="form-group">
+                            <label class="lb" for="password"></i>Password</label>
+                            <input class="inp" name="password" type="password">
+                    </div>
+                    <div class="form-group">
+                            <label class="lb" for="retype"></i>Re-type password</label>
+                            <input class="inp" name="retype" type="password">
+                    </div>
+                    <div class="form-group">
+                            <button class="btn btn-emphasis">Register</button>
+                    </div>
+                    <div class="link-mid">
+                            <h4>Back to </h4> <a href="./index.html">sign in</a>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
+    
+    <SCript src="./UI/js/main.js"></SCript>   
 </body>
 </html>

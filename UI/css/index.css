@@ -116,6 +116,27 @@ i{
     margin-right: 13px;
     padding-bottom: 20px;
 }
+/* ============================================== SIGN UP =========================== */
+#signup{
+    display: none;
+    position: relative;
+    top: -23px;
+    height: 72vh;
+}
+#signup h1{
+    padding: 0;
+    margin-top: -10px;
+}
+.link-mid{
+    text-align: center;
+    margin: 0;
+}
+.link-mid h4{
+    text-align: center;
+    display: inline;
+    font-weight: 700;
+    color: rgb(117, 117, 117);
+}
 /* ============================================== RESPONSIVENESS =========================== */
 @media (max-width: 768px) {
 
