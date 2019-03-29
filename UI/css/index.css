@@ -35,7 +35,7 @@ i{
     flex: 1;
     margin-right: 80px;
     border-radius: 5px;
-    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.1), 0 3px 3px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 4px 10px 0 rgba(0, 0, 0, 0.4), 1px 3px 3px 0 rgba(0, 0, 0, 0.3);
 }
 .info{
     float: 3;
@@ -78,14 +78,21 @@ i{
     display: block;
     height: 54vh;
     position: relative;
-    top: -55px;
+    top: -10px;
 }
-#signin h1, #signup h1{
+#signin h1, #signup h1, #staff h1{
     text-align: center;
     color: rgb(8, 65, 92);
     font-size: 24pt;
 }
-
+#staff{
+    margin-top: 80px;
+    display: none;
+    height: 40vh;
+    position: relative;
+    top: -55px;
+    z-index: 1;
+}
 .btn{
     width: 80%;
     height: 30px;
@@ -106,6 +113,9 @@ i{
     background: rgb(192, 216, 192);
     margin: auto;
 }
+.btn-staff{
+    margin: auto;
+}
 .link-default h4{
     display: inline;
     font-weight: 700;
@@ -116,11 +126,12 @@ i{
     margin-right: 13px;
     padding-bottom: 20px;
 }
+
 /* ============================================== SIGN UP =========================== */
 #signup{
     display: none;
     position: relative;
-    top: -23px;
+    top: 20px;
     height: 70vh;
 }
 #signup h1{
