@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="./UI/css/index.css">
-    <title>Banka | Sign in</title>
+    <title>Banka</title>
 </head>
 <body>
     <div class="nav">
         <img src="./UI/img/logo.png" alt="">
     </div>
-    <div class="overall">
+    <div id="all" class="overall">
         <div class="info">
             <h1>BANK WITH US</h1>
                 <li>Access to your account information at any time</li>
@@ -33,7 +33,7 @@
                         <input class="inp" name="password" type="password" name="password" placeholder="enter your password">
                     </div>
                     <div class="link-default">
-                            <h4>Forgot password?</h4> <a href="#">click here</a>
+                            <h4>Forgot password?</h4><button id="btn-reset-password" class="btn-link">click here</button>
                     </div>
                     <div class="form-group">
                         <button class="btn">Sign In</button>
@@ -58,7 +58,7 @@
             <input class="inp" name="password" type="password" name="password" placeholder="enter your password">
         </div>
         <div class="link-default">
-                <h4>Forgot password?</h4> <a href="#">click here</a>
+                <h4>Forgot password?</h4><button id="btn-reset-staff" class="btn-link">click here</button>
         </div>
         <div class="form-group">
             <button id="btn-staff-in" class="btn btn-staff">Sign In</button>
@@ -66,7 +66,6 @@
     <!-- </form> -->
 </div>
 <!-- ================================================================ SIGN UP ========================================= -->
-
             <div id="signup">
                     <h1>SIGN UP</h1>
                 <form action="">
@@ -83,11 +82,15 @@
                             <input class="inp" name="email" type="email">
                     </div>
                     <div class="form-group">
+                        <label class="lb" for="phone"></i>Phone No.</label>
+                        <input class="inp" name="phone" type="email">
+                    </div>
+                    <div class="form-group">
                             <label class="lb" for="password"></i>Password</label>
                             <input class="inp" name="password" type="password">
                     </div>
                     <div class="form-group">
-                            <label class="lb" for="retype"></i>Re-type password</label>
+                            <label class="lb" for="retype"></i>Re-type</label>
                             <input class="inp" name="retype" type="password">
                     </div>
                     <div class="form-group">
@@ -100,6 +103,28 @@
             </div>
         </div>
     </div>
+     <!-- ================================================================ PASSWORD RESET ========================================= -->
+     <div id="modal-reset">
+            <div id="close"><span>&times;</span></div>
+                <h1>PASSWORD RESETS</h1>                
+            <form action="">
+                <div class="form-group">
+                    <label class="lb" for="rec-mail"></i>Recovery mail</label>
+                    <input class="inp" name="rec-mail" type="email">
+                </div>
+                 <div class="form-group">
+                    <label class="lb" for="phone"></i>Phone</label>
+                    <input class="inp" name="phone" type="text">
+                </div>
+                <div class="form-group">
+                    <label class="lb" for="code"></i>Code</label>
+                    <input class="inp" name="code" type="email">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-emphasis">Reset</button>
+                </div>
+            </form>
+        </div>
     
     <SCript src="./UI/js/main.js"></SCript>   
 </body>
