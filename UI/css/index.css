@@ -10,7 +10,7 @@ label{
     font-family: sans-serif;
     padding-bottom: 10px;
     flex: 1;
-    padding: 14px;
+    padding: 10px;
 }
 i{
     padding: 12px;
@@ -80,7 +80,7 @@ i{
     position: relative;
     top: -10px;
 }
-#signin h1, #signup h1, #staff h1{
+#signin h1, #signup h1, #staff h1, #modal-reset h1{
     text-align: center;
     color: rgb(8, 65, 92);
     font-size: 24pt;
@@ -104,6 +104,15 @@ i{
     color: rgb(8, 65, 92);
     outline: none;
     cursor: pointer;
+}
+.btn-link{
+    border: none;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+    font-size: 11pt;
+    font-weight: 700;
+    color: cadetblue;
 }
 .btn-signin{
     background: rgba(46, 14, 46, 0.8);
@@ -148,6 +157,34 @@ i{
     font-weight: 700;
     color: rgb(117, 117, 117);
 }
+/* ============================================== MODAL PASSWORD RESET ===================== */
+#modal-reset{
+    display: none;
+    width: 40%;
+    background: white;
+    position: fixed;
+    top: 30%;
+    left: 30%;
+    border-radius: 12px;
+    box-shadow: 2px 4px 10px 0 rgba(0, 0, 0, 0.4), 1px 3px 3px 0 rgba(0, 0, 0, 0.3);
+
+}
+#close{
+    float: right;
+    margin: 14px;
+    font-weight: bold;
+    font-size: 18pt;
+    color: rgb(175, 35, 35);
+    cursor: pointer;
+    background: rgb(218, 221, 210);
+    border-radius: 10rem;
+    width: 30px;
+    text-align: center;
+}
+#close:hover{
+    color: rgb(255, 255, 255);
+    background: rgb(177, 59, 59);
+}
 /* ============================================== RESPONSIVENESS =========================== */
 @media (max-width: 768px) {
 
@@ -162,4 +199,8 @@ i{
        width: 100%;
        display: inline-block;
    }
+   #modal-reset{
+    width: 80%;
+    left: 10%; 
+}
   }
