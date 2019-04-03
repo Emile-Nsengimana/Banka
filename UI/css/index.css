@@ -56,12 +56,14 @@ i{
      color: rgb(8, 65, 92);
  }
 .form-group{
-    width: 100%;
+    /* width: 100%; */
     padding-bottom: 10px;
     display: flex;
     margin: auto;
 }
-
+.fas{
+    margin-left: 7%;
+}
 .inp{
     height: 30px;
     text-align: center;
@@ -70,8 +72,8 @@ i{
     outline: none;
     font-weight: 500;
     font-size: 13pt;
-    flex: 4;
-    margin-right: 15px;
+    flex: 3;
+    margin-right: 55px;
 }
 #signin{
     display: block;
@@ -113,9 +115,15 @@ i{
     font-weight: 700;
     color: cadetblue;
 }
-.btn-signin{
+.btn-signup{
+    width: 40%;
+    margin-right: 10%;
     background: rgba(46, 14, 46, 0.8);
     color: white;
+}
+.btn-signin{
+    width: 40%;
+    margin-left: 10%;
 }
 .btn-emphasis{
     background: rgb(192, 216, 192);
@@ -124,14 +132,14 @@ i{
 .btn-staff{
     margin: auto;
 }
-.link-default h4{
+.link-default h5{
     display: inline;
+    font-size: 11pt;
     font-weight: 700;
     color: rgb(117, 117, 117);
 }
 .link-default{
-    float: right;
-    margin-right: 13px;
+    text-align: center;
     padding-bottom: 20px;
 }
 
