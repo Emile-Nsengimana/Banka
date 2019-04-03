@@ -198,18 +198,38 @@ i{
     .overall{
         width: 100%;
         display: inline-block;
+        margin-top: -55px;
     }
+    .info h1{
+        font-size: 22pt;
+        padding: 0;
+    }
+    .info li{
+        font-size: 14pt;
+        list-style: none;
+        font-weight: 500;
+        padding: 2px;
+        text-align: center;
+        background: rgb(46, 14, 46);
+        color: antiquewhite;
+     }
     .info{
        width: 100%;
-   }
-   .content{
+     }
+    .content{
        width: 100%;
        display: inline-block;
-   }
-   #modal-reset{
+    }
+    #modal-reset{
     width: 80%;
     left: 10%; 
-}
+    }
+    #btn-staff-login, #btn-staff-in{
+        width: 80%;
+    }
+    .content{
+        margin-top: 10px;
+    }
   }
   /* ============================================== CLIENT PAGE ======================== */
   
@@ -232,11 +252,12 @@ i{
     overflow: auto;
   }
   .profile{
-    flex: 1.5;
+    flex: 1;
     order: 3;
     padding: 20px;
     border: 1px solid rgba(109, 93, 93, 0.4);
     overflow: auto;
+    text-align: center;
   }
   #shade{
       background: rgb(49, 6, 49);
