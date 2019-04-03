@@ -8,7 +8,6 @@ label{
     font-weight: 400;
     color: rgb(8, 65, 92);
     font-family: sans-serif;
-    padding-bottom: 10px;
     flex: 1;
     padding: 10px;
 }
@@ -185,7 +184,7 @@ i{
     color: rgb(255, 255, 255);
     background: rgb(177, 59, 59);
 }
-/* ============================================== RESPONSIVENESS =========================== */
+/* ============================================== RESPONSIVENESS(INDEX PAGE)=========================== */
 @media (max-width: 768px) {
 
     .overall{
@@ -204,3 +203,201 @@ i{
     left: 10%; 
 }
   }
+  /* ============================================== CLIENT PAGE ======================== */
+  
+  .client{
+      margin: 20px;
+      display: flex;
+      height: 70vh;
+  }
+  .aside{
+      height: 70vh;
+      flex: 1;
+      order: 1;
+      border: 1px solid rgba(109, 93, 93, 0.4);
+  }
+  .main{
+    flex: 5;
+    order: 2;
+    padding: 20px;
+    border: 1px solid rgba(109, 93, 93, 0.4);
+    overflow: auto;
+  }
+  .profile{
+    flex: 1.5;
+    order: 3;
+    padding: 20px;
+    border: 1px solid rgba(109, 93, 93, 0.4);
+    overflow: auto;
+  }
+  #shade{
+      background: rgb(49, 6, 49);
+      color: white;
+      font-weight: 700;
+      width: 90%;
+      display: block;
+      height: 15px;
+      padding-top: 7px;
+      margin-bottom: 10px;
+  }
+.btn-default{
+    width: 90%;
+    height: 30px;
+    border: none;
+    font-weight: bold;
+    font-size: 15pt;
+    margin: 5px;
+    border-radius: 3px;
+    color: rgb(8, 65, 92);
+    outline: none;
+    cursor: pointer;
+    text-align: left;
+    padding-left: 20px;
+
+}
+.btn-default:hover{
+    background: rgb(8, 65, 92);
+    color: white;
+}
+.dte{
+    float: right;
+}
+#acctInfo{
+    width: 80%;
+    margin: auto;
+}
+.btn-create{
+    position: inherit;
+    float: right;
+    margin: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    height: 30px;
+}
+.inp2{
+    height: 30px;
+    border: none;
+    outline: none;
+    font-weight: 500;
+    font-size: 13pt;
+    flex: 1;
+    margin-right: 15px;
+}
+#acctInfo h3{
+    border-bottom: 1px solid rgba(109, 93, 93, 0.4);
+    background: rgb(46, 14, 46);
+    color: white;
+    text-align: center;
+}
+.thumb{
+    width: 70%;
+    margin-left: 15%;
+    margin-bottom: 20px;
+    border-radius: 200px;
+}
+/* -------------------------------------------- MODAL CREATE ACCOUNT --------------------------------- */
+#modal-account{
+    display: none;
+    margin: auto;
+    padding: 10px;
+    width: 35%;
+    background: white;
+    position: fixed;
+    top: 21%;
+    left: 30%;
+    border-radius: 12px;
+    box-shadow: 2px 4px 10px 0 rgba(0, 0, 0, 0.4), 1px 3px 3px 0 rgba(0, 0, 0, 0.3);
+}
+#modal-account h1{
+    text-align: center;
+}
+.form-control{
+    width: 80%;
+    display: block;
+    margin: auto;
+}
+.lb{
+margin: auto;
+
+}
+.form-input{
+    width: 60%;
+    border: none;
+    outline: none;
+    font-weight: 700;
+    font-size: 13pt;
+    text-align: center;
+}
+select{
+    display: block;
+    margin: 0 10px 30px;
+    width: 80%;
+    border: none;
+    outline: none;
+    font-weight: 700;
+    font-size: 13pt;
+    text-align: center;
+}
+.mid{
+    width: 100%;
+    margin: auto;
+}
+.mi{
+    width: 65%;
+}
+/* ------------------------------------------------ RESPONSIVENESS (CLIENT PAGE)-------------------------------- */
+@media(max-width: 768px){
+    .client{
+        /* margin: 20px; */
+        display: block;
+    }
+    .aside{
+        display: none;
+    }
+    .profile{
+      text-align: center;
+      height: initial;    
+    }
+    .thumb{
+        width: 40%;
+        margin: auto;
+        border-radius: 200px;
+    }
+    #acctInfo{
+        width: 100%;
+    }
+    .form-group{
+        padding-bottom: 10px;
+        display: flex;
+        margin: auto;
+    }
+    .inp2{
+        width: 50%;
+    }
+    /* -----------------  RESPONSIVE CREATE ACCOUNT MODAL -----------*/
+    #modal-account{
+        width: 80%;
+        left: 10%;
+    }
+    .form-input{
+        /* width: 80%; */
+    }
+    .form-control{
+        width: 100%;
+        display: block;
+        /* margin-left: 40px; */
+    }
+    #modal-account h1{
+        text-align: center;
+        font-size: 14pt;
+        margin-top: 30px;
+    }
+    select{
+        width: 90%;
+        margin: auto;
+    }
+    .btn{
+        width: 100%;
+        margin-top: 10px;
+    }
+}
