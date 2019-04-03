@@ -30,3 +30,8 @@ function hideModal() {
 const btnResetStaff = document.getElementById('btn-reset-staff');
 btnResetStaff.addEventListener('click', showModal);
 
+// ========================================== CLIENT LOGIN ============================================
+const btnClientLogin = document.getElementById('btn-client-login');
+btnClientLogin.addEventListener('click', () => {
+    location.href = 'client.html';
+});
