@@ -69,7 +69,41 @@
             </div>
         </div>
     </div>
-
+    <!-- =============================================== MODAL CREATE ACCOUNT =================================== -->
+    <div id="modal-account">
+            <div id="close"><span>&times;</span></div>
+            <h1>ACCOUNT CREATION</h1>                
+        <!-- <form action=""> -->
+             <div class="form-control">
+                <div class="form-control">
+                        <label class="lb" for="firstname"></i>First name</label>
+                        <input class="form-input" name="firstname" type="text" value="Emile">
+                </div>
+                <div class="form-control">
+                        <label class="lb" for="lastname"></i>Last name</label>
+                        <input class="form-input" name="lastname" type="text" value="Nsengimana">
+                </div>
+                <div class="form-control">
+                        <label class="lb" for="phone"></i>Phone No.</label>
+                        <input class="form-input" name="phone" type="text" value="0782057791">
+                    </div>
+            </div>
+            <hr>
+            <div class="mid">
+                    <div class="mi form-control">
+                            <label class="lb" for="type">Account type</label>
+                            <select name="acct" id="slct-acct-type">
+                                <option value="">Choose</option>
+                                <option value="Savings">Savings</option>
+                                <option value="Current">Current</option>
+                            </select>
+                    </div>
+            </div>
+            <div class="form-control">
+                <button id="btn-add-acct" class="btn btn-emphasis">Create account</button>
+            </div>
+        <!-- </form> -->
+    </div>
     <SCript src="./UI/js/client.js"></SCript>   
 </body>
 </html>
