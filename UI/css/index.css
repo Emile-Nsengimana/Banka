@@ -99,7 +99,8 @@ button{
 #modal-reset h1,
 #modal-search h1,
 #modal-account h1,
-#modal-view-account h1{
+#modal-view-account h1,
+#modal-add-user h1{
     text-align: center;
     color: rgb(8, 65, 92);
     font-size: 24pt;
@@ -195,7 +196,10 @@ button{
     border-radius: 12px;
     box-shadow: 2px 4px 10px 0 rgba(0, 0, 0, 0.4), 1px 3px 3px 0 rgba(0, 0, 0, 0.3);
 }
-#close, #close-search, #close-account{
+#close,
+#close-search,
+#close-account,
+#close-add-user{
     float: right;
     margin: 14px;
     font-weight: bold;
@@ -344,7 +348,7 @@ button{
     border-radius: 200px;
 }
 /* -------------------------------------------- MODAL CREATE ACCOUNT --------------------------------- */
-#modal-account{
+#modal-account, #modal-add-user{
     display: none;
     margin: auto;
     padding: 10px;
@@ -382,12 +386,16 @@ margin: auto;
 select{
     display: block;
     margin: 0 10px 30px;
-    width: 80%;
+    width: 75%;
     border: none;
     outline: none;
     font-weight: 700;
     font-size: 13pt;
     text-align: center;
+    margin: 2px;
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-bottom: 20px;
 }
 .mid{
     width: 100%;
@@ -533,4 +541,7 @@ td{
 }
 .btn-success:hover{
     background: rgb(83, 138, 69); 
+}
+#modal-add-user{
+    padding-left: 70px;
 }

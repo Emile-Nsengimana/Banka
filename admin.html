@@ -112,6 +112,7 @@
             <div id="modal-users">
                     <input id="search" type="text" placeholder="account No.">
                     <button id="btn-search-user" class="btn-search"><i class="fas fa-search"></i></button>
+                    <button id="btn-create-user" class="btn-create btn-emphasis">Create user</button>
                     <table>
                         <thead>
                             <td>User</td>
@@ -198,7 +199,50 @@
                 <button class="btn btn-danger">Delete</button>
             </div>
     </div>
-    
+      <!-- =============================================== MODAL CREATE ACCOUNT =================================== -->
+      <div id="modal-add-user">
+            <div id="close-add-user"><span>&times;</span></div>
+            <h1>ACCOUNT CREATION</h1>                
+        <!-- <form action=""> -->
+                <div class="form-group">
+                        <label class="lb" for="firstname"></i>First name:</label>
+                        <input class="inp" name="firstname" type="text">
+                </div>
+                <div class="form-group">
+                        <label class="lb" for="lastname"></i>Last name:</label>
+                        <input class="inp" name="lastname" type="text">
+                </div>
+                <div class="form-group">
+                        <label class="lb" for="phone"></i>Phone No.:</label>
+                        <input class="inp" name="phone" type="text">
+                </div>
+                <div class="form-group">
+                        <label class="lb" for="email"></i>E-mail:</label>
+                        <input class="inp" name="email" type="email">
+                </div>
+            <div class="mid">
+                    <div class="form-group">
+                            <label class="lb" for="type">Type:</label>
+                            <select name="acct" id="slct-acct-type">
+                                <option value="">Choose</option>
+                                <option value="Client">Client</option>
+                                <option value="Staff">Staff</option>
+                            </select>
+                    </div>
+            </div>
+            <div class="form-group">
+                    <label class="lb" for="password"></i>Password</label>
+                    <input class="inp" name="password" type="password">
+            </div>
+            <div class="form-group">
+                    <label class="lb" for="retype"></i>Re-type</label>
+                    <input class="inp" name="retype" type="password">
+            </div>
+            <div class="form-control">
+                <button id="btn-add-acct" class="btn btn-emphasis">Create account</button>
+            </div>
+        <!-- </form> -->
+    </div>  
 <SCript src="./UI/js/admin.js"></SCript>   
 </body>
 </html>
