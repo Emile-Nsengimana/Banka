@@ -52,6 +52,7 @@ function view(){
     viewBankAccount.style.display = 'block';
 }
 btnSearch.addEventListener('click', view);
+
 // ================================= USER ACCOUNT ==============================
 function accounts(){
     viewUserAccount.style.display = 'block';
@@ -62,3 +63,15 @@ function hideAccounts() {
     document.getElementById('modal-view-account').style.display = 'none';
 }
 document.getElementById('btn-search-user').addEventListener('click', accounts);
+
+// ---------------------------------- ADD USER -------------------------------------------------
+const btnCancelAddUser = document.getElementById('close-add-user');
+const btnAddUser = document.getElementById('btn-create-user');
+
+const modalCreateUserAcct = document.getElementById('modal-add-user')
+btnCancelAddUser.addEventListener('click', () => {
+    modalCreateUserAcct.style.display = 'none';
+});
+btnAddUser.addEventListener('click', () => {
+    modalCreateUserAcct.style.display = 'block';
+});
