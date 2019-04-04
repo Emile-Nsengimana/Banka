@@ -42,112 +42,161 @@
                             <td>Balance</td>
                             <td>Status</td>
                         </thead>
-                        <tr>
+                        <tr onclick="view()">
                             <td>Nsengimana Emile</td>
-                            <td><a href="#">4568-6434-2345-1234<a></a></td>
+                            <td>4568-6434-2345-1234</td>
                             <td>Saving</td>
                             <td>1 000 000</td>
                             <td class="ok">Active</td>
                         </tr>
-                        <tr>
+                        <tr onclick="view()">
                             <td>Nsengimana Emile</td>
-                            <td><a href="#">4568-6434-2345-1234<a></a></td>
+                            <td>4568-6434-2345-1234</td>
                             <td>Saving</td>
                             <td>1 000 000</td>
                             <td class="ok">Active</td>
                         </tr>
-                        <tr>
+                        <tr onclick="view()">
                             <td>Nsengimana Emile</td>
-                            <td><a href="#">4568-6434-2345-1234<a></a></td>                 
+                            <td>4568-6434-2345-1234</td>                 
                             <td>Saving</td>
                             <td>1 000 000</td>
                             <td class="ok">Active</td>
                         </tr>
-                        <tr>
+                        <tr onclick="view()">
                                 <td>Nsengimana Emile</td>
-                                <td><a href="#">4568-6434-2345-1234<a></a></td>
+                                <td>4568-6434-2345-1234</td>
                                 <td>Saving</td>
                                 <td>1 000 000</td>
                                 <td class="ok">Active</td>
                         </tr>
-                        <tr>
+                        <tr onclick="view()">
                                 <td>Nsengimana Emile</td>
-                                <td><a href="#">4568-6434-2345-1234<a></a></td>
+                                <td>4568-6434-2345-1234</td>
                                 <td>Saving</td>
                                 <td>1 000 000</td>
                                 <td class="ok">Active</td>
                         </tr>   
-                        <tr>
+                        <tr onclick="view()">
                                 <td>Nsengimana Emile</td>
-                                <td><a href="#">4568-6434-2345-1234<a></a></td>
+                                <td>4568-6434-2345-1234</td>
                                 <td>Saving</td>
                                 <td>1 000 000</td>
                                 <td class="ok">Active</td>
                         </tr>                  
-                         <tr>
+                         <tr onclick="view()">
                                 <td>Nsengimana Emile</td>
-                                <td><a href="#">4568-6434-2345-1234<a></a></td>
+                                <td>4568-6434-2345-1234</td>
                                 <td>Saving</td>
                                 <td>1 000 000</td>
                                 <td class="ok">Active</td>
                         </tr>  
-                        <tr>
+                        <tr onclick="view()">
                                 <td>Nsengimana Emile</td>
-                                <td><a href="#">4568-6434-2345-1234<a></a></td>
+                                <td>4568-6434-2345-1234</td>
                                 <td>Saving</td>
                                 <td>1 000 000</td>
                                 <td class="ok">Active</td>
                         </tr>                  
-                        <tr>
+                        <tr onclick="view()">
                                 <td>Nsengimana Emile</td>
-                                <td><a href="#">4568-6434-2345-1234<a></a></td>
+                                <td>4568-6434-2345-1234</td>
                                 <td>Saving</td>
                                 <td>1 000 000</td>
                                 <td class="ok">Active</td>
-                        </tr>     
-                    
+                        </tr>
                     </table>
             </div>
             <!-- ==================================================== USERS MODAL =====================================-->
 
             <div id="modal-users">
                     <input id="search" type="text" placeholder="account No.">
-                    <button id="btn-search" class="btn-search"><i class="fas fa-search"></i></button>
+                    <button id="btn-search-user" class="btn-search"><i class="fas fa-search"></i></button>
                     <table>
                         <thead>
                             <td>User</td>
                             <td>User type</td>
                             <td>Status</td>
                         </thead>
-                        <tr>
-                            <td><a href="#"> Will Smith </a></td>
+                        <tr onclick="accounts()">
+                            <td>Will Smith</td>
                             <td>Staff</td>
                             <td class="ok">Active</td>
                         </tr>
-                        <tr>
-                                <td><a href="#">Shema John</a></td>
+                        <tr onclick="accounts()">
+                                <td>Shema John</td>
                                 <td>Staff</td>
                                 <td class="ok">Active</td>
                         </tr>
-                        <tr>
-                                <td><a href="#">Shema John </a></td>
+                        <tr onclick="accounts()">
+                                <td>Shema John</td>
                                 <td>Staff</td>
                                 <td class="inactive">Draft</td>
                         </tr>
-                        <tr>
-                                <td><a href="#">Umwiza Kelly</a></td>
+                        <tr onclick="accounts()">
+                                <td>Umwiza Kelly</td>
                                 <td>Staff</td>
                                 <td class="inactive">Draft</td>
                         </tr>
-                        <tr>
-                                <td><a href="#">Umwiza Kelly</a></td>
+                        <tr onclick="accounts()">
+                                <td>Umwiza Kelly</td>
                                 <td>Client</td>
                                 <td class="dormant">Dormant</td>
-                        </tr>
-                    
+                        </tr>    
                     </table>
             </div>
         </div>
+        
+    </div>
+<!-- ================================================================ MODAL SEARCH ========================================= -->
+<div id="modal-search">
+        <div id="close-search"><span>&times;</span></div>
+        <h1>Account details</h1> 
+            <div class="form-group">
+                    <label class="lb" for="name"></i>Name:</label>
+                    <input class="inp" name="name" type="text" value="Jimmy Kabera">
+            </div>
+            <div class="form-group">
+                    <label class="lb" for="acct"></i>Account No.:</label>
+                    <input class="inp" name="acct" type="text" value="2334-5345-4423-2342">
+            </div>
+            <div class="form-group">
+                <label class="lb" for="type"></i>Account type:</label>
+                <input class="inp" name="type" type="text" value="Saving">
+            </div>
+            <div class="form-group">
+                    <label class="lb" for="bal"></i>Balance:</label>
+                    <input class="inp" name="bal" type="text" value="1200 Rwf">
+            </div>
+            <div class="form-group">
+                    <label class="lb" for="status"></i>Status:</label>
+                    <input id="txt-status" class="inp" name="status" type="text" value="Active">
+            </div>
+            <div class="form-group">
+                <button id="btn-status" class="btn btn-warn">Deactivate</button>
+                <button class="btn btn-danger">Delete</button>
+            </div>
+    </div>
+    <!-- ================================================================ MODAL USER ACCOUNT ========================================= -->
+<div id="modal-view-account">
+        <div id="close-account"><span>&times;</span></div>
+        <h1>Account details</h1> 
+            <div class="form-group">
+                    <label class="lb" for="name"></i>Name:</label>
+                    <input class="inp" name="name" type="text" value="Jimmy Kabera">
+            </div>
+            <div class="form-group">
+                <label class="lb" for="type"></i>Account type:</label>
+                <input class="inp" name="type" type="text" value="Staff">
+            </div>
+            <div class="form-group">
+                    <label class="lb" for="status"></i>Status:</label>
+                    <input id="txt-status" class="inp" name="status" type="text" value="Active">
+            </div>
+            <div class="form-group">
+                <button id="btn-status" class="btn btn-warn">Deactivate</button>
+                <button class="btn btn-danger">Delete</button>
+            </div>
     </div>
     
 <SCript src="./UI/js/admin.js"></SCript>   
