@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="./UI/css/index.css">
+    <title>Banka</title>
+</head>
+<body>
+    <div class="nav">
+        <img src="./UI/img/logo.png" alt="">
+    </div>
+    <div id="all" class="client">
+
+<!-- =============================================== SIDE MENU =================================== -->
+        <div class="aside">
+            <button id="btn-bank-acct" class="active btn-default"><i class="fas fa-id-card"></i>Bank accounts</button>
+            <button id="btn-users" class="btn-default"><i class="fas fa-users"></i>Users</button>
+            <br><br><br><br><br>
+            <!-- =============================================== PROFILE =================================== -->
+            <div class="profile">
+                <img src="./UI/img/passport-004.jpg" class="thumb">
+                <label for="owner" id="shade">Welcome</label>
+                <label for="">Nsengimana Emile</label>
+                <label for="">emile@gmail.com</label>
+                <button class="btn btn-link">Edit</button>
+            </div>
+            <button id="btn-admin-logout" class="btn-default"><i class="fas fa-sign-out-alt"></i>Sign out</button>
+        </div>
+<!-- =============================================== MAIN CONTENT =================================== -->
+        <div class="main">            
+            <div id="display">
+                    <input id="search" type="text" placeholder="account No.">
+                    <button id="btn-search" class="btn-search"><i class="fas fa-search"></i></button>
+                    <table>
+                        <thead>
+                            <td>Client</td>
+                            <td>Account No.</td>
+                            <td>Account type</td>
+                            <td>Balance</td>
+                            <td>Status</td>
+                        </thead>
+                        <tr>
+                            <td>Nsengimana Emile</td>
+                            <td><a href="#">4568-6434-2345-1234<a></a></td>
+                            <td>Saving</td>
+                            <td>1 000 000</td>
+                            <td class="ok">Active</td>
+                        </tr>
+                        <tr>
+                            <td>Nsengimana Emile</td>
+                            <td><a href="#">4568-6434-2345-1234<a></a></td>
+                            <td>Saving</td>
+                            <td>1 000 000</td>
+                            <td class="ok">Active</td>
+                        </tr>
+                        <tr>
+                            <td>Nsengimana Emile</td>
+                            <td><a href="#">4568-6434-2345-1234<a></a></td>                 
+                            <td>Saving</td>
+                            <td>1 000 000</td>
+                            <td class="ok">Active</td>
+                        </tr>
+                        <tr>
+                                <td>Nsengimana Emile</td>
+                                <td><a href="#">4568-6434-2345-1234<a></a></td>
+                                <td>Saving</td>
+                                <td>1 000 000</td>
+                                <td class="ok">Active</td>
+                        </tr>
+                        <tr>
+                                <td>Nsengimana Emile</td>
+                                <td><a href="#">4568-6434-2345-1234<a></a></td>
+                                <td>Saving</td>
+                                <td>1 000 000</td>
+                                <td class="ok">Active</td>
+                        </tr>   
+                        <tr>
+                                <td>Nsengimana Emile</td>
+                                <td><a href="#">4568-6434-2345-1234<a></a></td>
+                                <td>Saving</td>
+                                <td>1 000 000</td>
+                                <td class="ok">Active</td>
+                        </tr>                  
+                         <tr>
+                                <td>Nsengimana Emile</td>
+                                <td><a href="#">4568-6434-2345-1234<a></a></td>
+                                <td>Saving</td>
+                                <td>1 000 000</td>
+                                <td class="ok">Active</td>
+                        </tr>  
+                        <tr>
+                                <td>Nsengimana Emile</td>
+                                <td><a href="#">4568-6434-2345-1234<a></a></td>
+                                <td>Saving</td>
+                                <td>1 000 000</td>
+                                <td class="ok">Active</td>
+                        </tr>                  
+                        <tr>
+                                <td>Nsengimana Emile</td>
+                                <td><a href="#">4568-6434-2345-1234<a></a></td>
+                                <td>Saving</td>
+                                <td>1 000 000</td>
+                                <td class="ok">Active</td>
+                        </tr>     
+                    
+                    </table>
+            </div>
+            <!-- ==================================================== USERS MODAL =====================================-->
+
+            <div id="modal-users">
+                    <input id="search" type="text" placeholder="account No.">
+                    <button id="btn-search" class="btn-search"><i class="fas fa-search"></i></button>
+                    <table>
+                        <thead>
+                            <td>User</td>
+                            <td>User type</td>
+                            <td>Status</td>
+                        </thead>
+                        <tr>
+                            <td><a href="#"> Will Smith </a></td>
+                            <td>Staff</td>
+                            <td class="ok">Active</td>
+                        </tr>
+                        <tr>
+                                <td><a href="#">Shema John</a></td>
+                                <td>Staff</td>
+                                <td class="ok">Active</td>
+                        </tr>
+                        <tr>
+                                <td><a href="#">Shema John </a></td>
+                                <td>Staff</td>
+                                <td class="inactive">Draft</td>
+                        </tr>
+                        <tr>
+                                <td><a href="#">Umwiza Kelly</a></td>
+                                <td>Staff</td>
+                                <td class="inactive">Draft</td>
+                        </tr>
+                        <tr>
+                                <td><a href="#">Umwiza Kelly</a></td>
+                                <td>Client</td>
+                                <td class="dormant">Dormant</td>
+                        </tr>
+                    
+                    </table>
+            </div>
+        </div>
+    </div>
+    
+<SCript src="./UI/js/admin.js"></SCript>   
+</body>
+</html>
