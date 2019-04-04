@@ -35,3 +35,8 @@ const btnClientLogin = document.getElementById('btn-client-login');
 btnClientLogin.addEventListener('click', () => {
     location.href = 'client.html';
 });
+// ========================================== ADMIN LOGIN ============================================
+const btnEmployeeLogin = document.getElementById('btn-staff-in');
+btnEmployeeLogin.addEventListener('click', () => {
+    location.href = 'admin.html';
+});

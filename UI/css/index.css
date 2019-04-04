@@ -15,6 +15,19 @@ i{
     padding: 12px;
     margin: 0;
 }
+button{
+    color: rgb(8, 65, 92);
+}
+.active{
+    background: rgb(8, 65, 92);
+    color: rgb(255, 255, 255)
+}
+.inactive{
+    color: rgb(128, 28, 28);
+}
+.dormant{
+    color: rgb(148, 156, 25);
+}
 /* ============================================== NAVBAR =========================== */
 .nav{
     width: 99.5;
@@ -56,7 +69,6 @@ i{
      color: rgb(8, 65, 92);
  }
 .form-group{
-    /* width: 100%; */
     padding-bottom: 10px;
     display: flex;
     margin: auto;
@@ -114,6 +126,8 @@ i{
     font-size: 11pt;
     font-weight: 700;
     color: cadetblue;
+    padding: 0;
+    margin: 0;
 }
 .btn-signup{
     width: 40%;
@@ -188,6 +202,18 @@ i{
     width: 30px;
     text-align: center;
 }
+#hide{
+    margin-right: 14px;
+    font-weight: bold;
+    font-size: 15pt;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    background: rgb(218, 221, 210);
+    /* border-radius: 1px; */
+    width: 100%;
+    text-align: center;
+    padding: 0;
+}
 #close:hover{
     color: rgb(255, 255, 255);
     background: rgb(177, 59, 59);
@@ -232,15 +258,20 @@ i{
     }
   }
   /* ============================================== CLIENT PAGE ======================== */
-  
+  #display{
+      display: block;
+  }
+  #modal-users{
+    display: none;
+}
   .client{
       margin: 20px;
       display: flex;
-      height: 70vh;
+      height: 75vh;
   }
   .aside{
-      height: 70vh;
-      flex: 1;
+      height: 75vh;
+      flex: 1.5;
       order: 1;
       border: 1px solid rgba(109, 93, 93, 0.4);
   }
@@ -251,14 +282,7 @@ i{
     border: 1px solid rgba(109, 93, 93, 0.4);
     overflow: auto;
   }
-  .profile{
-    flex: 1;
-    order: 3;
-    padding: 20px;
-    border: 1px solid rgba(109, 93, 93, 0.4);
-    overflow: auto;
-    text-align: center;
-  }
+
   #shade{
       background: rgb(49, 6, 49);
       color: white;
@@ -270,19 +294,16 @@ i{
       margin-bottom: 10px;
   }
 .btn-default{
-    width: 90%;
-    height: 30px;
+    width: 95%;
+    height: 38px;
     border: none;
     font-weight: bold;
     font-size: 15pt;
-    margin: 5px;
+    margin: 2px;
     border-radius: 3px;
-    color: rgb(8, 65, 92);
     outline: none;
     cursor: pointer;
     text-align: left;
-    padding-left: 20px;
-
 }
 .btn-default:hover{
     background: rgb(8, 65, 92);
@@ -319,8 +340,7 @@ i{
     text-align: center;
 }
 .thumb{
-    width: 70%;
-    margin-left: 15%;
+    width: 50%;
     margin-bottom: 20px;
     border-radius: 200px;
 }
@@ -344,6 +364,9 @@ i{
     width: 80%;
     display: block;
     margin: auto;
+}
+.ok{
+    color: green;
 }
 .lb{
 margin: auto;
@@ -408,13 +431,9 @@ select{
         width: 80%;
         left: 10%;
     }
-    .form-input{
-        /* width: 80%; */
-    }
     .form-control{
         width: 100%;
         display: block;
-        /* margin-left: 40px; */
     }
     #modal-account h1{
         text-align: center;
@@ -429,4 +448,49 @@ select{
         width: 100%;
         margin-top: 10px;
     }
+}
+/* ======================================================= ADMIN PAGE =========================== */
+.profile{
+    padding: 10px 20px 0 20px;
+    text-align: center;
+    height: 40vh;
+}
+#search{
+    font-weight: 700;
+    width: 30%;
+    height: 27px;
+    font-size: 15pt;
+    text-align: center;
+    padding: 4px;
+    outline: none;
+    border: 1px solid  rgba(8, 65, 92, 0.4);;
+    margin-bottom: 20px;
+}
+#btn-search{
+    border: none;
+    height: 35px;
+    cursor: pointer;
+    outline: none;
+}
+#btn-search:hover{
+    background: rgb(122, 161, 122);
+    color: white;
+}
+
+table{
+    width: 100%;
+    margin-bottom: 20px;
+}
+table thead td{
+    background: rgb(8, 65, 92);
+    font-weight: 700;
+    font-size: 15pt;
+}
+td{
+    background: rgb(221, 221, 220);
+    padding: 10px;
+    font-size: 14pt;
+}
+td a{
+    color: rgb(8, 65, 92);
 }
