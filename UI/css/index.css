@@ -93,7 +93,13 @@ button{
     position: relative;
     top: -10px;
 }
-#signin h1, #signup h1, #staff h1, #modal-reset h1{
+#signin h1,
+#signup h1,
+#staff h1,
+#modal-reset h1,
+#modal-search h1,
+#modal-account h1,
+#modal-view-account h1{
     text-align: center;
     color: rgb(8, 65, 92);
     font-size: 24pt;
@@ -188,9 +194,8 @@ button{
     left: 30%;
     border-radius: 12px;
     box-shadow: 2px 4px 10px 0 rgba(0, 0, 0, 0.4), 1px 3px 3px 0 rgba(0, 0, 0, 0.3);
-
 }
-#close{
+#close, #close-search, #close-account{
     float: right;
     margin: 14px;
     font-weight: bold;
@@ -258,12 +263,6 @@ button{
     }
   }
   /* ============================================== CLIENT PAGE ======================== */
-  #display{
-      display: block;
-  }
-  #modal-users{
-    display: none;
-}
   .client{
       margin: 20px;
       display: flex;
@@ -450,6 +449,12 @@ select{
     }
 }
 /* ======================================================= ADMIN PAGE =========================== */
+#display{
+    display: block;
+}
+#modal-users{
+  display: none;
+}
 .profile{
     padding: 10px 20px 0 20px;
     text-align: center;
@@ -466,13 +471,13 @@ select{
     border: 1px solid  rgba(8, 65, 92, 0.4);;
     margin-bottom: 20px;
 }
-#btn-search{
+#btn-search, #btn-search-user{
     border: none;
     height: 35px;
     cursor: pointer;
     outline: none;
 }
-#btn-search:hover{
+#btn-search:hover,#btn-search-user:hover{
     background: rgb(122, 161, 122);
     color: white;
 }
@@ -481,16 +486,51 @@ table{
     width: 100%;
     margin-bottom: 20px;
 }
+table tr:hover{
+    background: rgb(255, 255, 255);
+}
 table thead td{
     background: rgb(8, 65, 92);
     font-weight: 700;
     font-size: 15pt;
 }
-td{
+tr{
     background: rgb(221, 221, 220);
     padding: 10px;
     font-size: 14pt;
 }
-td a{
-    color: rgb(8, 65, 92);
+td{
+    padding: 10px;
+    font-size: 14pt;
+}
+#modal-search, #modal-view-account{
+    display: none;
+    width: 38%;
+    padding-left: 40px;
+    background: white;
+    position: absolute;
+    top: 25%;
+    left: 40%;
+    border-radius: 12px;
+    box-shadow: 2px 4px 10px 0 rgba(0, 0, 0, 0.4), 1px 3px 3px 0 rgba(0, 0, 0, 0.3);
+}
+.btn-warn{
+    background: rgb(235, 238, 155);
+}
+.btn-warn:hover{
+    background: rgb(157, 158, 69);
+    color: rgb(255, 255, 255);
+}
+.btn-danger{
+    background: rgba(224, 13, 13, 0.7);
+}
+.btn-danger:hover{
+    background: rgba(224, 13, 13, 1);
+    color: rgb(255, 255, 255);
+}
+.btn-success{
+    background: rgba(83, 138, 69, 0.7); 
+}
+.btn-success:hover{
+    background: rgb(83, 138, 69); 
 }
