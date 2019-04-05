@@ -35,8 +35,14 @@ const btnClientLogin = document.getElementById('btn-client-login');
 btnClientLogin.addEventListener('click', () => {
     location.href = 'client.html';
 });
-// ========================================== ADMIN LOGIN ============================================
+// ========================================== STAFF LOGIN ============================================
 const btnEmployeeLogin = document.getElementById('btn-staff-in');
+const username = document.getElementById('txt-username');
+
 btnEmployeeLogin.addEventListener('click', () => {
-    location.href = 'admin.html';
+    if(username.value === 'cashier'){
+        location.href = 'cashier.html';
+    }else{
+        location.href = 'admin.html';
+    }
 });
