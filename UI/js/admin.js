@@ -30,10 +30,13 @@ const btnChange = document.getElementById('btn-status');
 btnChange.addEventListener('click', () => {
     if(btnChange.className === 'btn btn-warn'){
         document.getElementById('txt-status').value = 'Dormant'
+        document.getElementById('txt-status-2').value = 'Dormant'
         btnChange.innerHTML = 'Activate';
         btnChange.classList.add('btn-success');
     }else{
         document.getElementById('txt-status').value = 'Active';
+        document.getElementById('txt-status-2').value = 'Dormant'
+
         btnChange.innerHTML = 'Deactivate';
         btnChange.classList.remove('btn-success');
     }
@@ -67,7 +70,7 @@ document.getElementById('btn-search-user').addEventListener('click', accounts);
 const btnCancelAddUser = document.getElementById('close-add-user');
 const btnAddUser = document.getElementById('btn-create-user');
 
-const modalCreateUserAcct = document.getElementById('modal-add-user')
+const modalCreateUserAcct = document.getElementById('modal-add-user');
 btnCancelAddUser.addEventListener('click', () => {
     modalCreateUserAcct.style.display = 'none';
 });

@@ -17,7 +17,8 @@
 <!-- =============================================== SIDE MENU =================================== -->
         <div class="aside">
             <button id="btn-bank-acct" class="active btn-default"><i class="fas fa-id-card"></i>Bank accounts</button>
-            <button id="btn-users" class="btn-default"><i class="fas fa-users"></i>Users</button>
+            <button id="btn-debit" class="btn-default"><i class="fas fa-users"></i>Debit</button>
+            <button id="btn-credit" class="btn-default"><i class="fas fa-users"></i>Credit</button>
             <br><br><br><br><br>
             <!-- =============================================== PROFILE =================================== -->
             <div class="profile">
@@ -26,128 +27,130 @@
                 <label for="">Nsengimana Emile</label>
                 <label for="">emile@gmail.com</label>
                 <button class="btn btn-link">Edit</button>
-            </div><br><br>
-            <button id="btn-admin-logout" class="btn-default"><i class="fas fa-sign-out-alt"></i>Sign out</button>
+            </div>
+            <button id="btn-cashier-logout" class="btn-default"><i class="fas fa-sign-out-alt"></i>Sign out</button>
         </div>
 <!-- =============================================== MAIN CONTENT =================================== -->
         <div class="main">            
             <div id="display">
                     <input id="search" type="text" placeholder="account No.">
                     <button id="btn-search" class="btn-search"><i class="fas fa-search"></i></button>
-                    <table>
-                        <thead>
-                            <td>Client</td>
-                            <td>Account No.</td>
-                            <td>Account type</td>
-                            <td>Balance</td>
-                            <td>Status</td>
-                        </thead>
-                        <tr onclick="view()">
-                            <td>Nsengimana Emile</td>
-                            <td>4568-6434-2345-1234</td>
-                            <td>Saving</td>
-                            <td>1 000 000</td>
-                            <td class="ok">Active</td>
-                        </tr>
-                        <tr onclick="view()">
-                            <td>Nsengimana Emile</td>
-                            <td>4568-6434-2345-1234</td>
-                            <td>Saving</td>
-                            <td>1 000 000</td>
-                            <td class="ok">Active</td>
-                        </tr>
-                        <tr onclick="view()">
-                            <td>Nsengimana Emile</td>
-                            <td>4568-6434-2345-1234</td>                 
-                            <td>Saving</td>
-                            <td>1 000 000</td>
-                            <td class="ok">Active</td>
-                        </tr>
-                        <tr onclick="view()">
-                                <td>Nsengimana Emile</td>
-                                <td>4568-6434-2345-1234</td>
-                                <td>Saving</td>
-                                <td>1 000 000</td>
-                                <td class="ok">Active</td>
-                        </tr>
-                        <tr onclick="view()">
-                                <td>Nsengimana Emile</td>
-                                <td>4568-6434-2345-1234</td>
-                                <td>Saving</td>
-                                <td>1 000 000</td>
-                                <td class="ok">Active</td>
-                        </tr>   
-                        <tr onclick="view()">
-                                <td>Nsengimana Emile</td>
-                                <td>4568-6434-2345-1234</td>
-                                <td>Saving</td>
-                                <td>1 000 000</td>
-                                <td class="ok">Active</td>
-                        </tr>                  
-                         <tr onclick="view()">
-                                <td>Nsengimana Emile</td>
-                                <td>4568-6434-2345-1234</td>
-                                <td>Saving</td>
-                                <td>1 000 000</td>
-                                <td class="ok">Active</td>
-                        </tr>  
-                        <tr onclick="view()">
-                                <td>Nsengimana Emile</td>
-                                <td>4568-6434-2345-1234</td>
-                                <td>Saving</td>
-                                <td>1 000 000</td>
-                                <td class="ok">Active</td>
-                        </tr>                  
-                        <tr onclick="view()">
-                                <td>Nsengimana Emile</td>
-                                <td>4568-6434-2345-1234</td>
-                                <td>Saving</td>
-                                <td>1 000 000</td>
-                                <td class="ok">Active</td>
-                        </tr>
-                    </table>
-            </div>
-            <!-- ==================================================== USERS MODAL =====================================-->
-
-            <div id="modal-users">
-                    <input id="search-account" type="text" placeholder="account No.">
-                    <button id="btn-search-user" class="btn-search"><i class="fas fa-search"></i></button>
-                    <button id="btn-create-user" class="btn-create btn-emphasis">Create user</button>
-                    <table>
-                        <thead>
-                            <td>User</td>
-                            <td>User type</td>
-                            <td>Status</td>
-                        </thead>
-                        <tr onclick="accounts()">
-                            <td>Will Smith</td>
-                            <td>Staff</td>
-                            <td class="ok">Active</td>
-                        </tr>
-                        <tr onclick="accounts()">
-                                <td>Shema John</td>
-                                <td>Staff</td>
-                                <td class="ok">Active</td>
-                        </tr>
-                        <tr onclick="accounts()">
-                                <td>Shema John</td>
-                                <td>Staff</td>
-                                <td class="inactive">Draft</td>
-                        </tr>
-                        <tr onclick="accounts()">
-                                <td>Umwiza Kelly</td>
-                                <td>Staff</td>
-                                <td class="inactive">Draft</td>
-                        </tr>
-                        <tr onclick="accounts()">
-                                <td>Umwiza Kelly</td>
+                    <div id="table-cashier">
+                        <table>
+                            <thead>
                                 <td>Client</td>
-                                <td class="dormant">Dormant</td>
-                        </tr>    
-                    </table>
+                                <td>Account No.</td>
+                                <td>Account type</td>
+                                <td>Balance</td>
+                                <td>Status</td>
+                            </thead>
+                            <tr onclick="view()">
+                                <td>Nsengimana Emile</td>
+                                <td>4568-6434-2345-1234</td>
+                                <td>Saving</td>
+                                <td>1 000 000</td>
+                                <td class="ok">Active</td>
+                            </tr>
+                            <tr onclick="view()">
+                                <td>Nsengimana Emile</td>
+                                <td>4568-6434-2345-1234</td>
+                                <td>Saving</td>
+                                <td>1 000 000</td>
+                                <td class="ok">Active</td>
+                            </tr>
+                            <tr onclick="view()">
+                                <td>Nsengimana Emile</td>
+                                <td>4568-6434-2345-1234</td>                 
+                                <td>Saving</td>
+                                <td>1 000 000</td>
+                                <td class="ok">Active</td>
+                            </tr>
+                            <tr onclick="view()">
+                                    <td>Nsengimana Emile</td>
+                                    <td>4568-6434-2345-1234</td>
+                                    <td>Saving</td>
+                                    <td>1 000 000</td>
+                                    <td class="ok">Active</td>
+                            </tr>
+                            <tr onclick="view()">
+                                    <td>Nsengimana Emile</td>
+                                    <td>4568-6434-2345-1234</td>
+                                    <td>Saving</td>
+                                    <td>1 000 000</td>
+                                    <td class="ok">Active</td>
+                            </tr>   
+                            <tr onclick="view()">
+                                    <td>Nsengimana Emile</td>
+                                    <td>4568-6434-2345-1234</td>
+                                    <td>Saving</td>
+                                    <td>1 000 000</td>
+                                    <td class="ok">Active</td>
+                            </tr>                  
+                            <tr onclick="view()">
+                                    <td>Nsengimana Emile</td>
+                                    <td>4568-6434-2345-1234</td>
+                                    <td>Saving</td>
+                                    <td>1 000 000</td>
+                                    <td class="ok">Active</td>
+                            </tr>  
+                            <tr onclick="view()">
+                                    <td>Nsengimana Emile</td>
+                                    <td>4568-6434-2345-1234</td>
+                                    <td>Saving</td>
+                                    <td>1 000 000</td>
+                                    <td class="ok">Active</td>
+                            </tr>                  
+                            <tr onclick="view()">
+                                    <td>Nsengimana Emile</td>
+                                    <td>4568-6434-2345-1234</td>
+                                    <td>Saving</td>
+                                    <td>1 000 000</td>
+                                    <td class="ok">Active</td>
+                            </tr>
+                        </table>
+                    </div>
             </div>
-        </div>
-        
+            <!-- ================================================================ DEBIT ========================================= -->
+            <div id="debit">
+                <h3>ACCOUNT DEBIT</h3>
+                    <div class="form-group">
+                        <label for="acctno">Account No:</label>
+                        <input name="acctno" class="txt pad" type="number">
+                        <i class="fas fa-search check"></i>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Client name:</label>
+                        <input class="txt" name="name" type="text" value="Niyonagira Jack">
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">Amount:</label>
+                        <input class="txt" name="name" type="number">
+                    </div>
+                    <div class="form-group">
+                         <button class="btn btn-success btn-lg">Debit account</button>
+                    </div>
+            </div>
+ <!-- ================================================================ DEBIT ========================================= -->
+                        <div id="credit">
+                                <h3>ACCOUNT CREDIT</h3>
+                                    <div class="form-group">
+                                        <label for="acctno">Account No:</label>
+                                        <input name="acctno" class="txt pad" type="number">
+                                        <i class="fas fa-search check"></i>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Client name:</label>
+                                        <input class="txt" name="name" type="text" value="Niyonagira Jack">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="amount">Amount:</label>
+                                        <input class="txt" name="name" type="number">
+                                    </div>
+                                    <div class="form-group">
+                                         <button class="btn btn-warn btn-lg">Credit account</button>
+                                    </div>
+                            </div>
+        </div>  
     </div>
 <!-- ================================================================ MODAL SEARCH ========================================= -->
 <div id="modal-search">
@@ -171,15 +174,16 @@
             </div>
             <div class="form-group">
                     <label class="lb" for="status"></i>Status:</label>
-                    <input id="txt-status" class="inp" name="status" type="text" value="Active">
+                    <input class="inp" name="status" type="text" value="Active">
             </div>
             <div class="form-group">
                 <button id="btn-status" class="btn btn-warn">Deactivate</button>
                 <button class="btn btn-danger">Delete</button>
             </div>
     </div>
+    
     <!-- ================================================================ MODAL USER ACCOUNT ========================================= -->
-<div id="modal-view-account">
+    <div id="modal-view-account">
         <div id="close-account"><span>&times;</span></div>
         <h1>Account details</h1> 
             <div class="form-group">
@@ -192,7 +196,7 @@
             </div>
             <div class="form-group">
                     <label class="lb" for="status"></i>Status:</label>
-                    <input id="txt-status-2" class="inp" name="status" type="text" value="Active">
+                    <input id="txt-status" class="inp" name="status" type="text" value="Active">
             </div>
             <div class="form-group">
                 <button id="btn-status" class="btn btn-warn">Deactivate</button>
@@ -243,6 +247,6 @@
             </div>
         <!-- </form> -->
     </div>  
-<SCript src="./UI/js/admin.js"></SCript>   
+<SCript src="./UI/js/cashier.js"></SCript>   
 </body>
 </html>

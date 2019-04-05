@@ -73,8 +73,8 @@ button{
     display: flex;
     margin: auto;
 }
-.fas{
-    margin-left: 7%;
+.aside .fas, #staff .fas, #signin .fas{
+    padding-top: 7px;
 }
 .inp{
     height: 30px;
@@ -309,15 +309,16 @@ button{
   }
 .btn-default{
     width: 95%;
-    height: 38px;
+    height: 30px;
     border: none;
-    font-weight: bold;
-    font-size: 15pt;
-    margin: 2px;
+    font-weight: 700;
+    font-size: 12pt;
+    margin: 2px 0 2px 7px;
     border-radius: 3px;
     outline: none;
     cursor: pointer;
     text-align: left;
+    padding: 0px;
 }
 .btn-default:hover{
     background: rgb(8, 65, 92);
@@ -350,7 +351,9 @@ button{
 }
 #acctInfo h3,
 #transfer h3,
-#transaction-history h3{
+#transaction-history h3,
+#debit h3,
+#credit h3{
     border-bottom: 1px solid rgba(109, 93, 93, 0.4);
     background: rgb(46, 14, 46);
     color: white;
@@ -432,7 +435,7 @@ select{
     }
     .profile{
       text-align: center;
-      height: initial;    
+      height: initial;  
     }
     .thumb{
         width: 40%;
@@ -481,11 +484,11 @@ select{
   display: none;
 }
 .profile{
-    padding: 10px 20px 0 20px;
+    padding: 5px 0 10px 10px;
     text-align: center;
     height: 40vh;
 }
-#search{
+#search, #search-account{
     font-weight: 700;
     width: 30%;
     height: 27px;
@@ -512,20 +515,24 @@ table{
     margin-bottom: 20px;
 }
 table tr:hover{
-    background: rgb(255, 255, 255);
+    background: white;
+    color: rgb(8, 65, 92);
 }
 table thead td{
     background: rgb(8, 65, 92);
     font-weight: 700;
     font-size: 15pt;
+    color: whitesmoke;
+}
+#table-cashier thead td{
+    background: rgb(8, 75, 55);
 }
 tr{
     background: rgb(221, 221, 220);
-    padding: 10px;
     font-size: 14pt;
 }
 td{
-    padding: 10px;
+    padding: 7px;
     font-size: 14pt;
 }
 #modal-search, #modal-view-account{
@@ -573,12 +580,11 @@ td{
     width: 20%;
     margin: 0 0 0 80%;
 }
-#check{
-
+#check, .check{
     margin-left: 3px;
 }
 
-#check:hover{
+#check:hover, .check:hover{
     background: rgb(122, 161, 122);
     color: white;
     border-radius: 200px;
@@ -593,4 +599,13 @@ td{
 /* ============================================= TRANSACTION HISTTORY ========================== */
 #transaction-history{
     display: none;
+}
+/* ============================================== DEBIT & CREDIT BANK ACCOUNT======================================== */
+#debit, #credit{
+    display: none;
+    width: 70%;
+    margin: auto;
+}
+.btn-lg{
+    width: 100%;
 }
