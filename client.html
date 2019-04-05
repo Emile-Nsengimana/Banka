@@ -15,9 +15,8 @@
     <div id="all" class="client">
 <!-- =============================================== SIDE MENU =================================== -->
         <div class="aside">
-            <button class="active btn-default"><i class="fas fa-money-check-alt"></i>My account</button>
-            <button class="btn-default"><i class="fas fa-money-bill-alt"></i>Deposit</button>
-            <button class="btn-default"><i class="fas fa-random"></i>Transfer</button>
+            <button id="btn-menu-myaccount" class="active btn-default"><i class="fas fa-money-check-alt"></i>My account</button>
+            <button id="btn-menu-transfer" class="btn-default"><i class="fas fa-random"></i>Transfer</button>
             <button class="btn-default"><i class="fas fa-history"></i>Transaction</button>
 <!-- =============================================== PROFILE =================================== -->
             <div class="profile">
@@ -66,6 +65,44 @@
             <div>
                     <button id="btn-create-account" class="btn-create btn-emphasis">Create new account</button>
             </div>
+            <div id="transfer">
+                <form action="">
+                    <h3>Transaction details</h3>
+                    <div class="form-group">
+                        <label for="acctFrom">From:</label>
+                        <select class="mid inp" name="from" id="">
+                            <option value="">Choose</option>
+                            <option value="">7780-1243-3534-1214</option>
+                            <option value="">1234-5678-9090-1234</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                            <label for="acctTo">To:</label>
+                            <input class="txt pad" type="text">
+                           <i id="check" class="fas fa-search"></i>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input class="txt" name="name" type="text" value="Niyonagira Jack">
+                    </div>
+                    <div class="form-group">
+                            <label for="amount">Amount:</label>
+                            <input class="txt" name="name" type="number">
+                    </div>
+                    <div class="form-group">
+                        <button id="btn-transfer" class="btn btn-success">Transfer</button>
+                    </div>
+                    <h3>Account info</h3>
+                        <div class="form-group">
+                            <label for="acctTo">Account No:</label>
+                            <input class="txt" type="text" value="1234-5678-9090-1234">
+                        </div>
+                        <div class="form-group">
+                            <label for="balance">balance:</label>
+                            <input class="txt" name="balance" type="text" value="200, 122 Rwf">
+                        </div>
+                </form>
+            </div>
         </div>
     </div>
     <!-- =============================================== MODAL CREATE ACCOUNT =================================== -->
@@ -103,6 +140,8 @@
             </div>
         <!-- </form> -->
     </div>
+        <!-- =============================================== MODAL TRANSFER =================================== -->
+        
     <SCript src="./UI/js/client.js"></SCript>   
 </body>
 </html>
