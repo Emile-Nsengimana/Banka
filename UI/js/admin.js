@@ -28,7 +28,6 @@ btnLogout.addEventListener('click', () => {
 // ================================= ACTIVATE || DEACTIVATE CLIENT ==============================
 const btnChange = document.getElementById('btn-status');
 btnChange.addEventListener('click', () => {
-    console.log(btnChange.className);
     if(btnChange.className === 'btn btn-warn'){
         document.getElementById('txt-status').value = 'Dormant'
         btnChange.innerHTML = 'Activate';

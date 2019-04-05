@@ -34,3 +34,25 @@ const btnClientLogout = document.getElementById('btn-client-logout');
 btnClientLogout.addEventListener('click', () => {
     location.href = 'index.html';
 });
+
+// ========================================== TRANSFER ============================================
+const btnTransfer = document.getElementById('btn-menu-transfer');
+const btnMyAccount = document.getElementById('btn-menu-myaccount')
+btnTransfer.addEventListener('click', () => {
+    document.getElementById('acctInfo').style.display = 'none';
+    document.getElementById('btn-create-account').style.display = 'none';
+    document.getElementById('transfer').style.display = 'block';
+    if(btnTransfer.className === 'btn-default'){
+        btnMyAccount.classList.remove('active');
+        btnTransfer.classList.add('active');
+    }
+});
+btnMyAccount.addEventListener('click', () =>{
+    document.getElementById('acctInfo').style.display = 'block';
+    document.getElementById('btn-create-account').style.display = 'block';
+    document.getElementById('transfer').style.display = 'none';
+    if(btnMyAccount.className === 'btn-default'){
+        btnMyAccount.classList.add('active');
+        btnTransfer.classList.remove('active');
+    }
+});
