@@ -17,7 +17,7 @@
         <div class="aside">
             <button id="btn-menu-myaccount" class="active btn-default"><i class="fas fa-money-check-alt"></i>My account</button>
             <button id="btn-menu-transfer" class="btn-default"><i class="fas fa-random"></i>Transfer</button>
-            <button class="btn-default"><i class="fas fa-history"></i>Transaction</button>
+            <button id="btn-transaction-history" class="btn-default"><i class="fas fa-history"></i>Transaction</button>
 <!-- =============================================== PROFILE =================================== -->
             <div class="profile">
                     <img src="./UI/img/passport-004.jpg" class="thumb">
@@ -103,8 +103,69 @@
                         </div>
                 </form>
             </div>
+            <!-- =============================================== TRANSACTION HISTORY =================================== -->
+            <div id="transaction-history">
+                <h3>Transaction history</h3>
+                <table>
+                    <thead>
+                        <td>Account No</td>
+                        <td>Action</td>
+                        <td>From</td>
+                        <td>To</td>
+                        <td>Amount</td>
+                        <td>Date</td>
+                        <td>Time</td>
+                    </thead>
+                    <tr>
+                        <td>1234-5678-9002-1111</td>
+                        <td>Transfer</td>
+                        <td>1234-5678-9002-1111</td>
+                        <td>2233-5678-9002-1111</td>
+                        <td>80, 000</td>
+                        <td>12-01-2019</td>
+                        <td>12h20' am</td>
+                    </tr>
+                    <tr>
+                        <td>1234-5678-9002-1111</td>
+                        <td>Received</td>
+                        <td>1234-5678-9002-1111</td>
+                        <td>2233-5678-9002-1111</td>
+                        <td>80, 000</td>
+                        <td>12-01-2019</td>
+                        <td>12h20' am</td>
+                    </tr>
+                    <tr>
+                        <td>1234-5678-9002-1111</td>
+                        <td>Deposit</td>
+                        <td>1234-5678-9002-1111</td>
+                        <td>2233-5678-9002-1111</td>
+                        <td>80, 000</td>
+                        <td>12-01-2019</td>
+                        <td>12h20' am</td>
+                    </tr>
+                    <tr>
+                            <td>1234-5678-9002-1111</td>
+                            <td>Transfer</td>
+                            <td>1234-5678-9002-1111</td>
+                            <td>2233-5678-9002-1111</td>
+                            <td>80, 000</td>
+                            <td>12-01-2019</td>
+                            <td>12h20' am</td>
+                    </tr>
+                    <tr>
+                            <td>1234-5678-9002-1111</td>
+                            <td>Transfer</td>
+                            <td>1234-5678-9002-1111</td>
+                            <td>2233-5678-9002-1111</td>
+                            <td>80, 000</td>
+                            <td>12-01-2019</td>
+                            <td>12h20' am</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
+
     <!-- =============================================== MODAL CREATE ACCOUNT =================================== -->
     <div id="modal-account">
             <div id="close"><span>&times;</span></div>
@@ -140,8 +201,7 @@
             </div>
         <!-- </form> -->
     </div>
-        <!-- =============================================== MODAL TRANSFER =================================== -->
-        
+
     <SCript src="./UI/js/client.js"></SCript>   
 </body>
 </html>
