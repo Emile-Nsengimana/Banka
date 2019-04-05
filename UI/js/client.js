@@ -42,17 +42,36 @@ btnTransfer.addEventListener('click', () => {
     document.getElementById('acctInfo').style.display = 'none';
     document.getElementById('btn-create-account').style.display = 'none';
     document.getElementById('transfer').style.display = 'block';
+    document.getElementById('transaction-history').style.display = 'none';
+
     if(btnTransfer.className === 'btn-default'){
         btnMyAccount.classList.remove('active');
         btnTransfer.classList.add('active');
+        btnTransactionHistory.classList.remove('active');
     }
 });
 btnMyAccount.addEventListener('click', () =>{
     document.getElementById('acctInfo').style.display = 'block';
     document.getElementById('btn-create-account').style.display = 'block';
     document.getElementById('transfer').style.display = 'none';
+    document.getElementById('transaction-history').style.display = 'none';
+
     if(btnMyAccount.className === 'btn-default'){
         btnMyAccount.classList.add('active');
         btnTransfer.classList.remove('active');
+        btnTransactionHistory.classList.remove('active');
+    }
+});
+// ========================================== TRANSACTION HISTORY ==========================
+const btnTransactionHistory = document.getElementById('btn-transaction-history');
+btnTransactionHistory.addEventListener('click', () =>{
+    document.getElementById('acctInfo').style.display = 'none';
+    document.getElementById('transfer').style.display = 'none';
+    document.getElementById('btn-create-account').style.display = 'none';
+    document.getElementById('transaction-history').style.display = 'block';
+    if(btnTransactionHistory.className === 'btn-default'){
+        btnMyAccount.classList.remove('active');
+        btnTransfer.classList.remove('active');
+        btnTransactionHistory.classList.add('active');
     }
 });
