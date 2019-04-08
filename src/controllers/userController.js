@@ -1,6 +1,8 @@
+/* eslint-disable no-shadow */
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import userModal from '../modals/user';
+import schema from './validation/userSchema';
 
 dotenv.config();
 class userController {
@@ -11,28 +13,33 @@ class userController {
     const idNo = userModal.length + 1;
     const jwtoken = jwt.sign({ id: idNo }, process.env.NEVERMIND, { expiresIn: '24h' });
 
-    const newUser = {
-      id: idNo,
-      firstName,
-      lastName,
-      email,
-      password,
-      type,
-      isAdmin,
-    };
-    userModal.push(newUser);
-    res.status(201).json({
-      status: 201,
-      data: {
-        token: jwtoken,
-        id: idNo,
-        firstName: newUser.firstName,
-        lastName: newUser.lastName,
-        email: newUser.email,
-        type: newUser.type,
-        isAdmin: newUser.isAdmin,
-      },
+    const newUser = schema.validate({
+      id: idNo, firstName, lastName, email, password, type, isAdmin,
     });
+
+    if (!newUser.error) {
+      userModal.push(newUser);
+      const {
+        id, firstName, lastName, email, type, isAdmin,
+      } = newUser.value;
+      res.status(201).json({
+        status: 201,
+        data: {
+          token: jwtoken,
+          id,
+          firstName,
+          lastName,
+          email,
+          type,
+          isAdmin,
+        },
+      });
+    } else {
+      res.status(400).json({
+        status: 400,
+        error: newUser.error.details[0].message.replace('"', ' ').replace('"', ''),
+      });
+    }
   }
 }
 export default userController;

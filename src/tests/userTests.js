@@ -7,6 +7,7 @@ chai.use(chaiHttp);
 chai.should();
 
 describe('User tests', () => {
+  // ========================================== SIGNUP ==========================
   it('should be able to signup', (done) => {
     const user = {
       id: 1,
@@ -30,6 +31,26 @@ describe('User tests', () => {
         res.body.data.should.have.property('email');
         res.body.data.should.have.property('type');
         res.body.data.should.have.property('isAdmin');
+      });
+    done();
+  });
+  it('should have problem signing up', (done) => {
+    const user = {
+      id: 1,
+      firstName: '',
+      lastName: 'Shema',
+      email: 'james@gmail.com',
+      password: '12345678',
+      type: 'client',
+      isAdmin: 'false',
+    };
+    chai.request(server)
+      .post('/api/v1/auth/signup')
+      .send(user)
+      .end((err, res) => {
+        res.body.status.should.be.equal(400);
+        res.body.should.be.an('object');
+        res.body.error.should.be.a('string');
       });
     done();
   });
