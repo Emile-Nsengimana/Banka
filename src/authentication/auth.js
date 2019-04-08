@@ -6,7 +6,10 @@ const verifyMe = (req, res, next) => {
   const head = req.headers.token;
   jwt.verify(head, process.env.NEVERMIND, (error, dcrypt) => {
     if (error) {
-      return res.status(401).json({ error });
+      return res.status(401).json({
+        status: 401,
+        message: 'please login first or sign up',
+      });
       // eslint-disable-next-line no-else-return
     } else {
       req.user = dcrypt;
