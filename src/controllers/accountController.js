@@ -11,7 +11,7 @@ class accountController {
     const accountOwner = userModal.find(usr => usr.id === id);
     const newAccount = schema.validate({
       id: bankAccount.length + 1,
-      accountNo: bankAccount.length + 1,
+      accountNumber: bankAccount.length + 1,
       createdOn: moment.utc().format(),
       owner: id,
       type,
@@ -23,7 +23,7 @@ class accountController {
       return res.status(201).json({
         status: 201,
         data: {
-          accountNumber: newAccount.accountNo,
+          accountNumber: newAccount.value.accountNumber,
           firstName: accountOwner.firstName,
           lastName: accountOwner.lastName,
           email: accountOwner.email,
