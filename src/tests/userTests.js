@@ -54,4 +54,70 @@ describe('User tests', () => {
       });
     done();
   });
+  // ========================================== LOGIN ==========================
+  it('should be able to login', (done) => {
+    const user = {
+      email: 'james@gmail.com',
+      password: '12345678',
+    };
+    chai.request(server)
+      .post('/api/v1/auth/login')
+      .send(user)
+      .end((err, res) => {
+        res.body.status.should.be.equal(200);
+        res.body.should.be.an('object');
+        res.body.data.should.have.property('token');
+        res.body.data.should.have.property('id');
+        res.body.data.should.have.property('firstName');
+        res.body.data.should.have.property('lastName');
+        res.body.data.should.have.property('email');
+        res.body.data.id.should.be.a('number');
+      });
+    done();
+  });
+  it('should not be able to login with wrong password', (done) => {
+    const user = {
+      email: 'james@gmail.com',
+      password: '123456789',
+    };
+    chai.request(server)
+      .post('/api/v1/auth/login')
+      .send(user)
+      .end((err, res) => {
+        res.body.status.should.be.equal(401);
+        res.body.should.be.an('object');
+        res.body.message.should.be.a('string');
+      });
+    done();
+  });
+  it('should not be able to login with unexisting email', (done) => {
+    const user = {
+      email: 'a@gmail.com',
+      password: 'aaa111bbb',
+    };
+    chai.request(server)
+      .post('/api/v1/auth/login')
+      .send(user)
+      .end((err, res) => {
+        res.body.status.should.be.equal(404);
+        res.body.should.be.an('object');
+        res.body.message.should.be.a('string');
+      });
+    done();
+  });
+  it('should not be able to login with invalid email', (done) => {
+    const user = {
+      email: 'emilegmail.com',
+      password: '1234567890',
+    };
+    chai.request(server)
+      .post('/api/v1/auth/login')
+      .send(user)
+      .end((err, res) => {
+        res.body.status.should.be.equal(400);
+        res.body.should.be.an('object');
+        res.body.error.should.be.a('string');
+      });
+    done();
+  });
 });
