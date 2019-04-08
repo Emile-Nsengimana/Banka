@@ -5,7 +5,6 @@ import userModal from '../modals/user';
 import schema from './validation/userSchema';
 import loginSchema from './validation/loginSchema';
 
-
 dotenv.config();
 class userController {
   // ================================================== SIGNUP =====================================
