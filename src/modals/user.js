@@ -6,7 +6,7 @@ const users = [
     email: 'james@gmail.com',
     password: '12345678',
     type: 'client',
-    isAdmin: 'false',
+    isAdmin: false,
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ const users = [
     email: 'onyango@gmail.com',
     password: '12345678',
     type: 'Staff',
-    isAdmin: 'true',
+    isAdmin: true,
   },
 
 ];
