@@ -41,8 +41,8 @@ const username = document.getElementById('txt-username');
 
 btnEmployeeLogin.addEventListener('click', () => {
   if (username.value === 'cashier') {
-    location.href = 'UI/cashier.html';
+    location.href = 'cashier.html';
   } else {
-    location.href = 'UI/admin.html';
+    location.href = 'admin.html';
   }
 });
