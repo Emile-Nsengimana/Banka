@@ -21,7 +21,7 @@
             <br><br><br><br><br>
             <!-- =============================================== PROFILE =================================== -->
             <div class="profile">
-                <img src="./img/passport-004.jpg" class="thumb">
+                <img src="./img/profile.png" class="thumb">
                 <label for="owner" id="shade">Welcome</label>
                 <label for="">Nsengimana Emile</label>
                 <label for="">emile@gmail.com</label>
@@ -195,8 +195,17 @@
                     <input id="txt-status-2" class="inp" name="status" type="text" value="Active">
             </div>
             <div class="form-group">
+                <label class="lb" for="admin"></i>isAdmin:</label>
+                <select name="admin" id="isAdmin">
+                        <option value="">Choose</option>
+                        <option value="true">True</option>
+                        <option value="false">False</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <button id="btn-status" class="btn btn-warn">Deactivate</button>
                 <button class="btn btn-danger">Delete</button>
+                <button class="btn btn-success">Update</button>
             </div>
     </div>
       <!-- =============================================== MODAL CREATE ACCOUNT =================================== -->
@@ -220,7 +229,7 @@
                         <label class="lb" for="email"></i>E-mail:</label>
                         <input class="inp" name="email" type="email">
                 </div>
-            <div class="mid">
+                <div class="mid">
                     <div class="form-group">
                             <label class="lb" for="type">Type:</label>
                             <select name="acct" id="slct-acct-type">
@@ -229,7 +238,12 @@
                                 <option value="Staff">Staff</option>
                             </select>
                     </div>
-            </div>
+                </div>
+                <div class="form-group">
+                        <label for="admin">Admin:</label>
+                        <input type="checkbox" value="true" name="admin">
+                        <input type="checkbox" value="false" name="admin">
+                </div>
             <div class="form-group">
                     <label class="lb" for="password"></i>Password</label>
                     <input class="inp" name="password" type="password">
