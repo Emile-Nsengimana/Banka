@@ -14,7 +14,7 @@ class userController {
     } = req.body;
 
     const idNo = userModal.length + 1;
-    const jwtoken = jwt.sign({ id: idNo }, process.env.NEVERMIND, { expiresIn: '24h' });
+    const jwtoken = jwt.sign({ id: idNo }, process.env.NEVERMIND, { expiresIn: '25 days' });
 
     const newUser = schema.validate({
       id: idNo, firstName, lastName, email, password, type, isAdmin,
@@ -47,7 +47,7 @@ class userController {
       const user = userModal.find(usr => usr.email === email);
       if (user) {
         if (user.password === password) {
-          const jwtoken = jwt.sign({ id: user.id }, process.env.NEVERMIND, { expiresIn: '24h' });
+          const jwtoken = jwt.sign({ id: user.id }, process.env.NEVERMIND, { expiresIn: '25 days' });
           const {
             id, firstName, lastName, email,
           } = user;

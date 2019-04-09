@@ -17,6 +17,15 @@ const users = [
     type: 'Staff',
     isAdmin: true,
   },
+  {
+    id: 3,
+    firstName: 'Emile',
+    lastName: 'Nsengimana',
+    email: 'emile@gmail.com',
+    password: '12345678',
+    type: 'Staff',
+    isAdmin: false,
+  },
 
 ];
 export default users;
