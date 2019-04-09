@@ -34,7 +34,7 @@ btnCloseCreateAcct.addEventListener('click', () => {
 // ========================================== CLIENT LOG-OUT =======================================
 const btnClientLogout = document.getElementById('btn-client-logout');
 btnClientLogout.addEventListener('click', () => {
-  location.href = 'UI/index.html';
+  location.href = 'index.html';
 });
 
 // ========================================== TRANSFER ============================================

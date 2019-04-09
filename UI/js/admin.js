@@ -24,7 +24,7 @@ btnBankAcct.addEventListener('click', () => {
 // ================================= SIGN OUT ==============================
 const btnLogout = document.getElementById('btn-admin-logout');
 btnLogout.addEventListener('click', () => {
-  location.href = 'UI/index.html';
+  location.href = 'index.html';
 });
 // ================================= ACTIVATE || DEACTIVATE CLIENT ==============================
 const btnChange = document.getElementById('btn-status');

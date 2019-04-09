@@ -33,5 +33,5 @@ btnAccs.addEventListener('click', () => {
 // ========================================== STAFF LOGOUT ===================
 const btnEmployeeLogout = document.getElementById('btn-cashier-logout');
 btnEmployeeLogout.addEventListener('click', () => {
-  location.href = 'UI/index.html';
+  location.href = 'index.html';
 });
