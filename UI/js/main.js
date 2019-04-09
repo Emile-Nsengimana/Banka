@@ -33,7 +33,7 @@ btnResetStaff.addEventListener('click', showModal);
 // ========================================== CLIENT LOGIN =========================================
 const btnClientLogin = document.getElementById('btn-client-login');
 btnClientLogin.addEventListener('click', () => {
-  location.href = 'ui/client.html';
+  location.href = 'client.html';
 });
 // ========================================== STAFF LOGIN ==========================================
 const btnEmployeeLogin = document.getElementById('btn-staff-in');
