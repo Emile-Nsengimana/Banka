@@ -15,6 +15,7 @@ route.post('/api/v1/accounts', auth, accountControl.createAccount);
 route.patch('/api/v1/account/:id', auth, accountControl.changeAccountStatus);
 
 // ------------------------------------------- TRANSACTION --------------------------
+route.delete('/api/v1/account/:id', auth, accountControl.deleteAccount);
 route.post('/api/v1/transactions/:accountNo/debit', auth, transactionControl.debitAccount);
 route.post('/api/v1/transactions/:accountNo/credit', auth, transactionControl.creditAccount);
 

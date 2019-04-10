@@ -43,7 +43,6 @@ class accountController {
   static changeAccountStatus(req, res) {
     const { status } = req.body;
     const searchUser = userModal.find(user => user.id === req.user.id);
-    // console.log(req.user);
     if (searchUser.isAdmin === true) {
       const searchBankAccount = bankAccount.find(account => account.accountNumber === parseInt(req.params.id, 10));
       if (searchBankAccount) {
@@ -73,6 +72,30 @@ class accountController {
     return res.status(401).json({
       status: 401,
       message: 'permission denied please contact the admin',
+    });
+  }
+
+  // ================================== DELETE ACCOUNT ==============================
+  static deleteAccount(req, res) {
+    const findUser = userModal.find(user => user.id === req.user.id);
+    const findAccount = bankAccount.find(account => account.id === parseInt(req.params.id, 10));
+    if (findAccount) {
+      if (findUser.type === 'Staff') {
+        bankAccount.pop(parseInt(req.params.id, 10));
+        return res.status(200).json({
+          status: 200,
+          message: 'Account successfully deleted',
+        });
+      }
+      return res.status(401).json({
+        status: 401,
+        message: 'permission denied',
+      });
+    }
+
+    return res.status(404).json({
+      status: 404,
+      message: 'Account not found',
     });
   }
 }
