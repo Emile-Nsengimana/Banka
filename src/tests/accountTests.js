@@ -66,7 +66,7 @@ describe('Bank account tests', () => {
     chai.request(server)
       .patch('/api/v1/account/1')
       .send(changeStatus)
-      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTU0NzU2NzEzLCJleHAiOjE1NTQ4NDMxMTN9.898AB24DzRe6sWKjJEzNxM3X3VQQTYDQsW87P2Slv-E')
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTU0OTAyMDA2fQ.4MP143brnM6woj-vF9Zaqjglg0PGHrqpSVQBeEkc7VE')
       .end((err, res) => {
         res.body.should.be.an('object');
         res.body.status.should.be.equal(200);
@@ -93,7 +93,7 @@ describe('Bank account tests', () => {
   it('staff member should be able to delete user account', (done) => {
     chai.request(server)
       .delete('/api/v1/account/1')
-      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTU0NzU4NzA5LCJleHAiOjE1NTQ4NDUxMDl9.X3e6XCrDcH0u0HuQBKsGOcRvjQcGW0D3ng1R5n492cE')
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTU0OTAyMDA2fQ.4MP143brnM6woj-vF9Zaqjglg0PGHrqpSVQBeEkc7VE')
       .end((err, res) => {
         res.body.should.be.an('object');
         res.body.status.should.be.equal(200);

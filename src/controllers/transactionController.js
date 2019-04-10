@@ -5,20 +5,20 @@ import schema from './validation/transactionSchema';
 import bankAccounts from '../modals/bankAccounts';
 
 class transactionController {
-  // ================================================ DEBIT ACCOUNT ====================================
+  // ========================================= DEBIT ACCOUNT ====================================
   static debitAccount(req, res) {
     const { amount } = req.body;
     const user = search.searchUser(req.user.id);
     if (user.type === 'Staff' && user.isAdmin === false) {
       const account = search.searchAccount(parseInt(req.params.accountNo, 10));
       if (account) {
-        if(bankAccounts[account.id - 1].balance < amount){
+        if (bankAccounts[account.id - 1].balance < amount) {
           return res.status(401).json({
             status: 401,
             message: 'insufficient fund',
           });
         }
-        const debitAccount =   {
+        const debitAccount = {
           id: account.id,
           accountNumber: account.accountNumber,
           createdOn: account.createdOn,
@@ -28,7 +28,7 @@ class transactionController {
           balance: account.balance - amount,
         };
         bankAccounts.pop(account.id - 1);
-        
+
         bankAccounts[account.id - 1] = debitAccount;
         const newTransaction = schema.validate({
           id: transactionModal.length + 1,
@@ -63,14 +63,14 @@ class transactionController {
     });
   }
 
-    // ================================================ CREDIT ACCOUNT ====================================
+  // ========================================= CREDIT ACCOUNT ====================================
   static creditAccount(req, res) {
     const { amount } = req.body;
     const user = search.searchUser(req.user.id);
     if (user.type === 'Staff' && user.isAdmin === false) {
       const account = search.searchAccount(parseInt(req.params.accountNo, 10));
       if (account) {
-        const creditAccount =   {
+        const creditAccount = {
           id: account.id,
           accountNumber: account.accountNumber,
           createdOn: account.createdOn,
@@ -80,8 +80,8 @@ class transactionController {
           balance: account.balance + amount,
         };
         bankAccounts.pop(account.id - 1);
-        
         bankAccounts[account.id - 1] = creditAccount;
+
         const newTransaction = schema.validate({
           id: transactionModal.length + 1,
           createdOn: moment.utc().format(),
@@ -93,7 +93,7 @@ class transactionController {
           newBalance: account.balance + amount,
         });
         if (!newTransaction.error) {
-          transactionModal.push(newTransaction);
+          transactionModal.push(newTransaction.value);
           return res.status(200).json({
             status: 200,
             data: newTransaction.value,
