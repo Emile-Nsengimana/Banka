@@ -2,8 +2,8 @@
 Banka is a light-weight core banking application that powers banking operations like account
 creation, customer deposit and withdrawals.
 ### UI template
-gh-pages: https://emile-nsengimana.github.io/Banka/UI
-#### Heroku(https://cha-ii.herokuapp.com/)
+##### gh-pages: https://emile-nsengimana.github.io/Banka/UI
+##### Heroku: https://cha-ii.herokuapp.com/
 ### Requirements
 
 - `Nodejs` - a JavaScript run-time environment that executes JavaScript code outside of a browser
@@ -13,8 +13,10 @@ gh-pages: https://emile-nsengimana.github.io/Banka/UI
 First clone it to your machine:
 ```
 https://github.com/Emile-Nsengimana/Banka.git
-cd Banka
 ```
+Open it using your favorite IDE
+I used ([vs code](https://code.visualstudio.com/download))
+
 Install all necessary node modules
 ```
 npm install
@@ -40,3 +42,5 @@ npm test
 | `/api/v1/account/<id>` | DELETE | delete an account |
 | `/api/v1/transactions/<accountNo>/debit` | POST | debit a bank account |
 | `/api/v1/transactions/<accountNo>/credit` | POST | credit a bank account |
+### How can it be manually tested
+- using [postman](https://www.getpostman.com/downloads/)
