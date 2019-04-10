@@ -114,4 +114,26 @@ describe('Bank account tests', () => {
       });
     done();
   });
+  it('should be to display all accounts', (done) => {
+    chai.request(server)
+      .get('/api/v1/accounts')
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNTU0OTIyNzE4fQ.wq8JS1pWjFxjOV4GUJIp1gw9ejtSx0dG_7bLG-ObhPs')
+      .end((err, res) => {
+        res.body.should.be.an('object');
+        res.body.status.should.be.equal(200);
+        res.body.data.should.an('array');
+      });
+    done();
+  });
+  it('only staff should be allowed to view all accounts', (done) => {
+    chai.request(server)
+      .get('/api/v1/accounts')
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTU0OTIzMjc2fQ.WsrLbMeIZEPNUAfZ1ifJbmz6W-RxjxbUyCCoUQVj2J0')
+      .end((err, res) => {
+        res.body.should.be.an('object');
+        res.body.status.should.be.equal(401);
+        res.body.message.should.be.a('string');
+      });
+    done();
+  });
 });
