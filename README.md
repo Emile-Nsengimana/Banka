@@ -1,7 +1,7 @@
-## Banka
+## Banka [![Build Status](https://travis-ci.com/Emile-Nsengimana/Banka.svg?branch=develop)](https://travis-ci.com/Emile-Nsengimana/Banka)
 Banka is a light-weight core banking application that powers banking operations like account
 creation, customer deposit and withdrawals.
-#### Links
+### Links
 ##### gh-pages: https://emile-nsengimana.github.io/Banka/UI
 ##### Heroku: https://cha-ii.herokuapp.com/
 ### Requirements
