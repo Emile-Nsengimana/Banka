@@ -1,7 +1,7 @@
 ## Banka
 Banka is a light-weight core banking application that powers banking operations like account
 creation, customer deposit and withdrawals.
-### UI template
+#### Link
 ##### gh-pages: https://emile-nsengimana.github.io/Banka/UI
 ##### Heroku: https://cha-ii.herokuapp.com/
 ### Requirements
