@@ -7,7 +7,7 @@ chai.use(chaiHttp);
 chai.should();
 
 describe('Transaction tests', () => {
-  // ========================================== SIGNUP ==========================
+  // ========================================== DEBIT ACCOUNT ==========================
   it('should be able to debit a bank account', (done) => {
     const debit = {
       amount: 1000.11,
@@ -15,7 +15,7 @@ describe('Transaction tests', () => {
     chai.request(server)
       .post('/api/v1/transactions/1/debit')
       .send(debit)
-      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNTU0ODg3NTA4fQ.meOLb4ixXwVitaSWS8tsY_fu-Hu5kLiDhEnyT2sV0Dc')
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNTU0OTAwNTg5fQ.xCKXCWa4fzmTUi1rd2EgGSdgbOEhVXPe9AqmgkAyTbs')
       .end((err, res) => {
         res.body.status.should.be.equal(200);
         res.body.should.be.an('object');
@@ -37,7 +37,7 @@ describe('Transaction tests', () => {
     chai.request(server)
       .post('/api/v1/transactions/99/debit')
       .send(debit)
-      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNTU0ODg3NTA4fQ.meOLb4ixXwVitaSWS8tsY_fu-Hu5kLiDhEnyT2sV0Dc')
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNTU0OTAwNTg5fQ.xCKXCWa4fzmTUi1rd2EgGSdgbOEhVXPe9AqmgkAyTbs')
       .end((err, res) => {
         res.body.status.should.be.equal(404);
         res.body.should.be.an('object');
@@ -45,14 +45,14 @@ describe('Transaction tests', () => {
       });
     done();
   });
-  it('only cashier should be able allowed to debit a bank account', (done) => {
+  it('only cashier should be allowed to debit a bank account', (done) => {
     const debit = {
       amount: 1000.11,
     };
     chai.request(server)
       .post('/api/v1/transactions/1/debit')
       .send(debit)
-      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTU0ODg3NjU5fQ.ABGDX7h3BjbHEwmhlaPpZTLQUuBu5uZooOQytXfmEfw')
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTU0OTAxMDA0fQ.LrfNzgmO3v2JKV2iXIEeyh4kXu54QImea17Mx3mlmN8')
       .end((err, res) => {
         res.body.status.should.be.equal(401);
         res.body.should.be.an('object');
@@ -67,7 +67,54 @@ describe('Transaction tests', () => {
     chai.request(server)
       .post('/api/v1/transactions/1/debit')
       .send(debit)
-      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNTU0ODg3NTA4fQ.meOLb4ixXwVitaSWS8tsY_fu-Hu5kLiDhEnyT2sV0Dc')
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNTU0OTAwNTg5fQ.xCKXCWa4fzmTUi1rd2EgGSdgbOEhVXPe9AqmgkAyTbs')
+      .end((err, res) => {
+        res.body.status.should.be.equal(400);
+        res.body.should.be.an('object');
+        res.body.error.should.be.a('string');
+      });
+    done();
+  });
+
+  // ========================================== CREDIT ACCOUNT ==========================
+  it('should not be able to credit unexisting bank account', (done) => {
+    const credit = {
+      amount: 1000.11,
+    };
+    chai.request(server)
+      .post('/api/v1/transactions/99/credit')
+      .send(credit)
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNTU0OTAwNTg5fQ.xCKXCWa4fzmTUi1rd2EgGSdgbOEhVXPe9AqmgkAyTbs')
+      .end((err, res) => {
+        res.body.status.should.be.equal(404);
+        res.body.should.be.an('object');
+        res.body.error.should.be.a('string');
+      });
+    done();
+  });
+  it('only cashier should be allowed to credit a bank account', (done) => {
+    const credit = {
+      amount: 1000.11,
+    };
+    chai.request(server)
+      .post('/api/v1/transactions/1/credit')
+      .send(credit)
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTU0OTAxMDA0fQ.LrfNzgmO3v2JKV2iXIEeyh4kXu54QImea17Mx3mlmN8')
+      .end((err, res) => {
+        res.body.status.should.be.equal(401);
+        res.body.should.be.an('object');
+        res.body.error.should.be.a('string');
+      });
+    done();
+  });
+  it('should not be able to credit a bank account with invalid data', (done) => {
+    const credit = {
+      amount: 'one',
+    };
+    chai.request(server)
+      .post('/api/v1/transactions/1/credit')
+      .send(credit)
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNTU0OTAwNTg5fQ.xCKXCWa4fzmTUi1rd2EgGSdgbOEhVXPe9AqmgkAyTbs')
       .end((err, res) => {
         res.body.status.should.be.equal(400);
         res.body.should.be.an('object');
