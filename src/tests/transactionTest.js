@@ -15,7 +15,7 @@ describe('Transaction tests', () => {
     chai.request(server)
       .post('/api/v1/transactions/1/debit')
       .send(debit)
-      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNTU0ODM3NTgyLCJleHAiOjE1NTQ5MjM5ODJ9.lGeDRPbFVzNI-g0qAU16KgeszsdOFZjkIOi8Qee2PqY')
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNTU0ODg3NTA4fQ.meOLb4ixXwVitaSWS8tsY_fu-Hu5kLiDhEnyT2sV0Dc')
       .end((err, res) => {
         res.body.status.should.be.equal(200);
         res.body.should.be.an('object');
@@ -37,7 +37,7 @@ describe('Transaction tests', () => {
     chai.request(server)
       .post('/api/v1/transactions/99/debit')
       .send(debit)
-      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNTU0ODQxMDE4LCJleHAiOjE1NTcwMDEwMTh9.xCjcbWAlOY44JBn96JYYuYJTQo_Iy_18azipGhFFj6Q')
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNTU0ODg3NTA4fQ.meOLb4ixXwVitaSWS8tsY_fu-Hu5kLiDhEnyT2sV0Dc')
       .end((err, res) => {
         res.body.status.should.be.equal(404);
         res.body.should.be.an('object');
@@ -52,7 +52,7 @@ describe('Transaction tests', () => {
     chai.request(server)
       .post('/api/v1/transactions/1/debit')
       .send(debit)
-      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTU0ODQxMzA1LCJleHAiOjE1NTcwMDEzMDV9.sJnuBMvYOSHOfh_Wrz_cmpQcGq6zV1Gnc9qIWQAGZtY')
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTU0ODg3NjU5fQ.ABGDX7h3BjbHEwmhlaPpZTLQUuBu5uZooOQytXfmEfw')
       .end((err, res) => {
         res.body.status.should.be.equal(401);
         res.body.should.be.an('object');
@@ -67,7 +67,7 @@ describe('Transaction tests', () => {
     chai.request(server)
       .post('/api/v1/transactions/1/debit')
       .send(debit)
-      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNTU0ODM3NTgyLCJleHAiOjE1NTQ5MjM5ODJ9.lGeDRPbFVzNI-g0qAU16KgeszsdOFZjkIOi8Qee2PqY')
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNTU0ODg3NTA4fQ.meOLb4ixXwVitaSWS8tsY_fu-Hu5kLiDhEnyT2sV0Dc')
       .end((err, res) => {
         res.body.status.should.be.equal(400);
         res.body.should.be.an('object');

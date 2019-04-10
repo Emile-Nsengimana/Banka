@@ -1,7 +1,6 @@
 /* eslint-disable no-undef */
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-import moment from 'moment';
 import server from '../../server';
 
 chai.use(chaiHttp);
@@ -16,7 +15,7 @@ describe('Bank account tests', () => {
     chai.request(server)
       .post('/api/v1/accounts')
       .send(newAccount)
-      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTU0ODQwNjIzLCJleHAiOjE1NTcwMDA2MjN9.3-1NbW3SLdAuSPM33ExSRjr5sNz_r-RxnS5sW-WdyuU')
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTU0ODg3NDAyfQ.BgWDFVVMvTMvDpOZcbIyiDkMfOTkAxH8seQ_5b_AIIM')
       .end((err, res) => {
         res.body.should.be.an('object');
         res.body.status.should.be.equal(201);
@@ -52,7 +51,7 @@ describe('Bank account tests', () => {
     chai.request(server)
       .post('/api/v1/accounts')
       .send(newAccount)
-      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTU0ODQwNjIzLCJleHAiOjE1NTcwMDA2MjN9.3-1NbW3SLdAuSPM33ExSRjr5sNz_r-RxnS5sW-WdyuU')
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTU0ODg3NDAyfQ.BgWDFVVMvTMvDpOZcbIyiDkMfOTkAxH8seQ_5b_AIIM')
       .end((err, res) => {
         res.body.should.be.an('object');
         res.body.status.should.be.equal(400);
