@@ -115,5 +115,27 @@ class accountController {
       message: 'permission denied',
     });
   }
+
+  // ================================== DISPLAY ACCOUNTS ==============================
+  static searchAccount(req, res) {
+    const findUser = search.searchUser(req.user.id);
+    if (findUser.type === 'Staff') {
+      const getAccount = search.searchAccount(parseInt(req.params.id, 10));
+      if (getAccount) {
+        return res.status(200).json({
+          status: 200,
+          data: getAccount,
+        });
+      }
+      return res.status(404).json({
+        status: 404,
+        message: 'account not found',
+      });
+    }
+    return res.status(401).json({
+      status: 401,
+      message: 'permission denied',
+    });
+  }
 }
 export default accountController;
