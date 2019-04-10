@@ -75,6 +75,22 @@ describe('Bank account tests', () => {
       });
     done();
   });
+
+  it('should not be able to activate or deactivate unexisting user account', (done) => {
+    const changeStatus = {
+      status: 'dormant',
+    };
+    chai.request(server)
+      .patch('/api/v1/account/99')
+      .send(changeStatus)
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTU0OTAyMDA2fQ.4MP143brnM6woj-vF9Zaqjglg0PGHrqpSVQBeEkc7VE')
+      .end((err, res) => {
+        res.body.should.be.an('object');
+        res.body.status.should.be.equal(404);
+        res.body.message.should.be.a('string');
+      });
+    done();
+  });
   it('non-admin should not be able to activate or deactivate user account', (done) => {
     const changeStatus = {
       status: 'dormant',
@@ -102,10 +118,21 @@ describe('Bank account tests', () => {
       });
     done();
   });
+  it('should not be able to delete unexsting user account', (done) => {
+    chai.request(server)
+      .delete('/api/v1/account/99')
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTU0OTAyMDA2fQ.4MP143brnM6woj-vF9Zaqjglg0PGHrqpSVQBeEkc7VE')
+      .end((err, res) => {
+        res.body.should.be.an('object');
+        res.body.status.should.be.equal(404);
+        res.body.message.should.be.a('string');
+      });
+    done();
+  });
   it('normal user should not be able to delete user account', (done) => {
     chai.request(server)
       .delete('/api/v1/account/1')
-      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTU0NzU5MDAzLCJleHAiOjE1NTQ4NDU0MDN9.0xjQGwCDC08Rdze9GfruW4hGBc3D2OJzRuQ63CpAGSY')
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTU0OTM3NDkzfQ.8CCybOLYl5v-wabK5k3nXWPL6fNXpWp_e9ULQW4KdPQ')
       .end((err, res) => {
         res.body.should.be.an('object');
         res.body.status.should.be.equal(401);
@@ -150,6 +177,17 @@ describe('Bank account tests', () => {
         res.body.data.should.have.property('type');
         res.body.data.should.have.property('status');
         res.body.data.should.have.property('balance');
+      });
+    done();
+  });
+  it('should not be able to view a unexisting bank account', (done) => {
+    chai.request(server)
+      .get('/api/v1/accounts/99')
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNTU0OTI0NzA3fQ.Rgwf9MkKUDhj798vkJ6Bko01PEueoAjZ-kTxKVwmmJY')
+      .end((err, res) => {
+        res.body.should.be.an('object');
+        res.body.status.should.be.equal(404);
+        res.body.message.should.be.a('string');
       });
     done();
   });

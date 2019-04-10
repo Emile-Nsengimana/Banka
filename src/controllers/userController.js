@@ -25,14 +25,11 @@ class userController {
       id: idNo, firstName, lastName, email, password, type, isAdmin,
     });
     if (!newUser.error) {
-      userModal.push(newUser);
-      const {
-        id, firstName, lastName, email, type, isAdmin,
-      } = newUser.value;
+      userModal.push(newUser.value);
       return res.status(201).json({
         status: 201,
         data: {
-          token: jwtoken, id, firstName, lastName, email, type, isAdmin,
+          token: jwtoken, idNo, firstName, lastName, email, type, isAdmin,
         },
       });
     }

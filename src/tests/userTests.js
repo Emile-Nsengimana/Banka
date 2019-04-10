@@ -25,7 +25,7 @@ describe('User tests', () => {
         res.body.status.should.be.equal(201);
         res.body.should.be.an('object');
         res.body.data.should.have.property('token');
-        res.body.data.should.have.property('id');
+        res.body.data.should.have.property('idNo');
         res.body.data.should.have.property('firstName');
         res.body.data.should.have.property('lastName');
         res.body.data.should.have.property('email');
