@@ -3,6 +3,8 @@ import moment from 'moment';
 import bankAccount from '../modals/bankAccounts';
 import userModal from '../modals/user';
 import schema from './validation/bankAccountSchema';
+import search from '../helpers/search';
+import bankAccounts from '../modals/bankAccounts';
 
 class accountController {
   // ======================================== BANK ACCOUNTS ====================================
@@ -42,7 +44,7 @@ class accountController {
   // ================================== CHANGE ACCOUNT STATUS ==============================
   static changeAccountStatus(req, res) {
     const { status } = req.body;
-    const searchUser = userModal.find(user => user.id === req.user.id);
+    const searchUser = search.searchUser(req.user.id);
     if (searchUser.isAdmin === true) {
       const searchBankAccount = bankAccount.find(account => account.accountNumber === parseInt(req.params.id, 10));
       if (searchBankAccount) {
@@ -77,7 +79,7 @@ class accountController {
 
   // ================================== DELETE ACCOUNT ==============================
   static deleteAccount(req, res) {
-    const findUser = userModal.find(user => user.id === req.user.id);
+    const findUser = search.searchUser(req.user.id);
     const findAccount = bankAccount.find(account => account.id === parseInt(req.params.id, 10));
     if (findAccount) {
       if (findUser.type === 'Staff') {
@@ -96,6 +98,43 @@ class accountController {
     return res.status(404).json({
       status: 404,
       message: 'Account not found',
+    });
+  }
+
+  // ================================== DISPLAY ACCOUNTS ==============================
+  static displayAccouts(req, res) {
+    const findUser = search.searchUser(req.user.id);
+    if (findUser.type === 'Staff') {
+      return res.status(200).json({
+        status: 200,
+        data: bankAccounts,
+      });
+    }
+    return res.status(401).json({
+      status: 401,
+      message: 'permission denied',
+    });
+  }
+
+  // ================================== DISPLAY ACCOUNTS ==============================
+  static searchAccount(req, res) {
+    const findUser = search.searchUser(req.user.id);
+    if (findUser.type === 'Staff') {
+      const getAccount = search.searchAccount(parseInt(req.params.id, 10));
+      if (getAccount) {
+        return res.status(200).json({
+          status: 200,
+          data: getAccount,
+        });
+      }
+      return res.status(404).json({
+        status: 404,
+        message: 'account not found',
+      });
+    }
+    return res.status(401).json({
+      status: 401,
+      message: 'permission denied',
     });
   }
 }
