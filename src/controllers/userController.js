@@ -4,9 +4,14 @@ import dotenv from 'dotenv';
 import userModal from '../modals/user';
 import schema from './validation/userSchema';
 import loginSchema from './validation/loginSchema';
+import msg from '../helpers/message';
 
 dotenv.config();
 class userController {
+  static welcome(req, res) {
+    return res.send(msg);
+  }
+
   // ================================================== SIGNUP =====================================
   static signup(req, res) {
     const {
@@ -14,7 +19,7 @@ class userController {
     } = req.body;
 
     const idNo = userModal.length + 1;
-    const jwtoken = jwt.sign({ id: idNo }, process.env.NEVERMIND, { expiresIn: '25 days' });
+    const jwtoken = jwt.sign({ id: idNo }, process.env.NEVERMIND);
 
     const newUser = schema.validate({
       id: idNo, firstName, lastName, email, password, type, isAdmin,
@@ -47,7 +52,7 @@ class userController {
       const user = userModal.find(usr => usr.email === email);
       if (user) {
         if (user.password === password) {
-          const jwtoken = jwt.sign({ id: user.id }, process.env.NEVERMIND, { expiresIn: '25 days' });
+          const jwtoken = jwt.sign({ id: user.id }, process.env.NEVERMIND);
           const {
             id, firstName, lastName, email,
           } = user;
