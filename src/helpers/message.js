@@ -10,6 +10,8 @@ creation, customer deposit and withdrawals</h4>
 <li>/api/v1/account/:id</li>
 <li>/api/v1/transactions/:accountNo/debit</li>
 <li>/api/v1/transactions/:accountNo/credit</li>
+<li>/api/v1/accounts</li>
+<li>/api/v1/accounts/:id</li>
 </div>
 </div>
 </div>`;
