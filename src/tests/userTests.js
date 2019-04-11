@@ -120,4 +120,12 @@ describe('User tests', () => {
       });
     done();
   });
+  it('should display welcome message', (done) => {
+    chai.request(server)
+      .get('/')
+      .end((err, res) => {
+        res.body.should.be.an('object');
+      });
+    done();
+  });
 });

@@ -12,7 +12,7 @@ class transactionController {
       const account = search.searchAccount(parseInt(req.params.accountNo, 10));
       if (account) {
         if (bankAccounts[account.id - 1].balance < amount) {
-          res.status(401).json({ status: 401, message: 'insufficient fund' });
+          return res.status(406).json({ status: 406, message: 'insufficient fund' });
         }
         const debitAccount = makeTransaction.updateBankAccount(account, account.balance - amount);
         bankAccounts.pop(account.id - 1);

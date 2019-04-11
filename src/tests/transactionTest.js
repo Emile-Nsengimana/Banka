@@ -45,6 +45,21 @@ describe('Transaction tests', () => {
       });
     done();
   });
+  it('should not be able to debit a bank account with insufficient fund', (done) => {
+    const debit = {
+      amount: 10000000000,
+    };
+    chai.request(server)
+      .post('/api/v1/transactions/1/debit')
+      .send(debit)
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNTU0OTAwNTg5fQ.xCKXCWa4fzmTUi1rd2EgGSdgbOEhVXPe9AqmgkAyTbs')
+      .end((err, res) => {
+        res.body.status.should.be.equal(406);
+        res.body.should.be.an('object');
+        res.body.message.should.be.a('string');
+      });
+    done();
+  });
   it('only cashier should be allowed to debit a bank account', (done) => {
     const debit = {
       amount: 1000.11,

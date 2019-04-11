@@ -33,10 +33,7 @@ class userController {
         },
       });
     }
-    return res.status(400).json({
-      status: 400,
-      error: newUser.error.details[0].message.replace('"', ' ').replace('"', ''),
-    });
+    return res.status(400).json({ status: 400, error: newUser.error.details[0].message.replace('"', ' ').replace('"', '') });
   }
 
   // ================================================== LOGIN =====================================
@@ -60,20 +57,11 @@ class userController {
             },
           });
         }
-        return res.status(401).json({
-          status: 401,
-          message: 'incorrect password',
-        });
+        return res.status(401).json({ status: 401, message: 'incorrect password' });
       }
-      return res.status(404).json({
-        status: 404,
-        message: 'email not found',
-      });
+      return res.status(404).json({ status: 404, message: 'email not found' });
     }
-    return res.status(400).json({
-      status: 400,
-      error: credentials.error.details[0].message.replace('"', ' ').replace('"', ''),
-    });
+    return res.status(400).json({ status: 400, error: credentials.error.details[0].message.replace('"', ' ').replace('"', '') });
   }
 }
 export default userController;
