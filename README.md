@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.com/Emile-Nsengimana/Banka.svg?branch=develop)](https://travis-ci.com/Emile-Nsengimana/Banka) [![Coverage Status](https://coveralls.io/repos/github/Emile-Nsengimana/Banka/badge.svg?branch=develop)](https://coveralls.io/github/Emile-Nsengimana/Banka?branch=develop) [![Maintainability](https://api.codeclimate.com/v1/badges/260f0480811e5684daac/maintainability)](https://codeclimate.com/github/Emile-Nsengimana/Banka/maintainability)
-## Banka 
+# Banka 
 Banka is a light-weight core banking application that powers banking operations like account
 creation, customer deposit and withdrawals.
 ### Links
