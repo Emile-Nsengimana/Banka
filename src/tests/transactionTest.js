@@ -75,6 +75,30 @@ describe('Transaction tests', () => {
       });
     done();
   });
+
+  // ========================================== CREDIT ACCOUNT ==========================
+  it('should be able to credit a bank account', (done) => {
+    const credit = {
+      amount: 1000,
+    };
+    chai.request(server)
+      .post('/api/v1/transactions/1/credit')
+      .send(credit)
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNTU0OTAwNTg5fQ.xCKXCWa4fzmTUi1rd2EgGSdgbOEhVXPe9AqmgkAyTbs')
+      .end((err, res) => {
+        res.body.status.should.be.equal(200);
+        res.body.should.be.an('object');
+        res.body.data.should.have.property('id');
+        res.body.data.should.have.property('createdOn');
+        res.body.data.should.have.property('type');
+        res.body.data.should.have.property('accountNumber');
+        res.body.data.should.have.property('cashier');
+        res.body.data.should.have.property('amount');
+        res.body.data.should.have.property('oldBalance');
+        res.body.data.should.have.property('newBalance');
+      });
+    done();
+  });
   it('should not be able to debit a bank account with invalid data', (done) => {
     const debit = {
       amount: 'one',
@@ -91,7 +115,7 @@ describe('Transaction tests', () => {
     done();
   });
 
-  // ========================================== CREDIT ACCOUNT ==========================
+
   it('should not be able to credit unexisting bank account', (done) => {
     const credit = {
       amount: 1000.11,

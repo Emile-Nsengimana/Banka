@@ -17,6 +17,10 @@ class userController {
     const {
       firstName, lastName, email, password, retype, type,
     } = req.body;
+    const findUser = userModal.find(client => client.email === email);
+    if (findUser) {
+      return res.status(400).json({ status: 400, error: 'user with the same email already exist' });
+    }
     if (password !== retype) {
       return res.status(400).json({ status: 400, error: 'password doesn\'t match' });
     }

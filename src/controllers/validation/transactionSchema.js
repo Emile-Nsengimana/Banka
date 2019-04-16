@@ -4,7 +4,7 @@ const transactionSchema = joi.object().keys({
   id: joi.number().positive().required(),
   createdOn: joi.date().required(),
   type: joi.string().alphanum().min(5).required(),
-  accountNumber: joi.number().positive().required(),
+  accountNumber: joi.string().required(),
   cashier: joi.number().positive().required(),
   amount: joi.number().positive().required(),
   oldBalance: joi.number().required(),

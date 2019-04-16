@@ -76,6 +76,21 @@ describe('Bank account tests', () => {
     done();
   });
 
+  it('should only be allowed to change account to dormant, draft or active', (done) => {
+    const changeStatus = {
+      status: 'deactivated',
+    };
+    chai.request(server)
+      .patch('/api/v1/account/1')
+      .send(changeStatus)
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTU0OTAyMDA2fQ.4MP143brnM6woj-vF9Zaqjglg0PGHrqpSVQBeEkc7VE')
+      .end((err, res) => {
+        res.body.should.be.an('object');
+        res.body.status.should.be.equal(400);
+        res.body.error.should.be.a('string');
+      });
+    done();
+  });
   it('should not be able to activate or deactivate unexisting user account', (done) => {
     const changeStatus = {
       status: 'dormant',
@@ -98,7 +113,7 @@ describe('Bank account tests', () => {
     chai.request(server)
       .patch('/api/v1/account/1')
       .send(changeStatus)
-      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTU0NzU3MDg0LCJleHAiOjE1NTQ4NDM0ODR9.tlgalZ0NUEfE9YOXJO4cDpe86HHDewLH0zOkcJAYsYU')
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNTU1NDUxNjgzfQ.r0i6bYK91OASeclkkbRc_4yU01wrSwGRB-UwUrt8Wgw')
       .end((err, res) => {
         res.body.should.be.an('object');
         res.body.status.should.be.equal(401);
