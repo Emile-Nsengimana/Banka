@@ -46,7 +46,7 @@ describe('Bank account tests', () => {
   });
   it('should not be able to create new bank account without required information', (done) => {
     const newAccount = {
-      type: 'savings',
+      type: '',
     };
     chai.request(server)
       .post('/api/v1/accounts')

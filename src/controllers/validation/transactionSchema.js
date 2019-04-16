@@ -7,7 +7,7 @@ const transactionSchema = joi.object().keys({
   accountNumber: joi.number().positive().required(),
   cashier: joi.number().positive().required(),
   amount: joi.number().positive().required(),
-  oldBalance: joi.number().positive().required(),
-  newBalance: joi.number().positive().required(),
+  oldBalance: joi.number().required(),
+  newBalance: joi.number().required(),
 });
 export default transactionSchema;
