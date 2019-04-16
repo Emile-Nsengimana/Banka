@@ -25,7 +25,7 @@ describe('User tests', () => {
         res.body.status.should.be.equal(201);
         res.body.should.be.an('object');
         res.body.data.should.have.property('token');
-        res.body.data.should.have.property('id');
+        res.body.data.should.have.property('idNo');
         res.body.data.should.have.property('firstName');
         res.body.data.should.have.property('lastName');
         res.body.data.should.have.property('email');
@@ -117,6 +117,14 @@ describe('User tests', () => {
         res.body.status.should.be.equal(400);
         res.body.should.be.an('object');
         res.body.error.should.be.a('string');
+      });
+    done();
+  });
+  it('should display welcome message', (done) => {
+    chai.request(server)
+      .get('/')
+      .end((err, res) => {
+        res.body.should.be.an('object');
       });
     done();
   });

@@ -3,6 +3,7 @@ import moment from 'moment';
 import bankAccount from '../modals/bankAccounts';
 import userModal from '../modals/user';
 import schema from './validation/bankAccountSchema';
+import search from '../helpers/search';
 
 class accountController {
   // ======================================== BANK ACCOUNTS ====================================
@@ -33,16 +34,13 @@ class accountController {
         },
       });
     }
-    return res.status(400).json({
-      status: 400,
-      error: newAccount.error.details[0].message.replace('"', ' ').replace('"', ''),
-    });
+    return res.status(400).json({ status: 400, error: newAccount.error.details[0].message.replace('"', '').replace('"', '') });
   }
 
   // ================================== CHANGE ACCOUNT STATUS ==============================
   static changeAccountStatus(req, res) {
     const { status } = req.body;
-    const searchUser = userModal.find(user => user.id === req.user.id);
+    const searchUser = search.searchUser(req.user.id);
     if (searchUser.isAdmin === true) {
       const searchBankAccount = bankAccount.find(account => account.accountNumber === parseInt(req.params.id, 10));
       if (searchBankAccount) {
@@ -56,47 +54,47 @@ class accountController {
           balance: searchBankAccount.balance,
         };
         bankAccount[searchBankAccount.id - 1] = updateAccount;
-        return res.status(200).json({
-          status: 200,
-          data: {
-            accountNumber: searchBankAccount.accountNumber,
-            status,
-          },
-        });
+        return res.status(200).json({ status: 200, data: { accountNumber: searchBankAccount.accountNumber, status } });
       }
-      return res.status(404).json({
-        status: 404,
-        data: 'account not found',
-      });
+      return res.status(404).json({ status: 404, message: 'account not found' });
     }
-    return res.status(401).json({
-      status: 401,
-      message: 'permission denied please contact the admin',
-    });
+    return res.status(401).json({ status: 401, message: 'permission denied please contact the admin' });
   }
 
   // ================================== DELETE ACCOUNT ==============================
   static deleteAccount(req, res) {
-    const findUser = userModal.find(user => user.id === req.user.id);
+    const findUser = search.searchUser(req.user.id);
     const findAccount = bankAccount.find(account => account.id === parseInt(req.params.id, 10));
     if (findAccount) {
       if (findUser.type === 'Staff') {
         bankAccount.pop(parseInt(req.params.id, 10));
-        return res.status(200).json({
-          status: 200,
-          message: 'Account successfully deleted',
-        });
+        return res.status(200).json({ status: 200, message: 'Account successfully deleted' });
       }
-      return res.status(401).json({
-        status: 401,
-        message: 'permission denied',
-      });
+      return res.status(401).json({ status: 401, message: 'permission denied' });
     }
+    return res.status(404).json({ status: 404, message: 'Account not found' });
+  }
 
-    return res.status(404).json({
-      status: 404,
-      message: 'Account not found',
-    });
+  // ================================== DISPLAY ACCOUNTS ==============================
+  static displayAccouts(req, res) {
+    const findUser = search.searchUser(req.user.id);
+    if (findUser.type === 'Staff') {
+      return res.status(200).json({ status: 200, data: bankAccount });
+    }
+    return res.status(401).json({ status: 401, message: 'permission denied' });
+  }
+
+  // ================================== DISPLAY ACCOUNTS ==============================
+  static searchAccount(req, res) {
+    const findUser = search.searchUser(req.user.id);
+    if (findUser.type === 'Staff') {
+      const getAccount = search.searchAccount(parseInt(req.params.id, 10));
+      if (getAccount) {
+        return res.status(200).json({ status: 200, data: getAccount });
+      }
+      return res.status(404).json({ status: 404, message: 'account not found' });
+    }
+    return res.status(401).json({ status: 401, message: 'permission denied' });
   }
 }
 export default accountController;

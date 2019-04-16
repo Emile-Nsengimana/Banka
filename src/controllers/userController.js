@@ -4,9 +4,14 @@ import dotenv from 'dotenv';
 import userModal from '../modals/user';
 import schema from './validation/userSchema';
 import loginSchema from './validation/loginSchema';
+import msg from '../helpers/message';
 
 dotenv.config();
 class userController {
+  static welcome(req, res) {
+    return res.send(msg);
+  }
+
   // ================================================== SIGNUP =====================================
   static signup(req, res) {
     const {
@@ -14,27 +19,21 @@ class userController {
     } = req.body;
 
     const idNo = userModal.length + 1;
-    const jwtoken = jwt.sign({ id: idNo }, process.env.NEVERMIND, { expiresIn: '24h' });
+    const jwtoken = jwt.sign({ id: idNo }, process.env.NEVERMIND);
 
     const newUser = schema.validate({
       id: idNo, firstName, lastName, email, password, type, isAdmin,
     });
     if (!newUser.error) {
-      userModal.push(newUser);
-      const {
-        id, firstName, lastName, email, type, isAdmin,
-      } = newUser.value;
+      userModal.push(newUser.value);
       return res.status(201).json({
         status: 201,
         data: {
-          token: jwtoken, id, firstName, lastName, email, type, isAdmin,
+          token: jwtoken, idNo, firstName, lastName, email, type, isAdmin,
         },
       });
     }
-    return res.status(400).json({
-      status: 400,
-      error: newUser.error.details[0].message.replace('"', ' ').replace('"', ''),
-    });
+    return res.status(400).json({ status: 400, error: newUser.error.details[0].message.replace('"', ' ').replace('"', '') });
   }
 
   // ================================================== LOGIN =====================================
@@ -47,7 +46,7 @@ class userController {
       const user = userModal.find(usr => usr.email === email);
       if (user) {
         if (user.password === password) {
-          const jwtoken = jwt.sign({ id: user.id }, process.env.NEVERMIND, { expiresIn: '24h' });
+          const jwtoken = jwt.sign({ id: user.id }, process.env.NEVERMIND);
           const {
             id, firstName, lastName, email,
           } = user;
@@ -58,20 +57,11 @@ class userController {
             },
           });
         }
-        return res.status(401).json({
-          status: 401,
-          message: 'incorrect password',
-        });
+        return res.status(401).json({ status: 401, message: 'incorrect password' });
       }
-      return res.status(404).json({
-        status: 404,
-        message: 'email not found',
-      });
+      return res.status(404).json({ status: 404, message: 'email not found' });
     }
-    return res.status(400).json({
-      status: 400,
-      error: credentials.error.details[0].message.replace('"', ' ').replace('"', ''),
-    });
+    return res.status(400).json({ status: 400, error: credentials.error.details[0].message.replace('"', ' ').replace('"', '') });
   }
 }
 export default userController;

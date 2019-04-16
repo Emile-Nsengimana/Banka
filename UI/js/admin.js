@@ -8,8 +8,12 @@ const btnUsers = document.getElementById('btn-users');
 btnUsers.addEventListener('click', () => {
   document.getElementById('display').style.display = 'none';
   document.getElementById('modal-users').style.display = 'block';
+  document.getElementById('profile-admin').style.display = 'none';
+
   btnUsers.classList.add('active');
   btnBankAcct.classList.remove('active');
+  document.getElementById('btn-profile').classList.remove('active');
+
 });
 
 // ================================= BANK ACCOUNTS ==============================
@@ -17,8 +21,11 @@ const btnBankAcct = document.getElementById('btn-bank-acct');
 btnBankAcct.addEventListener('click', () => {
   document.getElementById('modal-users').style.display = 'none';
   document.getElementById('display').style.display = 'block';
+  document.getElementById('profile-admin').style.display = 'none';
+
   btnBankAcct.classList.add('active');
   btnUsers.classList.remove('active');
+  document.getElementById('btn-profile').classList.remove('active');
 });
 
 // ================================= SIGN OUT ==============================
@@ -77,4 +84,33 @@ btnCancelAddUser.addEventListener('click', () => {
 });
 btnAddUser.addEventListener('click', () => {
   modalCreateUserAcct.style.display = 'block';
+});
+
+// ===================================== PROFILE ===========================================
+const btnProfile = document.getElementById('btn-profile');
+
+btnProfile.addEventListener('click', () => {
+    document.getElementById('display').style.display = 'none';
+    document.getElementById('modal-users').style.display = 'none';
+    document.getElementById('profile-admin').style.display = 'block';
+
+
+    document.getElementById('btn-bank-acct').classList.remove('active');
+    document.getElementById('btn-users').classList.remove('active');
+    document.getElementById('btn-profile').classList.add('active');
+
+  });
+
+// ================================================= PASSWORD RESET =========================
+const btnChangePassword = document.getElementById('btn-change-password');
+const modalChangePassword = document.getElementById('change-password');
+const btnCancelPawwordReset = document.getElementById('btn-cancel-reset');
+
+btnChangePassword.addEventListener('click', () => {
+  document.getElementById('profile-info').style.display = 'none';
+  modalChangePassword.style.display = 'block';
+});
+btnCancelPawwordReset.addEventListener('click', () => {
+  document.getElementById('profile-info').style.display = 'block';
+  modalChangePassword.style.display = 'none';
 });
