@@ -34,6 +34,7 @@ npm test
 ### API ENDPOINTS
 | API | Methods  | Description  |
 | ------- | --- | --- |
+`/` | GET | introduction |
 | `/api/v1/auth/signup` | POST | user signup |
 | `/api/v1/auth/login` | POST | user login |
 | `/api/v1/accounts` | POST | create account |
