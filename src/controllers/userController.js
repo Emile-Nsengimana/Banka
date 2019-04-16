@@ -15,12 +15,12 @@ class userController {
   // ================================================== SIGNUP =====================================
   static signup(req, res) {
     const {
-      firstName, lastName, email, password, type, isAdmin,
+      firstName, lastName, email, password, type,
     } = req.body;
 
     const idNo = userModal.length + 1;
     const jwtoken = jwt.sign({ id: idNo }, process.env.NEVERMIND);
-
+    const isAdmin = false;
     const newUser = schema.validate({
       id: idNo, firstName, lastName, email, password, type, isAdmin,
     });
