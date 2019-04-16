@@ -15,8 +15,8 @@ describe('User tests', () => {
       lastName: 'Shema',
       email: 'james@gmail.com',
       password: '12345678',
+      retype: '12345678',
       type: 'client',
-      isAdmin: 'false',
     };
     chai.request(server)
       .post('/api/v1/auth/signup')

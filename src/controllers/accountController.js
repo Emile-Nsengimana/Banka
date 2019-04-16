@@ -4,13 +4,15 @@ import bankAccount from '../modals/bankAccounts';
 import userModal from '../modals/user';
 import schema from './validation/bankAccountSchema';
 import search from '../helpers/search';
+import schemaStatus from './validation/accountStatusSchema';
 
 class accountController {
   // ======================================== BANK ACCOUNTS ====================================
   static createAccount(req, res) {
-    const { type, balance } = req.body;
+    const { type } = req.body;
     const { id } = req.user;
     const accountOwner = userModal.find(usr => usr.id === id);
+    const balance = 0;
     const newAccount = schema.validate({
       id: bankAccount.length + 1,
       accountNumber: bankAccount.length + 1,
@@ -21,7 +23,7 @@ class accountController {
       balance,
     });
     if (!newAccount.error) {
-      bankAccount.push(newAccount);
+      bankAccount.push(newAccount.value);
       return res.status(201).json({
         status: 201,
         data: {
@@ -40,6 +42,10 @@ class accountController {
   // ================================== CHANGE ACCOUNT STATUS ==============================
   static changeAccountStatus(req, res) {
     const { status } = req.body;
+    const checkStatus = schemaStatus.validate(req.body);
+    if (checkStatus.error) {
+      return res.status(400).json({ status: 400, error: 'account can only be change to dormant, draft, or active' });
+    }
     const searchUser = search.searchUser(req.user.id);
     if (searchUser.isAdmin === true) {
       const searchBankAccount = bankAccount.find(account => account.accountNumber === parseInt(req.params.id, 10));
