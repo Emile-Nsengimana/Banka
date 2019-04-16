@@ -7,6 +7,6 @@ const bankAccounntSchema = joi.object().keys({
   owner: joi.number().positive().required(),
   type: joi.string().min(4).required(),
   status: joi.string().min(4).required(),
-  balance: joi.number().positive().required(),
+  balance: joi.number().required(),
 });
 export default bankAccounntSchema;

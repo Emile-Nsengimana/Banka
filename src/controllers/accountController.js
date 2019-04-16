@@ -8,9 +8,10 @@ import search from '../helpers/search';
 class accountController {
   // ======================================== BANK ACCOUNTS ====================================
   static createAccount(req, res) {
-    const { type, balance } = req.body;
+    const { type } = req.body;
     const { id } = req.user;
     const accountOwner = userModal.find(usr => usr.id === id);
+    const balance = 0;
     const newAccount = schema.validate({
       id: bankAccount.length + 1,
       accountNumber: bankAccount.length + 1,
@@ -21,7 +22,7 @@ class accountController {
       balance,
     });
     if (!newAccount.error) {
-      bankAccount.push(newAccount);
+      bankAccount.push(newAccount.value);
       return res.status(201).json({
         status: 201,
         data: {
