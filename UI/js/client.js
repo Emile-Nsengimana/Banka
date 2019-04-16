@@ -45,11 +45,13 @@ btnTransfer.addEventListener('click', () => {
   document.getElementById('btn-create-account').style.display = 'none';
   document.getElementById('transfer').style.display = 'block';
   document.getElementById('transaction-history').style.display = 'none';
+  document.getElementById('profile-admin').style.display = 'none';
 
   if (btnTransfer.className === 'btn-default') {
     btnMyAccount.classList.remove('active');
     btnTransfer.classList.add('active');
     btnTransactionHistory.classList.remove('active');
+    document.getElementById('btn-profile').classList.remove('active');
   }
 });
 btnMyAccount.addEventListener('click', () => {
@@ -57,11 +59,13 @@ btnMyAccount.addEventListener('click', () => {
   document.getElementById('btn-create-account').style.display = 'block';
   document.getElementById('transfer').style.display = 'none';
   document.getElementById('transaction-history').style.display = 'none';
+  document.getElementById('profile-admin').style.display = 'none';
 
   if (btnMyAccount.className === 'btn-default') {
     btnMyAccount.classList.add('active');
     btnTransfer.classList.remove('active');
     btnTransactionHistory.classList.remove('active');
+    document.getElementById('btn-profile').classList.remove('active');
   }
 });
 // ========================================== TRANSACTION HISTORY ==========================
@@ -70,9 +74,44 @@ btnTransactionHistory.addEventListener('click', () => {
   document.getElementById('transfer').style.display = 'none';
   document.getElementById('btn-create-account').style.display = 'none';
   document.getElementById('transaction-history').style.display = 'block';
+  document.getElementById('profile-admin').style.display = 'none';
+
   if (btnTransactionHistory.className === 'btn-default') {
     btnMyAccount.classList.remove('active');
     btnTransfer.classList.remove('active');
+    document.getElementById('btn-profile').classList.remove('active');
     btnTransactionHistory.classList.add('active');
   }
+});
+
+// ===================================== PROFILE ===========================================
+const btnProfile = document.getElementById('btn-profile');
+
+btnProfile.addEventListener('click', () => {
+    document.getElementById('acctInfo').style.display = 'none';
+    document.getElementById('transaction-history').style.display = 'none';
+    document.getElementById('transfer').style.display = 'none';
+    document.getElementById('btn-create-account').style.display = 'none';
+    document.getElementById('profile-admin').style.display = 'block';
+
+
+    document.getElementById('btn-menu-myaccount').classList.remove('active');
+    document.getElementById('btn-menu-transfer').classList.remove('active');
+    document.getElementById('btn-transaction-history').classList.remove('active');
+    document.getElementById('btn-profile').classList.add('active');
+
+  });
+
+// ================================================= PASSWORD RESET =========================
+const btnChangePassword = document.getElementById('btn-change-password');
+const modalChangePassword = document.getElementById('change-password');
+const btnCancelPawwordReset = document.getElementById('btn-cancel-reset');
+
+btnChangePassword.addEventListener('click', () => {
+  document.getElementById('profile-info').style.display = 'none';
+  modalChangePassword.style.display = 'block';
+});
+btnCancelPawwordReset.addEventListener('click', () => {
+  document.getElementById('profile-info').style.display = 'block';
+  modalChangePassword.style.display = 'none';
 });

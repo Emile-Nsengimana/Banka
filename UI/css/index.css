@@ -116,6 +116,29 @@ button{
     color: rgb(8, 65, 92);
     font-size: 24pt;
 }
+#change-password .form-group, #profile-info .form-group {
+    width: 70%;
+    text-align: justify;
+    text-align: right;
+    margin: auto;
+}
+.dv-double-btn{
+    margin-right: 139px;
+    float: right;
+    width: 50%;
+}
+.dv-double-btn .btn-danger{
+    width: 25%;
+}
+.dv-double-btn .btn-success{
+    width: 45%;
+}
+#profile-admin .form-group, #change-password label{
+    padding-bottom: 0px;
+}
+#profile-admin label{
+    font-weight: 700;
+}
 #staff{
     margin-top: 80px;
     display: none;
@@ -222,6 +245,21 @@ button{
     width: 30px;
     text-align: center;
 }
+.hide{
+    display: none;
+}
+.btn-simple{
+    display: block;
+    width: 40%;
+    border: none;
+    font-weight: 700;
+    padding: 0;
+    margin: auto;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+}
 #hide{
     margin-right: 14px;
     font-weight: bold;
@@ -229,7 +267,6 @@ button{
     color: rgb(0, 0, 0);
     cursor: pointer;
     background: rgb(218, 221, 210);
-    /* border-radius: 1px; */
     width: 100%;
     text-align: center;
     padding: 0;
@@ -297,15 +334,15 @@ button{
     overflow: auto;
   }
 
-  #shade{
+  .shade{
       background: rgb(49, 6, 49);
       color: white;
       font-weight: 700;
-      width: 90%;
+      width: 80%;
       display: block;
-      height: 15px;
-      padding-top: 7px;
-      margin-bottom: 10px;
+      height: 25px;
+      margin-left: 10%;
+      margin-top: 10px;
   }
 .btn-default{
     width: 95%;
@@ -320,7 +357,7 @@ button{
     text-align: left;
     padding: 0px;
 }
-.btn-default:hover{
+.btn-default:hover, .btn-simple:hover{
     background: rgb(8, 65, 92);
     color: white;
 }
@@ -333,6 +370,7 @@ button{
     margin: auto;
 }
 .btn-create{
+    outline: none;
     position: inherit;
     float: right;
     margin: 10px;
@@ -363,12 +401,13 @@ button{
     padding: 5px;
 }
 .thumb{
-    width: 50%;
-    margin-bottom: 20px;
+    width: 40%;
+    margin: auto;
+    margin-top: 0;
     border-radius: 200px;
 }
 /* -------------------------------------------- MODAL CREATE ACCOUNT --------------------------------- */
-#modal-account, #modal-add-user{
+#modal-account{
     display: none;
     margin: auto;
     padding: 10px;
@@ -488,6 +527,18 @@ select{
     text-align: center;
     height: 40vh;
 }
+#modal-add-user{
+    display: none;
+    margin: auto;
+    padding: 10px;
+    width: 35%;
+    background: white;
+    position: fixed;
+    top: 17%;
+    left: 30%;
+    border-radius: 12px;
+    box-shadow: 2px 4px 10px 0 rgba(0, 0, 0, 0.4), 1px 3px 3px 0 rgba(0, 0, 0, 0.3);
+}
 #search, #search-account{
     font-weight: 700;
     width: 30%;
@@ -565,6 +616,7 @@ td{
 }
 .btn-success:hover{
     background: rgb(83, 138, 69); 
+    color: white;
 }
 #modal-add-user{
     padding-left: 70px;
