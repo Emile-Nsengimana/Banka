@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import moment from 'moment';
+import uuid from 'uuid/v1';
 import bankAccount from '../modals/bankAccounts';
 import userModal from '../modals/user';
 import schema from './validation/bankAccountSchema';
@@ -15,7 +16,7 @@ class accountController {
     const balance = 0;
     const newAccount = schema.validate({
       id: bankAccount.length + 1,
-      accountNumber: bankAccount.length + 1,
+      accountNumber: uuid(),
       createdOn: moment.utc().format(),
       owner: id,
       type,
@@ -48,7 +49,7 @@ class accountController {
     }
     const searchUser = search.searchUser(req.user.id);
     if (searchUser.isAdmin === true) {
-      const searchBankAccount = bankAccount.find(account => account.accountNumber === parseInt(req.params.id, 10));
+      const searchBankAccount = bankAccount.find(account => account.accountNumber === req.params.id);
       if (searchBankAccount) {
         const updateAccount = {
           id: searchBankAccount.id,
@@ -94,7 +95,7 @@ class accountController {
   static searchAccount(req, res) {
     const findUser = search.searchUser(req.user.id);
     if (findUser.type === 'Staff') {
-      const getAccount = search.searchAccount(parseInt(req.params.id, 10));
+      const getAccount = search.searchAccount(req.params.id);
       if (getAccount) {
         return res.status(200).json({ status: 200, data: getAccount });
       }

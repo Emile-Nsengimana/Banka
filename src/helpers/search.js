@@ -8,7 +8,7 @@ class search {
   }
 
   static searchAccount(id) {
-    const searchAccount = account.find(acct => acct.id === id);
+    const searchAccount = account.find(acct => acct.accountNumber === id);
     return searchAccount;
   }
 }
