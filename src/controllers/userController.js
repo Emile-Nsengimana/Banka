@@ -15,9 +15,11 @@ class userController {
   // ================================================== SIGNUP =====================================
   static signup(req, res) {
     const {
-      firstName, lastName, email, password, type,
+      firstName, lastName, email, password, retype, type,
     } = req.body;
-
+     if(password !== retype){
+      return res.status(400).json({ status: 400, error: 'password doesn\'t match' });
+    }
     const idNo = userModal.length + 1;
     const jwtoken = jwt.sign({ id: idNo }, process.env.NEVERMIND);
     const isAdmin = false;
