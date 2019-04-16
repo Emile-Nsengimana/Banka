@@ -19,17 +19,10 @@
             <button id="btn-bank-acct" class="active btn-default"><i class="fas fa-id-card"></i>Bank accounts</button>
             <button id="btn-debit" class="btn-default"><i class="fas fa-users"></i>Debit</button>
             <button id="btn-credit" class="btn-default"><i class="fas fa-users"></i>Credit</button>
-            <br><br><br><br><br>
-            <!-- =============================================== PROFILE =================================== -->
-            <div class="profile">
-                <img src="./img/profile.png" class="thumb">
-                <label for="owner" id="shade">Welcome</label>
-                <label for="">Nsengimana Emile</label>
-                <label for="">emile@gmail.com</label>
-                <button class="btn btn-link">Edit</button>
-            </div>
+            <button id="btn-profile" class="btn-default"><i class="fas fa-user"></i>Profile</button>
             <button id="btn-cashier-logout" class="btn-default"><i class="fas fa-sign-out-alt"></i>Sign out</button>
         </div>
+
 <!-- =============================================== MAIN CONTENT =================================== -->
         <div class="main">            
             <div id="display">
@@ -110,7 +103,52 @@
                         </table>
                     </div>
             </div>
-            <!-- ================================================================ DEBIT ========================================= -->
+<!-- =============================================== PROFILE ================================================= -->
+                    <div id="profile-admin" class="profile hide">
+                            <div class="thumb">
+                                    <img src="./img/profile.png"/>
+                                    <button class="btn-simple">Change picture<i class="fas fa-user-edit"></i></button>
+                            </div>
+                            <div id="profile-info">
+                                <div class="form-control">
+                                        <label for="owner" class="shade">Personal information</label>
+                                </div>
+                                <div class="form-group">
+                                        <label>First name:</label>
+                                        <input class="inp" type="text" value="Emile"/>
+                                </div>
+                                <div class="form-group">
+                                        <label>Last name:</label>
+                                        <input class="inp" type="text" value="Nsengimana"/>
+                                </div>
+                                <div class="form-group">
+                                        <label>E-mail:</label>
+                                        <input class="inp" type="text" value="emile@gmail.com"/>
+                                </div>
+                                <button id="btn-change-password" class="btn-simple">Change password<i class="fas fa-key"></i></button>
+                            </div>
+                            <div id="change-password" class="hide">
+                                    <label class="shade" >Change password</label>
+                                    <div class="form-group">
+                                            <label class="lb" for="password"></i>Old password:</label>
+                                            <input class="inp" name="password" type="password">
+                                    </div>
+                                    <div class="form-group">
+                                            <label class="lb" for="password"></i>New password:</label>
+                                            <input class="inp" name="password" type="password">
+                                    </div>
+                                    <div class="form-group">
+                                            <label class="lb" for="retype"></i>Re-type:</label>
+                                            <input class="inp" name="retype" type="password">
+                                    </div>                            
+                                    <div class="dv-double-btn">
+                                            <button id="btn-cancel-reset"  class="btn btn-danger">Cancel</button>
+                                            <button class="btn btn-success">Change</button>
+                                    </div>
+                            </div>
+                   </div> 
+
+<!-- ================================================================ DEBIT ========================================= -->
             <div id="debit">
                 <h3>ACCOUNT DEBIT</h3>
                     <div class="form-group">
@@ -130,6 +168,7 @@
                          <button class="btn btn-success btn-lg">Debit account</button>
                     </div>
             </div>
+
  <!-- ================================================================ DEBIT ========================================= -->
                         <div id="credit">
                                 <h3>ACCOUNT CREDIT</h3>
@@ -152,6 +191,7 @@
                             </div>
         </div>  
     </div>
+
 <!-- ================================================================ MODAL SEARCH ========================================= -->
 <div id="modal-search">
         <div id="close-search"><span>&times;</span></div>
@@ -182,7 +222,7 @@
             </div>
     </div>
     
-    <!-- ================================================================ MODAL USER ACCOUNT ========================================= -->
+<!-- ================================================================ MODAL USER ACCOUNT ========================================= -->
     <div id="modal-view-account">
         <div id="close-account"><span>&times;</span></div>
         <h1>Account details</h1> 
@@ -203,7 +243,8 @@
                 <button class="btn btn-danger">Delete</button>
             </div>
     </div>
-      <!-- =============================================== MODAL CREATE ACCOUNT =================================== -->
+
+<!-- =============================================== MODAL CREATE ACCOUNT =================================== -->
       <div id="modal-add-user">
             <div id="close-add-user"><span>&times;</span></div>
             <h1>ACCOUNT CREATION</h1>                
