@@ -2,8 +2,8 @@ import joi from 'joi';
 import PasswordComplexity from 'joi-password-complexity';
 
 const complexityOptions = {
-  min: 10,
-  max: 30,
+  min: 8,
+  max: 20,
   lowerCase: 1,
   upperCase: 1,
   numeric: 1,
@@ -15,7 +15,7 @@ const userSchema = joi.object().keys({
   lastName: joi.string().alphanum().min(3).required(),
   email: joi.string().email().required(),
   password: new PasswordComplexity(complexityOptions),
-  type: joi.string().min(4).required(),
+  type: joi.string().valid('client', 'staff').required(),
   isAdmin: joi.boolean().required(),
 });
 
