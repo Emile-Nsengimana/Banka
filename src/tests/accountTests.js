@@ -28,6 +28,7 @@ describe('Bank account tests', () => {
       });
     done();
   });
+
   it('should not be able to create new bank account for unkown user', (done) => {
     const newAccount = {
       type: 'savings',
@@ -64,9 +65,9 @@ describe('Bank account tests', () => {
       status: 'dormant',
     };
     chai.request(server)
-      .patch('/api/v1/account/1')
+      .patch('/api/v1/account/153240580-6148-11e9-9c14-1d5134eb636e')
       .send(changeStatus)
-      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTU0OTAyMDA2fQ.4MP143brnM6woj-vF9Zaqjglg0PGHrqpSVQBeEkc7VE')
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTU1NTMwNTMwfQ.dsbJrq76EeswaRPF2eTGIVUiPTwbaovNaS2_XzYOYW0')
       .end((err, res) => {
         res.body.should.be.an('object');
         res.body.status.should.be.equal(200);
@@ -76,6 +77,21 @@ describe('Bank account tests', () => {
     done();
   });
 
+  it('should only be allowed to change account to dormant, draft or active', (done) => {
+    const changeStatus = {
+      status: 'deactivated',
+    };
+    chai.request(server)
+      .patch('/api/v1/account/1')
+      .send(changeStatus)
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTU0OTAyMDA2fQ.4MP143brnM6woj-vF9Zaqjglg0PGHrqpSVQBeEkc7VE')
+      .end((err, res) => {
+        res.body.should.be.an('object');
+        res.body.status.should.be.equal(400);
+        res.body.error.should.be.a('string');
+      });
+    done();
+  });
   it('should not be able to activate or deactivate unexisting user account', (done) => {
     const changeStatus = {
       status: 'dormant',
@@ -98,7 +114,7 @@ describe('Bank account tests', () => {
     chai.request(server)
       .patch('/api/v1/account/1')
       .send(changeStatus)
-      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTU0NzU3MDg0LCJleHAiOjE1NTQ4NDM0ODR9.tlgalZ0NUEfE9YOXJO4cDpe86HHDewLH0zOkcJAYsYU')
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNTU1NDUxNjgzfQ.r0i6bYK91OASeclkkbRc_4yU01wrSwGRB-UwUrt8Wgw')
       .end((err, res) => {
         res.body.should.be.an('object');
         res.body.status.should.be.equal(401);
@@ -106,42 +122,8 @@ describe('Bank account tests', () => {
       });
     done();
   });
-  it('staff member should be able to delete user account', (done) => {
-    chai.request(server)
-      .delete('/api/v1/account/1')
-      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTU0OTAyMDA2fQ.4MP143brnM6woj-vF9Zaqjglg0PGHrqpSVQBeEkc7VE')
-      .end((err, res) => {
-        res.body.should.be.an('object');
-        res.body.status.should.be.equal(200);
-        res.body.status.should.a('number');
-        res.body.message.should.be.a('string');
-      });
-    done();
-  });
-  it('should not be able to delete unexsting user account', (done) => {
-    chai.request(server)
-      .delete('/api/v1/account/99')
-      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTU0OTAyMDA2fQ.4MP143brnM6woj-vF9Zaqjglg0PGHrqpSVQBeEkc7VE')
-      .end((err, res) => {
-        res.body.should.be.an('object');
-        res.body.status.should.be.equal(404);
-        res.body.message.should.be.a('string');
-      });
-    done();
-  });
-  it('normal user should not be able to delete user account', (done) => {
-    chai.request(server)
-      .delete('/api/v1/account/1')
-      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTU0OTM3NDkzfQ.8CCybOLYl5v-wabK5k3nXWPL6fNXpWp_e9ULQW4KdPQ')
-      .end((err, res) => {
-        res.body.should.be.an('object');
-        res.body.status.should.be.equal(401);
-        res.body.status.should.a('number');
-        res.body.message.should.be.a('string');
-      });
-    done();
-  });
-  it('should be to display all accounts', (done) => {
+
+  it('should be able to display all accounts', (done) => {
     chai.request(server)
       .get('/api/v1/accounts')
       .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNTU0OTIyNzE4fQ.wq8JS1pWjFxjOV4GUJIp1gw9ejtSx0dG_7bLG-ObhPs')
@@ -152,20 +134,10 @@ describe('Bank account tests', () => {
       });
     done();
   });
-  it('only staff should be allowed to view all accounts', (done) => {
-    chai.request(server)
-      .get('/api/v1/accounts')
-      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTU0OTIzMjc2fQ.WsrLbMeIZEPNUAfZ1ifJbmz6W-RxjxbUyCCoUQVj2J0')
-      .end((err, res) => {
-        res.body.should.be.an('object');
-        res.body.status.should.be.equal(401);
-        res.body.message.should.be.a('string');
-      });
-    done();
-  });
+
   it('should be able to view a specific bank account', (done) => {
     chai.request(server)
-      .get('/api/v1/accounts/1')
+      .get('/api/v1/accounts/153240580-6148-11e9-9c14-1d5134eb636e')
       .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNTU0OTI0NzA3fQ.Rgwf9MkKUDhj798vkJ6Bko01PEueoAjZ-kTxKVwmmJY')
       .end((err, res) => {
         res.body.should.be.an('object');
@@ -180,6 +152,56 @@ describe('Bank account tests', () => {
       });
     done();
   });
+
+  it('normal user should not be able to delete user account', (done) => {
+    chai.request(server)
+      .delete('/api/v1/account/1')
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTU1NTMzMTEwfQ.ALGfXuYDfn-TjoOfomwYn65MK8Pmys08tUyT_WvFHU4')
+      .end((err, res) => {
+        res.body.should.be.an('object');
+        res.body.status.should.be.equal(401);
+        res.body.status.should.a('number');
+        res.body.message.should.be.a('string');
+      });
+    done();
+  });
+
+  it('staff member should be able to delete user account', (done) => {
+    chai.request(server)
+      .delete('/api/v1/account/2')
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTU1NTMwNTMwfQ.dsbJrq76EeswaRPF2eTGIVUiPTwbaovNaS2_XzYOYW0')
+      .end((err, res) => {
+        res.body.should.be.an('object');
+        res.body.status.should.be.equal(200);
+        res.body.status.should.a('number');
+        res.body.message.should.be.a('string');
+      });
+    done();
+  });
+  it('should not be able to delete unexisting user account', (done) => {
+    chai.request(server)
+      .delete('/api/v1/account/99')
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTU0OTAyMDA2fQ.4MP143brnM6woj-vF9Zaqjglg0PGHrqpSVQBeEkc7VE')
+      .end((err, res) => {
+        res.body.should.be.an('object');
+        res.body.status.should.be.equal(404);
+        res.body.message.should.be.a('string');
+      });
+    done();
+  });
+
+  it('only staff should be allowed to view all accounts', (done) => {
+    chai.request(server)
+      .get('/api/v1/accounts')
+      .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTU0OTIzMjc2fQ.WsrLbMeIZEPNUAfZ1ifJbmz6W-RxjxbUyCCoUQVj2J0')
+      .end((err, res) => {
+        res.body.should.be.an('object');
+        res.body.status.should.be.equal(401);
+        res.body.message.should.be.a('string');
+      });
+    done();
+  });
+
   it('should not be able to view a unexisting bank account', (done) => {
     chai.request(server)
       .get('/api/v1/accounts/99')
@@ -191,6 +213,7 @@ describe('Bank account tests', () => {
       });
     done();
   });
+
   it('client should not be allowed to view a specific bank account', (done) => {
     chai.request(server)
       .get('/api/v1/accounts/1')
