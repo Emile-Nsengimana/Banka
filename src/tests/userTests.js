@@ -80,6 +80,28 @@ describe('User tests', () => {
   });
 
   // ------------------------------------------------------------------------------------------
+  it('should not be able to signup without a weak password', (done) => {
+    const user = {
+      id: 1,
+      firstName: 'James',
+      lastName: 'Shema',
+      email: 'abc@gmail.com',
+      password: 'qwerty',
+      retype: 'qwerty',
+      type: 'client',
+    };
+    chai.request(server)
+      .post('/api/v1/auth/signup')
+      .send(user)
+      .end((err, res) => {
+        res.body.status.should.be.equal(400);
+        res.body.should.be.an('object');
+        res.body.error.should.be.a('string');
+      });
+    done();
+  });
+
+  // ------------------------------------------------------------------------------------------
   it('should not be able to signup without providing all required info', (done) => {
     const user = {
       id: 1,

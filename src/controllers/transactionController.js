@@ -8,7 +8,7 @@ class transactionController {
   static debitAccount(req, res) {
     const { amount } = req.body;
     const user = search.searchUser(req.user.id);
-    if (user.type === 'Staff' && user.isAdmin === false) {
+    if (user.type === 'staff' && user.isAdmin === false) {
       const account = search.searchAccount(req.params.accountNo);
       if (account) {
         if (bankAccounts[account.id - 1].balance < amount) {
@@ -36,7 +36,7 @@ class transactionController {
   static creditAccount(req, res) {
     const { amount } = req.body;
     const user = search.searchUser(req.user.id);
-    if (user.type === 'Staff' && user.isAdmin === false) {
+    if (user.type === 'staff' && user.isAdmin === false) {
       const account = search.searchAccount(req.params.accountNo);
       if (account) {
         const creditAccount = makeTransaction.updateBankAccount(account, account.balance + amount);

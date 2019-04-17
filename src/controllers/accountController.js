@@ -19,7 +19,7 @@ class accountController {
       accountNumber: uuid(),
       createdOn: moment.utc().format(),
       owner: id,
-      type,
+      type: type.toLowerCase(),
       status: 'active',
       balance,
     });
@@ -32,7 +32,7 @@ class accountController {
           firstName: accountOwner.firstName,
           lastName: accountOwner.lastName,
           email: accountOwner.email,
-          type: accountOwner.type,
+          type: type.toLowerCase(),
           openingBalance: balance,
         },
       });
@@ -43,7 +43,7 @@ class accountController {
   // ================================== CHANGE ACCOUNT STATUS ==============================
   static changeAccountStatus(req, res) {
     const { status } = req.body;
-    const checkStatus = schemaStatus.validate(req.body);
+    const checkStatus = schemaStatus.validate({ status: status.toLowerCase() });
     if (checkStatus.error) {
       return res.status(400).json({ status: 400, error: 'account can only be change to dormant, draft, or active' });
     }
@@ -57,11 +57,11 @@ class accountController {
           createdOn: searchBankAccount.createdOn,
           owner: searchBankAccount.owner,
           type: searchBankAccount.type,
-          status,
+          status: status.toLowerCase(),
           balance: searchBankAccount.balance,
         };
         bankAccount[searchBankAccount.id - 1] = updateAccount;
-        return res.status(200).json({ status: 200, data: { accountNumber: searchBankAccount.accountNumber, status } });
+        return res.status(200).json({ status: 200, data: { accountNumber: searchBankAccount.accountNumber, status: updateAccount.status } });
       }
       return res.status(404).json({ status: 404, message: 'account not found' });
     }
@@ -72,9 +72,10 @@ class accountController {
   static deleteAccount(req, res) {
     const findUser = search.searchUser(req.user.id);
     const findAccount = bankAccount.find(account => account.id === parseInt(req.params.id, 10));
+    const findIndex = bankAccount.findIndex(account => account.id === parseInt(req.params.id, 10));
     if (findAccount) {
-      if (findUser.type === 'Staff') {
-        bankAccount.pop(parseInt(req.params.id, 10));
+      if (findUser.type === 'staff') {
+        bankAccount.splice(findIndex, 1);
         return res.status(200).json({ status: 200, message: 'Account successfully deleted' });
       }
       return res.status(401).json({ status: 401, message: 'permission denied' });
@@ -85,16 +86,16 @@ class accountController {
   // ================================== DISPLAY ACCOUNTS ==============================
   static displayAccouts(req, res) {
     const findUser = search.searchUser(req.user.id);
-    if (findUser.type === 'Staff') {
+    if (findUser.type === 'staff') {
       return res.status(200).json({ status: 200, data: bankAccount });
     }
     return res.status(401).json({ status: 401, message: 'permission denied' });
   }
 
-  // ================================== DISPLAY ACCOUNTS ==============================
+  // ================================== SEARCH ACCOUNT =================================
   static searchAccount(req, res) {
     const findUser = search.searchUser(req.user.id);
-    if (findUser.type === 'Staff') {
+    if (findUser.type === 'staff') {
       const getAccount = search.searchAccount(req.params.id);
       if (getAccount) {
         return res.status(200).json({ status: 200, data: getAccount });

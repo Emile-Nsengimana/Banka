@@ -13,7 +13,7 @@ describe('Transaction tests', () => {
       amount: 1000.11,
     };
     chai.request(server)
-      .post('/api/v1/transactions/1/debit')
+      .post('/api/v1/transactions/153240580-6148-11e9-9c14-1d5134eb636e/debit')
       .send(debit)
       .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNTU0OTAwNTg5fQ.xCKXCWa4fzmTUi1rd2EgGSdgbOEhVXPe9AqmgkAyTbs')
       .end((err, res) => {
@@ -50,7 +50,7 @@ describe('Transaction tests', () => {
       amount: 10000000000,
     };
     chai.request(server)
-      .post('/api/v1/transactions/1/debit')
+      .post('/api/v1/transactions/153240580-6148-11e9-9c14-1d5134eb636e/debit')
       .send(debit)
       .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNTU0OTAwNTg5fQ.xCKXCWa4fzmTUi1rd2EgGSdgbOEhVXPe9AqmgkAyTbs')
       .end((err, res) => {
@@ -65,7 +65,7 @@ describe('Transaction tests', () => {
       amount: 1000.11,
     };
     chai.request(server)
-      .post('/api/v1/transactions/1/debit')
+      .post('/api/v1/transactions/153240580-6148-11e9-9c14-1d5134eb636e/debit')
       .send(debit)
       .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTU0OTAxMDA0fQ.LrfNzgmO3v2JKV2iXIEeyh4kXu54QImea17Mx3mlmN8')
       .end((err, res) => {
@@ -82,7 +82,7 @@ describe('Transaction tests', () => {
       amount: 1000,
     };
     chai.request(server)
-      .post('/api/v1/transactions/1/credit')
+      .post('/api/v1/transactions/153240580-6148-11e9-9c14-1d5134eb636e/credit')
       .send(credit)
       .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNTU0OTAwNTg5fQ.xCKXCWa4fzmTUi1rd2EgGSdgbOEhVXPe9AqmgkAyTbs')
       .end((err, res) => {
@@ -104,7 +104,7 @@ describe('Transaction tests', () => {
       amount: 'one',
     };
     chai.request(server)
-      .post('/api/v1/transactions/1/debit')
+      .post('/api/v1/transactions/153240580-6148-11e9-9c14-1d5134eb636e/debit')
       .send(debit)
       .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNTU0OTAwNTg5fQ.xCKXCWa4fzmTUi1rd2EgGSdgbOEhVXPe9AqmgkAyTbs')
       .end((err, res) => {
@@ -114,7 +114,6 @@ describe('Transaction tests', () => {
       });
     done();
   });
-
 
   it('should not be able to credit unexisting bank account', (done) => {
     const credit = {
@@ -136,7 +135,7 @@ describe('Transaction tests', () => {
       amount: 1000.11,
     };
     chai.request(server)
-      .post('/api/v1/transactions/1/credit')
+      .post('/api/v1/transactions/153240580-6148-11e9-9c14-1d5134eb636e/credit')
       .send(credit)
       .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTU0OTAxMDA0fQ.LrfNzgmO3v2JKV2iXIEeyh4kXu54QImea17Mx3mlmN8')
       .end((err, res) => {
@@ -151,7 +150,7 @@ describe('Transaction tests', () => {
       amount: 'one',
     };
     chai.request(server)
-      .post('/api/v1/transactions/1/credit')
+      .post('/api/v1/transactions/153240580-6148-11e9-9c14-1d5134eb636e/credit')
       .send(credit)
       .set('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNTU0OTAwNTg5fQ.xCKXCWa4fzmTUi1rd2EgGSdgbOEhVXPe9AqmgkAyTbs')
       .end((err, res) => {
