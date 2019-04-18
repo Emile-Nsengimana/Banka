@@ -14,7 +14,7 @@ const users = [
     lastName: 'Usasu',
     email: 'onyango@gmail.com',
     password: '12345678',
-    type: 'Staff',
+    type: 'staff',
     isAdmin: true,
   },
   {
@@ -23,7 +23,7 @@ const users = [
     lastName: 'Nsengimana',
     email: 'emile@gmail.com',
     password: '12345678',
-    type: 'Staff',
+    type: 'staff',
     isAdmin: false,
   },
 

@@ -13,10 +13,10 @@ describe('User tests', () => {
       id: 1,
       firstName: 'James',
       lastName: 'Shema',
-      email: 'james@gmail.com',
-      password: '12345678',
+      email: 'james2@gmail.com',
+      password: '@Jam7891qazxsw!',
+      retype: '@Jam7891qazxsw!',
       type: 'client',
-      isAdmin: 'false',
     };
     chai.request(server)
       .post('/api/v1/auth/signup')
@@ -34,6 +34,96 @@ describe('User tests', () => {
       });
     done();
   });
+
+  // ------------------------------------------------------------------------------------------
+  it('should not be able to signup twice with the same email', (done) => {
+    const user = {
+      id: 1,
+      firstName: 'James',
+      lastName: 'Shema',
+      email: 'james2@gmail.com',
+      password: '@Jam7891qazxsw!',
+      retype: '@Jam7891qazxsw!',
+      type: 'client',
+    };
+    chai.request(server)
+      .post('/api/v1/auth/signup')
+      .send(user)
+      .end((err, res) => {
+        res.body.status.should.be.equal(400);
+        res.body.should.be.an('object');
+        res.body.error.should.be.a('string');
+      });
+    done();
+  });
+
+  // ------------------------------------------------------------------------------------------
+  it('should not be able to signup without re-typing the password correctly', (done) => {
+    const user = {
+      id: 1,
+      firstName: 'James',
+      lastName: 'Shema',
+      email: 'abc@gmail.com',
+      password: '@Jam7891qazxsw!m',
+      retype: '@Jam7891qazxsw!',
+      type: 'client',
+    };
+    chai.request(server)
+      .post('/api/v1/auth/signup')
+      .send(user)
+      .end((err, res) => {
+        res.body.status.should.be.equal(400);
+        res.body.should.be.an('object');
+        res.body.error.should.be.a('string');
+      });
+    done();
+  });
+
+  // ------------------------------------------------------------------------------------------
+  it('should not be able to signup without a weak password', (done) => {
+    const user = {
+      id: 1,
+      firstName: 'James',
+      lastName: 'Shema',
+      email: 'abc@gmail.com',
+      password: 'qwerty',
+      retype: 'qwerty',
+      type: 'client',
+    };
+    chai.request(server)
+      .post('/api/v1/auth/signup')
+      .send(user)
+      .end((err, res) => {
+        res.body.status.should.be.equal(400);
+        res.body.should.be.an('object');
+        res.body.error.should.be.a('string');
+      });
+    done();
+  });
+
+  // ------------------------------------------------------------------------------------------
+  it('should not be able to signup without providing all required info', (done) => {
+    const user = {
+      id: 1,
+      firstName: '',
+      lastName: '',
+      email: 'abcd@gmail.com',
+      password: '@Jam7891qazxsw@',
+      retype: '@Jam7891qazxsw@',
+      type: 'client',
+    };
+    chai.request(server)
+      .post('/api/v1/auth/signup')
+      .send(user)
+      .end((err, res) => {
+        res.body.status.should.be.equal(400);
+        res.body.should.be.an('object');
+        res.body.error.should.be.a('string');
+      });
+    done();
+  });
+
+  // ------------------------------------------------------------------------------------------
   it('should have problem signing up', (done) => {
     const user = {
       id: 1,
@@ -54,6 +144,7 @@ describe('User tests', () => {
       });
     done();
   });
+
   // ========================================== LOGIN ==========================
   it('should be able to login', (done) => {
     const user = {
@@ -75,6 +166,8 @@ describe('User tests', () => {
       });
     done();
   });
+
+  // ------------------------------------------------------------------------------------------
   it('should not be able to login with wrong password', (done) => {
     const user = {
       email: 'james@gmail.com',
@@ -90,6 +183,8 @@ describe('User tests', () => {
       });
     done();
   });
+
+  // ------------------------------------------------------------------------------------------
   it('should not be able to login with unexisting email', (done) => {
     const user = {
       email: 'a@gmail.com',
@@ -105,6 +200,8 @@ describe('User tests', () => {
       });
     done();
   });
+
+  // ------------------------------------------------------------------------------------------
   it('should not be able to login with invalid email', (done) => {
     const user = {
       email: 'emilegmail.com',
@@ -120,6 +217,8 @@ describe('User tests', () => {
       });
     done();
   });
+
+  // ------------------------------------------------------------------------------------------
   it('should display welcome message', (done) => {
     chai.request(server)
       .get('/')
