@@ -1,11 +1,12 @@
+/* eslint-disable max-len */
 /* eslint-disable no-shadow */
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
+import { stringify } from 'querystring';
 import userModal from '../modals/user';
 import schema from './validation/userSchema';
 import loginSchema from './validation/loginSchema';
 import msg from '../helpers/message';
-import { stringify } from 'querystring';
 
 dotenv.config();
 class userController {
@@ -29,22 +30,22 @@ class userController {
     const jwtoken = jwt.sign({ id: idNo }, process.env.NEVERMIND);
     const isAdmin = false;
     const newUser = schema.validate({
-      id: idNo, firstName, lastName, email, password, type: type.toLowerCase(), isAdmin,
+      id: idNo, firstName, lastName, email: email.toLowerCase(), password, type: type.toLowerCase(), isAdmin,
     });
-    if (newUser.error) {
-      const validationError = newUser.error.details[0].message.replace('"', ' ').replace('"', '');
-      if (validationError === ' password must meet password complexity requirements') {
-        return res.status(400).json({ status: 400, error: 'password length must be 8 with atleast an upper, lower case letter, and a number,' });
-      }
-      return res.status(400).json({ status: 400, error: validationError });
+    if (!newUser.error) {
+      userModal.push(newUser.value);
+      return res.status(201).json({
+        status: 201,
+        data: {
+          token: jwtoken, idNo, firstName, lastName, email: email.toLowerCase(), type: type.toLowerCase(), isAdmin,
+        },
+      });
     }
-    userModal.push(newUser.value);
-    return res.status(201).json({
-      status: 201,
-      data: {
-        token: jwtoken, idNo, firstName, lastName, email: email.toLowerCase(), type, isAdmin,
-      },
-    });
+    const validationError = newUser.error.details[0].message.replace('"', ' ').replace('"', '');
+    if (validationError === ' password must meet password complexity requirements') {
+      return res.status(400).json({ status: 400, error: 'password length must be 8 with atleast an upper, lower case letter, and a number,' });
+    }
+    return res.status(400).json({ status: 400, error: validationError });
   }
 
   // ================================================== LOGIN =====================================
@@ -54,7 +55,7 @@ class userController {
       email, password,
     });
     if (!credentials.error) {
-      const user = userModal.find(usr => usr.email === email);
+      const user = userModal.find(usr => usr.email === email.toLowerCase());
       if (user) {
         if (user.password === password) {
           const jwtoken = jwt.sign({ id: user.id }, process.env.NEVERMIND);
