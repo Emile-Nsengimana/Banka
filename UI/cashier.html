@@ -9,13 +9,14 @@
     <title>Banka</title>
 </head>
 <body>
-    <div class="nav">
-        <img src="./img/logo.png" alt="">
-    </div>
+        <div class="nav">
+                <img id="menu-toggle" src="./img/menu_bar.png" alt="menu">
+                <img src="./img/logo.png" alt="BANKA">
+        </div>
     <div id="all" class="client">
 
 <!-- =============================================== SIDE MENU =================================== -->
-        <div class="aside">
+        <div id="menu" class="aside">
             <button id="btn-bank-acct" class="active btn-default"><i class="fas fa-id-card"></i>Bank accounts</button>
             <button id="btn-debit" class="btn-default"><i class="fas fa-users"></i>Debit</button>
             <button id="btn-credit" class="btn-default"><i class="fas fa-users"></i>Credit</button>
@@ -115,15 +116,15 @@
                                 </div>
                                 <div class="form-group">
                                         <label>First name:</label>
-                                        <input class="inp" type="text" value="Emile"/>
+                                        <input class="inp" disabled type="text" value="Emile"/>
                                 </div>
                                 <div class="form-group">
                                         <label>Last name:</label>
-                                        <input class="inp" type="text" value="Nsengimana"/>
+                                        <input class="inp" disabled type="text" value="Nsengimana"/>
                                 </div>
                                 <div class="form-group">
                                         <label>E-mail:</label>
-                                        <input class="inp" type="text" value="emile@gmail.com"/>
+                                        <input class="inp" disabled type="text" value="emile@gmail.com"/>
                                 </div>
                                 <button id="btn-change-password" class="btn-simple">Change password<i class="fas fa-key"></i></button>
                             </div>
@@ -288,6 +289,7 @@
             </div>
         <!-- </form> -->
     </div>  
-<SCript src="./js/cashier.js"></SCript>   
+        <script src="./js/main.js"></script>   
+        <script src="./js/cashier.js"></script>   
 </body>
 </html>

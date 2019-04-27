@@ -10,18 +10,15 @@ import schemaStatus from './validation/accountStatusSchema';
 class accountController {
   // ======================================== BANK ACCOUNTS ====================================
   static createAccount(req, res) {
-    const { type } = req.body;
-    const { id } = req.user;
-    const accountOwner = userModal.find(usr => usr.id === id);
-    const balance = 0;
+    const accountOwner = userModal.find(usr => usr.id === req.user.id);
     const newAccount = schema.validate({
       id: bankAccount.length + 1,
       accountNumber: uuid(),
       createdOn: moment.utc().format(),
-      owner: id,
-      type: type.toLowerCase(),
+      owner: parseInt(req.user.id, 10),
+      type: req.body.type.toLowerCase(),
       status: 'active',
-      balance,
+      balance: 0,
     });
     if (!newAccount.error) {
       bankAccount.push(newAccount.value);
@@ -32,8 +29,8 @@ class accountController {
           firstName: accountOwner.firstName,
           lastName: accountOwner.lastName,
           email: accountOwner.email,
-          type: type.toLowerCase(),
-          openingBalance: balance,
+          type: req.body.type.toLowerCase(),
+          openingBalance: 0,
         },
       });
     }
