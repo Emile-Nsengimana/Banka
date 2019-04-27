@@ -1,0 +1,7 @@
+exclude_patterns:
+- ".*"
+- "UI/"
+- "src/tests/"
+- "package.json"
+- "package-lock.json"
+- "README.md"

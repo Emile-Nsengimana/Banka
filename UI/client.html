@@ -9,12 +9,13 @@
     <title>Banka</title>
 </head>
 <body>
-    <div class="nav">
-        <img src="./img/logo.png" alt="">
-    </div>
+        <div class="nav">
+                <img id="menu-toggle" src="./img/menu_bar.png" alt="menu">
+                <img src="./img/logo.png" alt="BANKA">
+            </div>
     <div id="all" class="client">
 <!-- =============================================== SIDE MENU =================================== -->
-        <div class="aside">
+        <div id="menu" class="aside">
             <button id="btn-menu-myaccount" class="active btn-default"><i class="fas fa-money-check-alt"></i>My account</button>
             <button id="btn-menu-transfer" class="btn-default"><i class="fas fa-random"></i>Transfer</button>
             <button id="btn-transaction-history" class="btn-default"><i class="fas fa-history"></i>Transaction</button>
@@ -24,8 +25,8 @@
 <!-- =============================================== MAIN CONTENT =================================== -->
         <div class="main">            
             <div class="dte" >
-                <label>date:</label>
-                <input type="text" value="2019-03-31">
+                <label>Date:</label>
+                <input type="text" disabled value="2019-03-31">
             </div><br>
             <div id="acctInfo">
                 <h3>Account 1</h3>
@@ -78,7 +79,7 @@
                     </div>
                     <div class="form-group">
                         <label for="name">Name:</label>
-                        <input class="txt" name="name" type="text" value="Niyonagira Jack">
+                        <input class="txt" name="name" disabled type="text" value="Niyonagira Jack">
                     </div>
                     <div class="form-group">
                             <label for="amount">Amount:</label>
@@ -90,7 +91,7 @@
                     <h3>Account info</h3>
                         <div class="form-group">
                             <label for="acctTo">Account No:</label>
-                            <input class="txt" type="text" value="1234-5678-9090-1234">
+                            <input class="txt" disabled type="text" value="1234-5678-9090-1234">
                         </div>
                         <div class="form-group">
                             <label for="balance">balance:</label>
@@ -171,15 +172,15 @@
                     </div>
                         <div class="form-group">
                                 <label>First name:</label>
-                                <input class="inp" type="text" value="Emile"/>
+                                <input class="inp" disabled type="text" value="Emile"/>
                         </div>
                         <div class="form-group">
                                 <label>Last name:</label>
-                                <input class="inp" type="text" value="Nsengimana"/>
+                                <input class="inp" disabled type="text" value="Nsengimana"/>
                         </div>
                         <div class="form-group">
                                 <label>E-mail:</label>
-                                <input class="inp" type="text" value="emile@gmail.com"/>
+                                <input class="inp" disabled type="text" value="emile@gmail.com"/>
                         </div>
                         <button id="btn-change-password" class="btn-simple">Change password<i class="fas fa-key"></i></button>
                 </div>
@@ -241,7 +242,7 @@
             </div>
         <!-- </form> -->
     </div>
-
-    <SCript src="./js/client.js"></SCript>   
+    <script src="./js/main.js"></script>   
+    <script src="./js/client.js"></script>   
 </body>
 </html>

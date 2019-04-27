@@ -8,8 +8,8 @@ class transactionController {
   static debitAccount(req, res) {
     const { amount } = req.body;
     const user = search.searchUser(req.user.id);
-    if (user.type === 'Staff' && user.isAdmin === false) {
-      const account = search.searchAccount(parseInt(req.params.accountNo, 10));
+    if (user.type === 'staff' && user.isAdmin === false) {
+      const account = search.searchAccount(req.params.accountNo);
       if (account) {
         if (bankAccounts[account.id - 1].balance < amount) {
           return res.status(406).json({ status: 406, message: 'insufficient fund' });
@@ -17,7 +17,7 @@ class transactionController {
         const debitAccount = makeTransaction.updateBankAccount(account, account.balance - amount);
         bankAccounts.pop(account.id - 1);
         bankAccounts[account.id - 1] = debitAccount;
-        const newTransaction = makeTransaction.makeTransaction('Debit', amount, req.user.id, account.accountNumber, account.balance, account.balance - amount);
+        const newTransaction = makeTransaction.makeTransaction('debit', amount, req.user.id, account.accountNumber, account.balance, account.balance - amount);
         if (!newTransaction.error) {
           transactionModal.push(newTransaction);
           return res.status(200).json({ status: 200, data: newTransaction.value });
@@ -36,13 +36,13 @@ class transactionController {
   static creditAccount(req, res) {
     const { amount } = req.body;
     const user = search.searchUser(req.user.id);
-    if (user.type === 'Staff' && user.isAdmin === false) {
-      const account = search.searchAccount(parseInt(req.params.accountNo, 10));
+    if (user.type === 'staff' && user.isAdmin === false) {
+      const account = search.searchAccount(req.params.accountNo);
       if (account) {
         const creditAccount = makeTransaction.updateBankAccount(account, account.balance + amount);
         bankAccounts.pop(account.id - 1);
         bankAccounts[account.id - 1] = creditAccount;
-        const newTransaction = makeTransaction.makeTransaction('Credit', amount, req.user.id, account.accountNumber, account.balance, account.balance + amount);
+        const newTransaction = makeTransaction.makeTransaction('credit', amount, req.user.id, account.accountNumber, account.balance, account.balance + amount);
         if (!newTransaction.error) {
           transactionModal.push(newTransaction.value);
           return res.status(200).json({ status: 200, data: newTransaction.value });

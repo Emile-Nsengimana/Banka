@@ -88,19 +88,19 @@ btnTransactionHistory.addEventListener('click', () => {
 const btnProfile = document.getElementById('btn-profile');
 
 btnProfile.addEventListener('click', () => {
-    document.getElementById('acctInfo').style.display = 'none';
-    document.getElementById('transaction-history').style.display = 'none';
-    document.getElementById('transfer').style.display = 'none';
-    document.getElementById('btn-create-account').style.display = 'none';
-    document.getElementById('profile-admin').style.display = 'block';
+  document.getElementById('acctInfo').style.display = 'none';
+  document.getElementById('transaction-history').style.display = 'none';
+  document.getElementById('transfer').style.display = 'none';
+  document.getElementById('btn-create-account').style.display = 'none';
+  document.getElementById('profile-admin').style.display = 'block';
 
 
-    document.getElementById('btn-menu-myaccount').classList.remove('active');
-    document.getElementById('btn-menu-transfer').classList.remove('active');
-    document.getElementById('btn-transaction-history').classList.remove('active');
-    document.getElementById('btn-profile').classList.add('active');
+  document.getElementById('btn-menu-myaccount').classList.remove('active');
+  document.getElementById('btn-menu-transfer').classList.remove('active');
+  document.getElementById('btn-transaction-history').classList.remove('active');
+  document.getElementById('btn-profile').classList.add('active');
 
-  });
+});
 
 // ================================================= PASSWORD RESET =========================
 const btnChangePassword = document.getElementById('btn-change-password');
