@@ -2,6 +2,7 @@
 const viewBankAccount = document.getElementById('modal-search');
 const btnSearch = document.getElementById('btn-search');
 const viewUserAccount = document.getElementById('modal-view-account');
+const btnBankAcct = document.getElementById('btn-bank-acct');
 
 // ================================= MODAL USERS ==============================
 const btnUsers = document.getElementById('btn-users');
@@ -13,11 +14,9 @@ btnUsers.addEventListener('click', () => {
   btnUsers.classList.add('active');
   btnBankAcct.classList.remove('active');
   document.getElementById('btn-profile').classList.remove('active');
-
 });
 
 // ================================= BANK ACCOUNTS ==============================
-const btnBankAcct = document.getElementById('btn-bank-acct');
 btnBankAcct.addEventListener('click', () => {
   document.getElementById('modal-users').style.display = 'none';
   document.getElementById('display').style.display = 'block';
@@ -90,16 +89,15 @@ btnAddUser.addEventListener('click', () => {
 const btnProfile = document.getElementById('btn-profile');
 
 btnProfile.addEventListener('click', () => {
-    document.getElementById('display').style.display = 'none';
-    document.getElementById('modal-users').style.display = 'none';
-    document.getElementById('profile-admin').style.display = 'block';
+  document.getElementById('display').style.display = 'none';
+  document.getElementById('modal-users').style.display = 'none';
+  document.getElementById('profile-admin').style.display = 'block';
 
 
-    document.getElementById('btn-bank-acct').classList.remove('active');
-    document.getElementById('btn-users').classList.remove('active');
-    document.getElementById('btn-profile').classList.add('active');
-
-  });
+  document.getElementById('btn-bank-acct').classList.remove('active');
+  document.getElementById('btn-users').classList.remove('active');
+  document.getElementById('btn-profile').classList.add('active');
+});
 
 // ================================================= PASSWORD RESET =========================
 const btnChangePassword = document.getElementById('btn-change-password');

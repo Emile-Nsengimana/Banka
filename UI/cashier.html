@@ -105,50 +105,51 @@
                     </div>
             </div>
 <!-- =============================================== PROFILE ================================================= -->
-                    <div id="profile-admin" class="profile hide">
-                            <div class="thumb">
-                                    <img src="./img/profile.png"/>
-                                    <button class="btn-simple">Change picture<i class="fas fa-user-edit"></i></button>
-                            </div>
-                            <div id="profile-info">
-                                <div class="form-control">
-                                        <label for="owner" class="shade">Personal information</label>
-                                </div>
-                                <div class="form-group">
-                                        <label>First name:</label>
-                                        <input class="inp" disabled type="text" value="Emile"/>
-                                </div>
-                                <div class="form-group">
-                                        <label>Last name:</label>
-                                        <input class="inp" disabled type="text" value="Nsengimana"/>
-                                </div>
-                                <div class="form-group">
-                                        <label>E-mail:</label>
-                                        <input class="inp" disabled type="text" value="emile@gmail.com"/>
-                                </div>
-                                <button id="btn-change-password" class="btn-simple">Change password<i class="fas fa-key"></i></button>
-                            </div>
-                            <div id="change-password" class="hide">
-                                    <label class="shade" >Change password</label>
-                                    <div class="form-group">
-                                            <label class="lb" for="password"></i>Old password:</label>
-                                            <input class="inp" name="password" type="password">
-                                    </div>
-                                    <div class="form-group">
-                                            <label class="lb" for="password"></i>New password:</label>
-                                            <input class="inp" name="password" type="password">
-                                    </div>
-                                    <div class="form-group">
-                                            <label class="lb" for="retype"></i>Re-type:</label>
-                                            <input class="inp" name="retype" type="password">
-                                    </div>                            
-                                    <div class="dv-double-btn">
-                                            <button id="btn-cancel-reset"  class="btn btn-danger">Cancel</button>
-                                            <button class="btn btn-success">Change</button>
-                                    </div>
-                            </div>
-                   </div> 
+<div id="profile-admin" class="profile hide">
 
+                <div class="thumb">
+                        <img src="./img/profile.png"/>
+                        <button class="change-pic"><i class="fas fa-user-edit"></i></button>
+                </div>
+                <div id="profile-info">
+                    <div class="form-control">
+                            <label for="owner" class="shade">Personal information</label>
+
+                    </div>
+                        <div class="form-group">
+                                <label>First name:</label>
+                                <input class="inp" disabled type="text" value="Emile"/>
+                        </div>
+                        <div class="form-group">
+                                <label>Last name:</label>
+                                <input class="inp" disabled type="text" value="Nsengimana"/>
+                        </div>
+                        <div class="form-group">
+                                <label>E-mail:</label>
+                                <input class="inp" disabled type="text" value="emile@gmail.com"/>
+                        </div>
+                        <button id="btn-change-password" class="btn-simple">Change password<i class="fas fa-key"></i></button>
+                </div>
+                <div id="change-password" class="hide">
+                        <label class="shade" >Change password</label>
+                        <div class="form-group">
+                                <label class="lb" for="password"></i>Old password:</label>
+                                <input class="inp" name="password" type="password">
+                        </div>
+                        <div class="form-group">
+                                <label class="lb" for="password"></i>New password:</label>
+                                <input class="inp" name="password" type="password">
+                        </div>
+                        <div class="form-group">
+                                <label class="lb" for="retype"></i>Re-type:</label>
+                                <input class="inp" name="retype" type="password">
+                        </div>                            
+                        <div class="dv-double-btn">
+                                <button id="btn-cancel-reset"  class="btn btn-danger">Cancel</button>
+                                <button class="btn btn-success">Change</button>
+                        </div>
+                </div>
+        </div>
 <!-- ================================================================ DEBIT ========================================= -->
             <div id="debit">
                 <h3>ACCOUNT DEBIT</h3>
@@ -194,8 +195,8 @@
     </div>
 
 <!-- ================================================================ MODAL SEARCH ========================================= -->
-<div id="modal-search">
-        <div id="close-search"><span>&times;</span></div>
+<div id="modal-search-cashier">
+        <div id="close-search"><span onclick="hideModal()">&times;</span></div>
         <h1>Account details</h1> 
             <div class="form-group">
                     <label class="lb" for="name"></i>Name:</label>
