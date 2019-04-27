@@ -11,6 +11,9 @@ label{
     flex: 1;
     padding: 10px;
 }
+.profile img{
+    width: 10%;
+}
 i{
     padding: 12px;
     margin: 0;
@@ -269,8 +272,9 @@ button{
     display: none;
 }
 .btn-simple{
+    margin-left: 40% !important;
     display: block;
-    width: 40%;
+    width: 30%;
     border: none;
     font-weight: 700;
     padding: 0;
@@ -295,9 +299,26 @@ button{
     color: rgb(255, 255, 255);
     background: rgb(177, 59, 59);
 }
+.profile .btn-edit{
+    outline: none;
+    border: none;
+    border-radius: 200px;
+    background: transparent;
+}
+.profile .btn-edit:hover{
+    background: rgb(8, 65, 92);
+    color: white;
+}
+.profile .fas{
+    padding: 5px;
+}
 /* ============================================== RESPONSIVENESS(INDEX PAGE)=========================== */
 @media (max-width: 768px) {
 
+    .profile img{
+        width: 30%;
+    }
+    
     .overall{
         width: 100%;
         display: inline-block;
@@ -450,7 +471,7 @@ button{
     background: white;
     position: fixed;
     top: 21%;
-    left: 30%;
+    left: 40%;
     border-radius: 12px;
     box-shadow: 2px 4px 10px 0 rgba(0, 0, 0, 0.4), 1px 3px 3px 0 rgba(0, 0, 0, 0.3);
 }
@@ -503,14 +524,40 @@ select{
     margin-left: -150px;
     transition: 3s;
 }
+.form-control{
+    margin-bottom: 30px;
+}
 /* ------------------------------------------------ RESPONSIVENESS (CLIENT PAGE)-------------------------------- */
 @media(max-width: 768px){
+   .users{
+       left: 0% !important;
+       margin-left: 10px !important;
+       width: 70% !important;
+   }
+
+   .users h1{
+       font-size: 13pt !important;
+       margin-bottom: 40px !important;
+       margin-top: 50px;
+   }
+   .users .form-group{
+       margin-left: -50px !important;
+       margin-right: 10px;
+   }
     #menu{
         margin: 10px;
         border: none;
         transition: 3s;
     }
-
+    #acctInfo .form-group label{
+        font-weight: 700;
+    }
+    #acctInfo .form-group .inp2{
+       display: block;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgb(94, 94, 94);
+    }
     #menu-toggle{
         display: block;
     }
@@ -527,10 +574,12 @@ select{
     }
 
     #modal-reset,
-    #modal-account,
     #modal-view-account,
     #modal-add-user{
         margin-left: 0;
+    }
+    #modal-account{
+        margin-left: -40px;
     }
     #modal-search{
         padding-left: 0 !important;
@@ -609,11 +658,11 @@ select{
         margin-bottom: 20px !important;
     }
     .form-group label{
-        float: left;;
+        float: left;
+        display: block;
     }
     .form-group .inp{
         width: 100%;
-        background: rgb(231, 234, 235);
     }
     .form-group .btn{
         width: 80%;
@@ -623,9 +672,9 @@ select{
       text-align: center;
       height: initial;  
     }
-    .thumb{
+    /* .thumb{
         width: 100%;
-    }
+    } */
     .thumb img{
         width: 40%;
     }
@@ -633,6 +682,8 @@ select{
         width: 100%;
         padding: 0px;
         font-size: 12pt;
+        margin-left: -5% !important;
+        margin-bottom: 40px;
     }
     #acctInfo{
         width: 100%;
