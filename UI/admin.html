@@ -10,12 +10,13 @@
 </head>
 <body>
     <div class="nav">
-        <img src="./img/logo.png" alt="">
+        <img id="menu-toggle" src="./img/menu_bar.png" alt="menu">
+        <img src="./img/logo.png" alt="BANKA">
     </div>
     <div id="all" class="client">
 
 <!-- =============================================== SIDE MENU =================================== -->
-        <div class="aside">
+        <div id="menu" class="aside">
             <button id="btn-bank-acct" class="active btn-default"><i class="fas fa-id-card"></i>Bank accounts</button>
             <button id="btn-users" class="btn-default"><i class="fas fa-users"></i>Users</button>
             <button id="btn-profile" class="btn-default"><i class="fas fa-user"></i>Profile</button>
@@ -24,8 +25,10 @@
 <!-- =============================================== MAIN CONTENT =================================== -->
         <div class="main">            
             <div id="display">
-                    <input id="search" type="text" placeholder="account No.">
-                    <button id="btn-search" class="btn-search"><i class="fas fa-search"></i></button>
+                    <div class="group">
+                        <input id="search" type="text" placeholder="account No.">
+                        <button id="btn-search" class="btn-search"><i class="fas fa-search"></i></button>
+                    </div>
                     <table>
                         <thead>
                             <td>Client</td>
@@ -103,8 +106,9 @@
                         <div id="profile-admin" class="profile hide">
                                         <div class="thumb">
                                                 <img src="./img/profile.png"/>
-                                                <button class="btn-simple">Change picture<i class="fas fa-user-edit"></i></button>
                                         </div>
+                                        <button class="btn-simple">Change picture<i class="fas fa-user-edit"></i></button>
+
                                         <div id="profile-info">
                                             <div class="form-control">
                                                     <label for="owner" class="shade">Personal information</label>
@@ -112,15 +116,15 @@
                                             </div>
                                                 <div class="form-group">
                                                         <label>First name:</label>
-                                                        <input class="inp" type="text" value="Emile"/>
+                                                        <input class="inp" type="text" disabled value="Emile"/>
                                                 </div>
                                                 <div class="form-group">
                                                         <label>Last name:</label>
-                                                        <input class="inp" type="text" value="Nsengimana"/>
+                                                        <input class="inp" type="text" disabled value="Nsengimana"/>
                                                 </div>
                                                 <div class="form-group">
                                                         <label>E-mail:</label>
-                                                        <input class="inp" type="text" value="emile@gmail.com"/>
+                                                        <input class="inp" type="text" disabled value="emile@gmail.com"/>
                                                 </div>
                                                 <button id="btn-change-password" class="btn-simple">Change password<i class="fas fa-key"></i></button>
                                         </div>
@@ -187,24 +191,24 @@
         
     </div>
 <!-- ================================================================ MODAL SEARCH ========================================= -->
-<div id="modal-search">
+<div id="modal-search" class="modal">
         <div id="close-search"><span>&times;</span></div>
         <h1>Account details</h1> 
             <div class="form-group">
                     <label class="lb" for="name"></i>Name:</label>
-                    <input class="inp" name="name" type="text" value="Jimmy Kabera">
+                    <input class="inp" disabled name="name" type="text" value="Jimmy Kabera">
             </div>
             <div class="form-group">
                     <label class="lb" for="acct"></i>Account No.:</label>
-                    <input class="inp" name="acct" type="text" value="2334-5345-4423-2342">
+                    <input class="inp" disabled name="acct" type="text" value="2334-5345-4423-2342">
             </div>
             <div class="form-group">
                 <label class="lb" for="type"></i>Account type:</label>
-                <input class="inp" name="type" type="text" value="Saving">
+                <input class="inp" disabled name="type" type="text" value="Saving">
             </div>
             <div class="form-group">
                     <label class="lb" for="bal"></i>Balance:</label>
-                    <input class="inp" name="bal" type="text" value="1200 Rwf">
+                    <input class="inp" disabled name="bal" type="text" value="1200 Rwf">
             </div>
             <div class="form-group">
                     <label class="lb" for="status"></i>Status:</label>
@@ -296,7 +300,8 @@
                 <button id="btn-add-acct" class="btn btn-emphasis">Create account</button>
             </div>
         <!-- </form> -->
-    </div>  
-<SCript src="./js/admin.js"></SCript>   
+    </div>
+        <script src="./js/main.js"></script>
+        <script src="./js/admin.js"></script>   
 </body>
 </html>

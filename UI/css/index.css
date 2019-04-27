@@ -34,8 +34,28 @@ button{
     box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
 }
 .nav img{
-        margin-left: 100px;
+    margin-left: 100px;
+    outline: none;
 }
+
+#menu-toggle{
+    outline: none;
+    display: none;
+    margin: 30px -75px 30px 30px;
+    float: left;
+    border-radius: 100px; 
+    padding: 10px;
+    width:30px;
+    background: rgba(8, 65, 92, 0.7);
+}
+#menu-toggle:hover{
+    background: rgba(8, 65, 92, 1);
+    cursor: pointer;
+}
+.toggle{
+    display: block;
+}
+
 /* ============================================== BODY =========================== */
 
 .overall{
@@ -296,6 +316,7 @@ button{
         background: rgb(46, 14, 46);
         color: antiquewhite;
      }
+     
     .info{
        width: 100%;
      }
@@ -362,6 +383,20 @@ button{
     color: white;
 }
 .dte{
+    float: right;
+}
+.dte label{
+    font-weight: 700;
+    padding: 0;
+    margin-left: 40%;
+    color:  rgb(8, 65, 92); 
+}
+.dte input{
+    font-weight: 700;
+    border: none;
+    padding: 4px 0 0 7px;
+    width: 40%;;
+    font-size: 12pt;
     float: right;
 }
 #acctInfo{
@@ -463,23 +498,141 @@ select{
 .mi{
     width: 65%;
 }
+.activate{
+    display: none;
+    margin-left: -150px;
+    transition: 3s;
+}
 /* ------------------------------------------------ RESPONSIVENESS (CLIENT PAGE)-------------------------------- */
 @media(max-width: 768px){
+    #menu{
+        margin: 10px;
+        border: none;
+        transition: 3s;
+    }
+
+    #menu-toggle{
+        display: block;
+    }
+  
+    #signin h1,
+    #signup h1,
+    #staff h1,
+    #modal-search h1,
+    #modal-reset h1,
+    #modal-add-user h1
+    #modal-account h1,
+    #modal-view-account h1{
+        font-size: 13pt;
+    }
+
+    #modal-reset,
+    #modal-account,
+    #modal-view-account,
+    #modal-add-user{
+        margin-left: 0;
+    }
+    #modal-search{
+        padding-left: 0 !important;
+        width: 80%;
+        left: -10px;
+    }
+    #modal-view-account{
+        padding-left: 0 !important;
+        width: 100% !important;
+        background: white;
+        position: absolute;
+        left: -10px;
+    }
     .client{
-        /* margin: 20px; */
+        display: block;
+    }
+
+    .client{
+        margin: 20px;
         display: block;
     }
     .aside{
+        height: initial;;
+    }
+    .group{
+        width: 100%;
+        display: flex;
+    }
+    #search{
+        flex: 5;
+    }
+    .dv-double-btn{
+        width: 100%;
+        margin-right: 10px;
+    }
+    .btn{
+        width: 100% !important;
+    }
+    .btn-search{
+        margin-left: 7px;
+        height: 38px;
+        flex: 1;
+    }
+    #btn-search:hover,#btn-search-user:hover, .btn-search:hover{
+        background: rgb(122, 161, 122);
+        color: white;
+    }
+    .modal{
+        width: 70%;
+        margin-left: -30%;
+    }
+    #search, #search-account{
+        width: 70% !important;
+    }
+    .btn-search{
+        width: 20%;
+    }
+    #btn-create-user{
+        width: 95%;
+        margin-left: auto;
+    }    
+    /* ---------------------------------- TABLE  */
+    table{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    td:nth-child(even){
         display: none;
+    }
+    td:nth-child(2){
+        display: none;
+    }
+    /* ----------------------------------------- */
+    .form-group{
+        display: block !important;
+        margin-bottom: 20px !important;
+    }
+    .form-group label{
+        float: left;;
+    }
+    .form-group .inp{
+        width: 100%;
+        background: rgb(231, 234, 235);
+    }
+    .form-group .btn{
+        width: 80%;
+        margin-left: auto;
     }
     .profile{
       text-align: center;
       height: initial;  
     }
     .thumb{
+        width: 100%;
+    }
+    .thumb img{
         width: 40%;
-        margin: auto;
-        border-radius: 200px;
+    }
+    .btn-simple{
+        width: 100%;
+        padding: 0px;
+        font-size: 12pt;
     }
     #acctInfo{
         width: 100%;
@@ -489,13 +642,61 @@ select{
         display: flex;
         margin: auto;
     }
+    .shade{
+        width: 100%;
+        margin-left: -7px;
+        padding: 4px;
+    }
     .inp2{
         width: 50%;
     }
+    /* -------------------------- TRANSFER */
+    #transfer{
+        display: none;
+        width: 100% !important;
+        /* margin: 0 !important; */
+    }
+    #btn-transfer{
+        width: 100% !important;
+        margin: 0 !important;
+    }
     /* -----------------  RESPONSIVE CREATE ACCOUNT MODAL -----------*/
     #modal-account{
-        width: 80%;
+        width: 100%;
         left: 10%;
+    }
+    .dv-double-btn{
+        width: 100% !important;
+        padding: 0 !important;
+    }
+    .dv-double-btn .btn-danger, .dv-double-btn .btn-success{
+        width: 40% !important;
+        margin: 10px !important;
+        
+    }
+
+    #debit, #credit{
+        width: 100% !important;
+    }
+    .txt{
+        display: block;
+        width: 90%;
+    }
+    .check, #check{
+        display: block;
+        width: 50%;
+        margin: 10px 0 0 20% !important;
+        padding: 5px;
+        text-align: center;
+        background: rgb(122, 161, 122);
+        color: white;
+        border-radius: 200px;
+        cursor: pointer !important;
+    
+    }
+    .check:hover{
+        background: rgb(31, 119, 31);
+        color: white;
     }
     .form-control{
         width: 100%;
@@ -547,7 +748,7 @@ select{
     text-align: center;
     padding: 4px;
     outline: none;
-    border: 1px solid  rgba(8, 65, 92, 0.4);;
+    border: 1px solid  rgba(8, 65, 92, 0.4);
     margin-bottom: 20px;
 }
 #btn-search, #btn-search-user, .btn-search{
@@ -588,7 +789,6 @@ td{
 }
 #modal-search, #modal-view-account{
     display: none;
-    width: 38%;
     padding-left: 40px;
     background: white;
     position: absolute;
