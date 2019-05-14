@@ -20,6 +20,7 @@
                 <li>Transfer funds between accounts</li>
         </div>
         <div class="content">
+            <label class="error"></label>           
 <!-- ================================================================ SIGN IN ========================================= -->
             <div id="signin">
                 <h1>SIGN IN</h1>
@@ -30,7 +31,7 @@
                     </div>
                     <div class="form-group">
                         <i class="fas fa-lock"></i>
-                        <input class="inp" name="password" type="password" name="password" placeholder="enter your password">
+                        <input id="txt-password" class="inp" name="password" type="password" name="password" placeholder="enter your password">
                     </div>
                     <div class="link-default">
                             <h5>Forgot password?</h5><button id="btn-reset-password" class="btn-link">click here</button>
@@ -39,30 +40,8 @@
                         <button id="btn-signin" class="btn btn-signin">Sign In</button>
                         <button id="btn-signup" class="btn btn-signup">Sign Up</button>
                     </div>
-
-                    <!-- <div class="form-group">
-                            <button id="btn-staff-login" class="btn btn-emphasis">Staff Sign In</button>
-                    </div> -->
-                <!-- </form> -->
             </div>
-<!-- ================================================================ STAFF SIGN IN =================================== -->
-<!-- <div id="staff">
-    <h1>STAFF SIGN IN</h1>
-        <div class="form-group">
-            <i class="fas fa-user-tie"></i>
-            <input id="txt-username" class="inp" name="email" type="email" placeholder="enter username">
-        </div>
-        <div class="form-group">
-                <i class="fas fa-lock"></i>
-                <input class="inp" name="password" type="password" name="password" placeholder="enter your password">
-        </div>
-        <div class="link-default">
-                <h5>Forgot password?</h5><button id="btn-reset-staff" class="btn-link">click here</button>
-        </div>
-        <div class="form-group">
-            <button id="btn-staff-in" class="btn btn-staff">Sign In</button>
-        </div>
-</div> -->
+
 <!-- ================================================================ SIGN UP ========================================= -->
             <div id="signup">
                 <h1>SIGN UP</h1>
@@ -123,6 +102,8 @@
                 </div>
             </form>
         </div>
-    <SCript src="./js/index.js"></SCript>   
+        <script src="./js/consumeApi/app.js"></script>   
+        <script src="./js/index.js"></script>
+        <script src="./js/consumeApi/userConsume.js"></script>
 </body>
 </html>
