@@ -20,14 +20,13 @@
                 <li>Transfer funds between accounts</li>
         </div>
         <div class="content">
-            <label class="error"></label>           
+            <label class="error warning"></label>           
 <!-- ================================================================ SIGN IN ========================================= -->
             <div id="signin">
                 <h1>SIGN IN</h1>
-                <!-- <form action=""> -->
                     <div class="form-group">
                         <i class="fas fa-user-tie"></i>
-                        <input id="txt-user" class="inp" name="email" type="email" placeholder="enter username">
+                        <input id="txt-user" class="inp" name="email" type="email" required placeholder="enter username">
                     </div>
                     <div class="form-group">
                         <i class="fas fa-lock"></i>
@@ -45,38 +44,43 @@
 <!-- ================================================================ SIGN UP ========================================= -->
             <div id="signup">
                 <h1>SIGN UP</h1>
-                <form action="">
                     <div class="form-group">
                             <label class="lb" for="firstname"></i>First name</label>
-                            <input class="inp" name="firstname" type="text">
+                            <input id="txt-firstname" class="inp" name="firstname" type="text">
                     </div>
                     <div class="form-group">
                             <label class="lb" for="lastname"></i>Last name</label>
-                            <input class="inp" name="lastname" type="text">
+                            <input id="txt-lastname" class="inp" name="lastname" type="text">
                     </div>
                     <div class="form-group">
-                            <label class="lb" for="email"></i>Username</label>
-                            <input class="inp" name="email" type="email">
+                        <label class="lb" for="gender"></i>Gender</label>
+                        <select name="gender" id="txt-gender" class="inp">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                </div>
+                    <div class="form-group">
+                            <label class="lb" for="email"></i>Email</label>
+                            <input id="txt-email" class="inp" name="email" type="email" required>
                     </div>
                     <div class="form-group">
                         <label class="lb" for="phone"></i>Phone No.</label>
-                        <input class="inp" name="phone" type="text">
+                        <input id="txt-phone" class="inp" name="phone" type="text">
                     </div>
                     <div class="form-group">
                             <label class="lb" for="password"></i>Password</label>
-                            <input class="inp" name="password" type="password">
+                            <input id="txt-password-2" class="inp" name="password" type="password">
                     </div>
                     <div class="form-group">
                             <label class="lb" for="retype"></i>Re-type</label>
-                            <input class="inp" name="retype" type="password">
+                            <input id="txt-confirm-password" class="inp" name="retype" type="password">
                     </div>
                     <div class="form-group">
-                            <button class="btn btn-emphasis">Register</button>
+                            <button id="btn-register" class="btn btn-emphasis">Register</button>
                     </div>
                     <div class="link-mid">
                             <h4>Back to </h4> <a href="./index.html">sign in</a>
                     </div>
-                </form>
             </div>
         </div>
     </div>
@@ -84,7 +88,7 @@
      <div id="modal-reset">
             <div id="close"><span>&times;</span></div>
                 <h1>PASSWORD RESET</h1>                
-            <form action="">
+            <!-- <form action=""> -->
                 <div class="form-group">
                     <label class="lb" for="rec-mail"></i>Recovery mail</label>
                     <input class="inp" name="rec-mail" type="email">
@@ -100,7 +104,7 @@
                 <div class="form-group">
                     <button class="btn btn-emphasis">Reset</button>
                 </div>
-            </form>
+            <!-- </form> -->
         </div>
         <script src="./js/consumeApi/app.js"></script>   
         <script src="./js/index.js"></script>

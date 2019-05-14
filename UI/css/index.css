@@ -8,8 +8,8 @@ label{
     font-weight: 400;
     color: rgb(8, 65, 92);
     font-family: sans-serif;
-    flex: 1;
     padding: 10px;
+    flex: 1;
 }
 .profile img{
     width: 10%;
@@ -64,13 +64,9 @@ button{
 .overall{
     display: flex
 }
-/* .content{
-    width: 30%;
-    margin-top: 70px;
-    margin-right: 80px;
-    border-radius: 5px;
-    box-shadow: 2px 4px 10px 0 rgba(0, 0, 0, 0.4), 1px 3px 3px 0 rgba(0, 0, 0, 0.3);
-} */
+.content{
+    width: 29%;
+}
 .info{
     margin-top: 30px;
     width: 65%;
@@ -213,7 +209,6 @@ button{
 }
 .btn-emphasis{
     background: rgb(192, 216, 192);
-    margin: auto;
 }
 .btn-staff{
     margin: auto;
@@ -233,13 +228,42 @@ button{
 #signup{
     display: none;
     position: absolute;
-    width: 30%;
+    width: 40%;
     top: 130px;
-    height: 70vh;
+    height: 64vh;
     text-align: right;
     border-radius: 8px;
     padding-top: 45px;
     box-shadow: 2px 4px 10px 0 rgba(0, 0, 0, 0.4), 1px 3px 3px 0 rgba(0, 0, 0, 0.3);
+}
+#signup .form-group{
+    padding-bottom: 10px;
+    width: 50%;
+    float: left;
+    display: block;
+}
+#signup .btn-emphasis{
+    background: rgb(192, 216, 192);
+    width: 80%;
+    margin: 10%;
+}
+#signup label{
+    padding-top: 10px;
+    padding-bottom: 0;
+    padding-left: 15px;
+    text-align: left;
+}
+
+#signup .inp{
+    height: 30px;
+    text-align: center;
+    border: none;
+    border-bottom: 0.5px solid rgba(117, 156, 123, 0.7);
+    outline: none;
+    font-weight: 500;
+    font-size: 13pt;
+    width: 90%;
+    margin-right: 10px;
 }
 #signup h1{
     padding: 0;
@@ -352,7 +376,7 @@ button{
      }
      
     .info{
-       width: 100%;
+       width: 100% !important;
        padding-top: 30px;
      }
     .content{
@@ -379,6 +403,34 @@ button{
         border-radius: 8px;
         padding-top: 5px;
         box-shadow: none;
+    }
+
+    .content{
+        width: 100% !important;
+    }
+    #signup .form-group{
+        padding-bottom: 10px;
+        width: 100%;
+        float: left;
+        display: block;
+    }
+    #signup label{
+        padding-top: 10px;
+        padding-bottom: 0;
+        padding-left: 15px;
+        text-align: left;
+    }
+    
+    #signup .inp{
+        height: 30px;
+        text-align: center;
+        border: none;
+        border-bottom: 0.5px solid rgba(117, 156, 123, 0.7);
+        outline: none;
+        font-weight: 500;
+        font-size: 13pt;
+        width: 90%;
+        margin-right: 10px;
     }
   }
   /* ============================================== CLIENT PAGE ======================== */
@@ -479,6 +531,7 @@ button{
     text-align: center;
     margin-bottom: 0;
     margin-top: 10px;
+    margin-bottom: 10px;
     padding: 5px;
 }
 .thumb{
@@ -512,8 +565,8 @@ button{
     color: green;
 }
 .lb{
-margin: auto;
-
+    width: 40%;
+    display: block;
 }
 .form-input{
     width: 60%;
@@ -523,7 +576,7 @@ margin: auto;
     font-size: 13pt;
     text-align: center;
 }
-select{
+/* select{
     display: block;
     margin: 0 10px 30px;
     width: 75%;
@@ -536,7 +589,7 @@ select{
     margin-right: 50px;
     margin-left: 50px;
     margin-bottom: 20px;
-}
+} */
 .mid{
     width: 100%;
     margin: auto;
@@ -952,20 +1005,31 @@ td{
     width: 100%;
 }
 /* ========================================= SERVER MESSAGE ================================================= */
-.error{
-    display: none;
-}
 
+.error{
+   display: none;
+}
 .warning{
-    width: 380px;
+    width: 100%;
     background: rgba(196, 195, 195, 0.2);
     border-radius: 12px;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-bottom: 10px;
-    display: none;
     color: rgb(175, 2, 2);
     font-size: 14pt;
     font-weight: 700;
-    text-align: center;
+    text-align: center;    
     font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.error-toggle{
+    opacity: 0;
+    transition: opacity 2s ease-out 1s;
+}
+.success{
+    background: rgb(73, 151, 73);
+    height: 12px;
+    width: 78.8vh;
+    font-size: 12pt;
+    color: white;
 }
