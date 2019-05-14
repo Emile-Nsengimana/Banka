@@ -64,18 +64,16 @@ button{
 .overall{
     display: flex
 }
-.content{
+/* .content{
     width: 30%;
     margin-top: 70px;
-    flex: 1;
     margin-right: 80px;
     border-radius: 5px;
     box-shadow: 2px 4px 10px 0 rgba(0, 0, 0, 0.4), 1px 3px 3px 0 rgba(0, 0, 0, 0.3);
-}
+} */
 .info{
-    float: 3;
-    padding-top: 70px;
-    width: 60%;
+    margin-top: 30px;
+    width: 65%;
 }
 .info li{
     font-size: 22pt;
@@ -96,8 +94,12 @@ button{
     display: flex;
     margin: auto;
 }
-.aside .fas, #staff .fas, #signin .fas{
+.aside .fas{
     padding-top: 7px;
+}
+#signin .fas{
+    padding-top: 17px;
+    color: rgb(8, 65, 92);
 }
 .inp{
     height: 30px;
@@ -123,9 +125,15 @@ button{
 }
 #signin{
     display: block;
-    height: 54vh;
-    position: relative;
-    top: -10px;
+    width: 30%;
+    top: 130px;
+    height: 48vh;
+    text-align: right;
+    position: absolute;
+    top: 170px;
+    border-radius: 8px;
+    padding-top: 5px;
+    box-shadow: 2px 4px 10px 0 rgba(0, 0, 0, 0.4), 1px 3px 3px 0 rgba(0, 0, 0, 0.3);
 }
 #signin h1,
 #signup h1,
@@ -224,9 +232,14 @@ button{
 /* ============================================== SIGN UP =========================== */
 #signup{
     display: none;
-    position: relative;
-    top: 20px;
+    position: absolute;
+    width: 30%;
+    top: 130px;
     height: 70vh;
+    text-align: right;
+    border-radius: 8px;
+    padding-top: 45px;
+    box-shadow: 2px 4px 10px 0 rgba(0, 0, 0, 0.4), 1px 3px 3px 0 rgba(0, 0, 0, 0.3);
 }
 #signup h1{
     padding: 0;
@@ -340,6 +353,7 @@ button{
      
     .info{
        width: 100%;
+       padding-top: 30px;
      }
     .content{
        width: 100%;
@@ -354,6 +368,17 @@ button{
     }
     .content{
         margin-top: 10px;
+    }
+    #signin, #signup{
+        width: 100%;
+        top: 130px;
+        height: 45vh;
+        text-align: left;
+        position: relative;
+        top: 0;
+        border-radius: 8px;
+        padding-top: 5px;
+        box-shadow: none;
     }
   }
   /* ============================================== CLIENT PAGE ======================== */
@@ -526,6 +551,17 @@ select{
 }
 .form-control{
     margin-bottom: 30px;
+}
+.group-item{
+    width: 40%;
+}
+.group-item label{
+    display: block;
+    font-weight: 700;
+}
+.group-item select{
+    display: block;
+    margin-left: 10px;;
 }
 /* ------------------------------------------------ RESPONSIVENESS (CLIENT PAGE)-------------------------------- */
 @media(max-width: 768px){
@@ -766,6 +802,9 @@ select{
         width: 100%;
         margin-top: 10px;
     }
+    .error{
+        width: initial !important;
+    }
 }
 /* ======================================================= ADMIN PAGE =========================== */
 #display{
@@ -911,4 +950,22 @@ td{
 }
 .btn-lg{
     width: 100%;
+}
+/* ========================================= SERVER MESSAGE ================================================= */
+.error{
+    display: none;
+}
+
+.warning{
+    width: 380px;
+    background: rgba(196, 195, 195, 0.2);
+    border-radius: 12px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: none;
+    color: rgb(175, 2, 2);
+    font-size: 14pt;
+    font-weight: 700;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
